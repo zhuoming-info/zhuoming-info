@@ -22,10 +22,18 @@ router.post(
       .trim()
       .notEmpty()
       .withMessage('You must supply a username'),
+    body('skill')
+      .trim()
+      .notEmpty()
+      .withMessage('You must supply a skill'),
+    body('intro')
+      .trim()
+      .notEmpty()
+      .withMessage('You must supply a intro'),
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { email, password, username } = req.body;
+    const { email, password, username, skill, intro } = req.body;
 
     const existingUser = await User.findOne({ email });
 
@@ -33,7 +41,7 @@ router.post(
       throw new BadRequestError('Email in use');
     }
 
-    const user = User.build({ email, password, username });
+    const user = User.build({ email, password, username, skill, intro });
     await user.save();
 
     // Generate JWT
