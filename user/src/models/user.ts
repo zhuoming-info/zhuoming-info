@@ -7,6 +7,8 @@ interface UserAttrs {
   email: string;
   password: string;
   username: string;
+  intro: string;
+  skill: string;
 }
 
 // An interface that describes the properties
@@ -22,8 +24,8 @@ interface UserDoc extends mongoose.Document {
   password: string;
   username: string;
   role: string;
-  intro?: string;
-  skill?: string;
+  intro: string;
+  skill: string;
 }
 
 const userSchema = new mongoose.Schema(
@@ -47,9 +49,11 @@ const userSchema = new mongoose.Schema(
     },
     intro: {
       type: String,
+      required: true,
     },
     skill: {
       type: String,
+      required: true,
     }
   },
   {
