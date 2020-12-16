@@ -12,10 +12,13 @@
   "dependencies": {
     "@ionic/react": "^5.5.1",
     "@ionic/react-router": "^5.5.1",
+    "autoprefixer": "^10.1.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
-    "next": "^9.3.4",
+    "next": "^10.0.3",
+    "postcss": "^8.2.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "tailwindcss": "^2.0.2"
   }
 }
