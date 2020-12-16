@@ -13,21 +13,19 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
 import 'bootstrap/dist/css/bootstrap.css';
+import "tailwindcss/tailwind.css";
 import buildClient from '../api/build-client';
 import Header from '../components/header';
-import { IonApp, IonPage, IonContent } from '../lib/ionic';
+import { IonApp, IonPage } from '../lib/ionic';
 
 const AppComponent = ({ Component, pageProps, currentUser }) => {
   return (
     <IonApp>
       <IonPage>
         <Header currentUser={currentUser} />
-        <IonContent class="ion-padding">
-          <Component currentUser={currentUser} {...pageProps} />
-        </IonContent>
+        <Component currentUser={currentUser} {...pageProps} />
       </IonPage>
     </IonApp>
-
   );
 };
 

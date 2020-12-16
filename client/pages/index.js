@@ -1,10 +1,11 @@
 import buildClient from '../api/build-client';
+import { IonContent } from '../lib/ionic';
 
 const LandingPage = ({ currentUser }) => {
   return currentUser ? (
-    <h2>You are signed in</h2>
+    <IonContent>You are signed in</IonContent>
   ) : (
-    <h2>You are NOT signed in</h2>
+    <IonContent>You are NOT signed in</IonContent>
   );
 };
 
