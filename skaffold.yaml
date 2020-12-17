@@ -17,11 +17,11 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: faiyuching/client
-      context: client
+    - image: faiyuching/ionic
+      context: ionic
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: '**/*.js'
+          - src: 'src/**/*.tsx'
             dest: .

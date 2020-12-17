@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'infra/**'
-
+      - 'infra/k8s-prod/**'
 jobs:
   build:
     runs-on: ubuntu-latest

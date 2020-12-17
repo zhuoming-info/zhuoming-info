@@ -21,7 +21,7 @@ spec:
               servicePort: 3000
           - path: /?(.*)
             backend:
-              serviceName: client-srv
+              serviceName: ionic-srv
               servicePort: 3000
 ---
 apiVersion: v1
