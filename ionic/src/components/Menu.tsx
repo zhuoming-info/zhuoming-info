@@ -54,7 +54,7 @@ const appPages: AppPage[] = [
     mdIcon: chatbubblesSharp
   },
   {
-    title: '消息',
+    title: '通知',
     url: '/user/notice',
     iosIcon: notificationsOutline,
     mdIcon: notificationsSharp

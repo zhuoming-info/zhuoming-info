@@ -5,7 +5,7 @@ import Header from '../components/Header';
 const Community: React.FC = () => {
   return (
     <IonPage>
-      <Header title="社区" />
+      <Header title="论坛" />
       <IonContent fullscreen>
         Community
       </IonContent>
