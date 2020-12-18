@@ -4,11 +4,12 @@ import {
   IonLabel, IonCardTitle, IonCardSubtitle,
   IonGrid, IonRow, IonCol,
 } from '@ionic/react';
-import React from 'react';
+import React, { useContext } from "react";
 import Header from '../../components/Header';
+import { Contexts } from "../../util/Contexts"
 
 const UserSetting: React.FC = () => {
-
+  const ctx = useContext(Contexts);
   return (
     <IonPage>
       <Header title="设置" />
@@ -20,8 +21,8 @@ const UserSetting: React.FC = () => {
                 <img alt="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60" />
               </IonAvatar>
               <IonLabel>
-                <IonCardTitle>faiyuching</IonCardTitle>
-                <IonCardSubtitle>CS</IonCardSubtitle>
+                <IonCardTitle>{ctx.user.username}</IonCardTitle>
+                <IonCardSubtitle>{ctx.user.intro}</IonCardSubtitle>
               </IonLabel>
             </IonItem>
             <IonItem color="light" lines="none">
@@ -31,7 +32,7 @@ const UserSetting: React.FC = () => {
                     <IonCardSubtitle>用户名</IonCardSubtitle>
                   </IonCol>
                   <IonCol size-lg="8" size-md="9" size-sm="10">
-                    <IonLabel className="ion-text-wrap">faiyuching</IonLabel>
+                    <IonLabel className="ion-text-wrap">{ctx.user.username}</IonLabel>
                   </IonCol>
                 </IonRow>
               </IonGrid>
@@ -52,10 +53,10 @@ const UserSetting: React.FC = () => {
               <IonGrid>
                 <IonRow>
                   <IonCol size-lg="4" size-md="3" size-sm="2">
-                    <IonCardSubtitle>技能</IonCardSubtitle>
+                    <IonCardSubtitle>专业/技能</IonCardSubtitle>
                   </IonCol>
                   <IonCol size-lg="8" size-md="9" size-sm="10">
-                    <IonLabel className="ion-text-wrap">CS</IonLabel>
+                    <IonLabel className="ion-text-wrap">{ctx.user.skill}</IonLabel>
                   </IonCol>
                 </IonRow>
               </IonGrid>
@@ -67,7 +68,7 @@ const UserSetting: React.FC = () => {
                     <IonCardSubtitle>一句话介绍</IonCardSubtitle>
                   </IonCol>
                   <IonCol size-lg="8" size-md="9" size-sm="10">
-                    <IonLabel className="ion-text-wrap">A woman</IonLabel>
+                    <IonLabel className="ion-text-wrap">{ctx.user.intro}</IonLabel>
                   </IonCol>
                 </IonRow>
               </IonGrid>
@@ -79,7 +80,7 @@ const UserSetting: React.FC = () => {
                     <IonCardSubtitle>角色</IonCardSubtitle>
                   </IonCol>
                   <IonCol size-lg="8" size-md="9" size-sm="10">
-                    <IonLabel className="ion-text-wrap">志愿者</IonLabel>
+                    <IonLabel className="ion-text-wrap">{ctx.user.role}</IonLabel>
                   </IonCol>
                 </IonRow>
               </IonGrid>
