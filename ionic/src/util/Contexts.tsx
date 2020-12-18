@@ -5,6 +5,8 @@ export const Contexts = createContext({
     id: null,
     username: null,
     email: null,
-    role: null
+    role: null,
+    skill: null,
+    intro: null,
   }
 });
