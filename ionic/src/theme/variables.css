@@ -1,11 +1,6 @@
 /* Ionic Variables and Theming. For more info, please see:
 http://ionicframework.com/docs/theming/ */
 
-ion-select::part(placeholder) {
-  color: blue;
-  opacity: 1;
-}
-
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
