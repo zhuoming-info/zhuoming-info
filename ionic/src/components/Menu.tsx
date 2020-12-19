@@ -89,7 +89,7 @@ const Menu: React.FC = () => {
   const signOut = () => {
     axios.post('/api/user/signout',)
       .then(function (res) {
-        ctx.user = {
+        ctx.currentUser = {
           id: null,
           username: null,
           email: null,
@@ -109,12 +109,12 @@ const Menu: React.FC = () => {
     )
   } else {
     return (
-      <IonMenu contentId="main" type="overlay" side="end">
+      <IonMenu contentId="main" type="overlay" side="start">
         <IonContent>
 
           <IonList id="inbox-list">
-            <IonListHeader>{ctx.user.username}</IonListHeader>
-            <IonNote>{ctx.user.email}</IonNote>
+            <IonListHeader>{ctx.currentUser.username}</IonListHeader>
+            <IonNote>{ctx.currentUser.email}</IonNote>
             {appPages.map((appPage, index) => {
               return (
                 <IonMenuToggle key={index} autoHide={false}>

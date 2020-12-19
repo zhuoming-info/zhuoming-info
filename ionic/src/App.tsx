@@ -1,11 +1,11 @@
 import Menu from './components/Menu';
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import {
   IonApp,
   IonRouterOutlet,
   IonTabs, IonTabBar,
   IonTabButton, IonIcon,
-  IonLabel
+  IonLabel, IonSplitPane
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
@@ -43,64 +43,107 @@ import './theme/variables.css';
 
 import { Contexts } from "./util/Contexts";
 import axios from 'axios';
+import DeviceDetector from "device-detector-js";
 
 const App: React.FC = () => {
   const ctx = useContext(Contexts);
-  useEffect(() => {
-    axios.get('/api/user/currentuser')
-      .then(function (res) {
-        if (res.data.currentUser) {
-          ctx.user = res.data.currentUser
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-  }, [ctx.user])
-  return (
-    <Contexts.Provider value={{ user: ctx.user }}>
-      <IonApp>
-        <IonReactRouter>
+
+  axios.get('/api/user/currentuser')
+    .then(function (res) {
+      if (res.data.currentUser) {
+        ctx.currentUser = res.data.currentUser
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+
+  const deviceDetector = new DeviceDetector();
+  const userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36";
+  const device = deviceDetector.parse(userAgent);
+  ctx.deviceType = device.device!.type
+
+  const desktop = (
+    <IonReactRouter>
+      <Menu />
+      {window.location.pathname.split("/")[1] === "user" ? (
+        <IonSplitPane contentId="main">
           <Menu />
-          <IonTabs>
-            <IonRouterOutlet id="main">
-              <Route path="/user/signin" component={Signin} exact />
-              <Route path="/user/signup" component={Signup} exact />
-              <Route path="/monitor" component={Monitor} exact={true} />
-              <Route path="/response" component={Response} exact={true} />
-              <Route path="/product" component={Product} />
-              <Route path="/community" component={Community} />
-              <Route path="/user/favorite" component={UserFavorite} exact />
-              <Route path="/user/notice" component={UserNotice} exact />
-              <Route path="/user/post" component={UserPost} exact />
-              <Route path="/user/setting" component={UserSetting} exact />
-              <Route path="/user/task" component={UserTask} exact />
-              <Route path="/user/trash" component={UserTrash} exact />
-              <Route path="/" render={() => <Redirect to="/monitor" />} exact={true} />
-            </IonRouterOutlet>
-            <IonTabBar slot="bottom">
-              <IonTabButton tab="monitor" href="/monitor">
-                <IonIcon icon={alertCircleOutline} size="small" />
-                <IonLabel>监测</IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="response" href="/response">
-                <IonIcon icon={earthOutline} size="small" />
-                <IonLabel>响应</IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="product" href="/product">
-                <IonIcon icon={folderOutline} size="small" />
-                <IonLabel>产品</IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="community" href="/community">
-                <IonIcon icon={chatbubblesOutline} size="small" />
-                <IonLabel>论坛</IonLabel>
-              </IonTabButton>
-            </IonTabBar>
-          </IonTabs>
-        </IonReactRouter>
+          <IonRouterOutlet id="main">
+            <Route path="/user/favorite" component={UserFavorite} exact />
+            <Route path="/user/notice" component={UserNotice} exact />
+            <Route path="/user/post" component={UserPost} exact />
+            <Route path="/user/setting" component={UserSetting} exact />
+            <Route path="/user/task" component={UserTask} exact />
+            <Route path="/user/trash" component={UserTrash} exact />
+            <Route path="/" render={() => <Redirect to="/monitor" />} exact={true} />
+          </IonRouterOutlet>
+        </IonSplitPane>
+      ) : (
+          <IonRouterOutlet id="main">
+            <Route path="/signin" component={Signin} exact />
+            <Route path="/signup" component={Signup} exact />
+            <Route path="/monitor" component={Monitor} exact={true} />
+            <Route path="/response" component={Response} exact={true} />
+            <Route path="/product" component={Product} />
+            <Route path="/community" component={Community} />
+            <Route path="/" render={() => <Redirect to="/monitor" />} exact={true} />
+          </IonRouterOutlet>
+        )}
+    </IonReactRouter>
+  )
+
+  const mobile = (
+    <IonReactRouter>
+      <Menu />
+      <IonTabs>
+        <IonRouterOutlet id="main">
+          <Route path="/user/favorite" component={UserFavorite} exact />
+          <Route path="/user/notice" component={UserNotice} exact />
+          <Route path="/user/post" component={UserPost} exact />
+          <Route path="/user/setting" component={UserSetting} exact />
+          <Route path="/user/task" component={UserTask} exact />
+          <Route path="/user/trash" component={UserTrash} exact />
+          <Route path="/signin" component={Signin} exact />
+          <Route path="/signup" component={Signup} exact />
+          <Route path="/monitor" component={Monitor} exact={true} />
+          <Route path="/response" component={Response} exact={true} />
+          <Route path="/product" component={Product} />
+          <Route path="/community" component={Community} />
+          <Route path="/" render={() => <Redirect to="/monitor" />} exact={true} />
+        </IonRouterOutlet>
+        <IonTabBar slot="bottom">
+          <IonTabButton tab="monitor" href="/monitor">
+            <IonIcon icon={alertCircleOutline} size="small" />
+            <IonLabel>监测</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="response" href="/response">
+            <IonIcon icon={earthOutline} size="small" />
+            <IonLabel>响应</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="product" href="/product">
+            <IonIcon icon={folderOutline} size="small" />
+            <IonLabel>产品</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="community" href="/community">
+            <IonIcon icon={chatbubblesOutline} size="small" />
+            <IonLabel>论坛</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
+      </IonTabs>
+    </IonReactRouter>
+
+  )
+  return (
+    <Contexts.Provider value={{ currentUser: ctx.currentUser, deviceType: ctx.deviceType }}>
+      <IonApp>
+        {ctx.deviceType === "desktop" && desktop}
+        {ctx.deviceType === "mobile" && mobile}
       </IonApp>
     </Contexts.Provider>
   );
+
+
 };
 
 export default App;
