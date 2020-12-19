@@ -12,7 +12,7 @@ const Header: React.FC<ContainerProps> = ({ title }) => {
   return (
     <IonHeader>
       <IonToolbar>
-        {ctx.deviceType === "desktop" && window.location.pathname.split("/")[1] !== "user" && (
+        {ctx.deviceSize === "large" && window.location.pathname.split("/")[1] !== "user" && (
           <IonButtons slot="start">
             <IonTitle>卓明</IonTitle>
             <IonButton color="dark" href={'/monitor'}>预测</IonButton>
@@ -24,7 +24,7 @@ const Header: React.FC<ContainerProps> = ({ title }) => {
             </IonButton>
           </IonButtons>
         )}
-        {(ctx.deviceType === "mobile" || window.location.pathname.split("/")[1] === "user") && <IonTitle>{title}</IonTitle>}
+        {(ctx.deviceSize === "small" || window.location.pathname.split("/")[1] === "user") && <IonTitle>{title}</IonTitle>}
         <IonButtons slot="end">
           {ctx.currentUser.id && <IonMenuButton />}
           {!ctx.currentUser.id && window.location.pathname.split("/")[1] !== "user" && <IonButton color="primary" routerLink={'/signup'}>登录｜注册</IonButton>}
