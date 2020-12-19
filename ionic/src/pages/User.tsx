@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { IonSplitPane, IonPage } from '@ionic/react';
-import { Contexts } from "../util/Contexts"
 import queryString from 'query-string'
 import UserMenu from '../components/user/UserMenu'
 import UserFavorite from '../components/user/UserFavorite'
@@ -11,10 +10,9 @@ import UserTask from '../components/user/UserTask'
 import UserTrash from '../components/user/UserTrash'
 
 const User: React.FC = () => {
-  const ctx = useContext(Contexts);
   const type = queryString.parse(window.location.search).type
 
-  if (!ctx.user.id) {
+  if (!localStorage.getItem("userId")) {
     window.location.href = "/signin"
   }
 

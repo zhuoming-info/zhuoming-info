@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   IonApp,
   IonRouterOutlet,
@@ -34,22 +34,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-import { Contexts } from "./util/Contexts";
-import axios from 'axios';
-import ScreenSize from "./util/ScreenSize"
-
 const App: React.FC = () => {
-  const ctx = useContext(Contexts);
-  ctx.deviceSize = ScreenSize(document.documentElement.clientWidth);
-  axios.get('/api/user/currentuser')
-    .then(function (res) {
-      if (res.data.currentUser) {
-        ctx.user = res.data.currentUser
-      }
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
 
   const routes = (
     <IonRouterOutlet>
@@ -65,43 +50,40 @@ const App: React.FC = () => {
   )
 
   const small = (
-    <IonReactRouter>
-      <IonTabs>
-        {routes}
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="monitor" href="/monitor">
-            <IonIcon icon={pulseOutline} size="small" />
-            <IonLabel>监测</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="response" href="/response">
-            <IonIcon icon={volumeHighOutline} size="small" />
-            <IonLabel>响应</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="product" href="/product">
-            <IonIcon icon={folderOutline} size="small" />
-            <IonLabel>产品</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="community" href="/community">
-            <IonIcon icon={chatbubblesOutline} size="small" />
-            <IonLabel>论坛</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="user" href="/user">
-            <IonIcon icon={personOutline} size="small" />
-            <IonLabel>我的</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
+    <IonTabs>
+      {routes}
+      <IonTabBar slot="bottom">
+        <IonTabButton tab="monitor" href="/monitor">
+          <IonIcon icon={pulseOutline} size="small" />
+          <IonLabel>监测</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="response" href="/response">
+          <IonIcon icon={volumeHighOutline} size="small" />
+          <IonLabel>响应</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="product" href="/product">
+          <IonIcon icon={folderOutline} size="small" />
+          <IonLabel>产品</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="community" href="/community">
+          <IonIcon icon={chatbubblesOutline} size="small" />
+          <IonLabel>论坛</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="user" href="/user">
+          <IonIcon icon={personOutline} size="small" />
+          <IonLabel>我的</IonLabel>
+        </IonTabButton>
+      </IonTabBar>
+    </IonTabs>
   )
 
   return (
-    <Contexts.Provider value={{ user: ctx.user, deviceSize: ctx.deviceSize }}>
-      <IonApp>
-        {/* {ctx.deviceSize === "large" && large}
-        {ctx.deviceSize === "small" && small} */}
-        {small}
-      </IonApp>
-    </Contexts.Provider>
+    <IonApp>
+      <IonReactRouter>
+        {localStorage.getItem("deviceSize") === "large" && routes}
+        {localStorage.getItem("deviceSize") === "small" && small}
+      </IonReactRouter>
+    </IonApp>
   );
 
 };

@@ -5,11 +5,9 @@ import {
   IonLabel, IonCardTitle, IonCardSubtitle,
   IonGrid, IonRow, IonCol,
 } from '@ionic/react';
-import React, { useContext } from "react";
-import { Contexts } from "../../util/Contexts"
+import React from "react";
 
 const UserSetting: React.FC = () => {
-  const ctx = useContext(Contexts);
   return (
     <>
       <IonHeader>
@@ -28,8 +26,8 @@ const UserSetting: React.FC = () => {
                 <img alt="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60" />
               </IonAvatar>
               <IonLabel>
-                <IonCardTitle>{ctx.user.username}</IonCardTitle>
-                <IonCardSubtitle>{ctx.user.intro}</IonCardSubtitle>
+                <IonCardTitle>{localStorage.getItem("userId")}</IonCardTitle>
+                <IonCardSubtitle>{localStorage.getItem("userId")}</IonCardSubtitle>
               </IonLabel>
             </IonItem>
             <IonItem color="light" lines="none">
@@ -39,7 +37,7 @@ const UserSetting: React.FC = () => {
                     <IonCardSubtitle>用户名</IonCardSubtitle>
                   </IonCol>
                   <IonCol size-lg="8" size-md="9" size-sm="10">
-                    <IonLabel className="ion-text-wrap">{ctx.user.username}</IonLabel>
+                    <IonLabel className="ion-text-wrap">{localStorage.getItem("userId")}</IonLabel>
                   </IonCol>
                 </IonRow>
               </IonGrid>
@@ -63,7 +61,7 @@ const UserSetting: React.FC = () => {
                     <IonCardSubtitle>专业/技能</IonCardSubtitle>
                   </IonCol>
                   <IonCol size-lg="8" size-md="9" size-sm="10">
-                    <IonLabel className="ion-text-wrap">{ctx.user.skill}</IonLabel>
+                    <IonLabel className="ion-text-wrap">{localStorage.getItem("userId")}</IonLabel>
                   </IonCol>
                 </IonRow>
               </IonGrid>
@@ -75,7 +73,7 @@ const UserSetting: React.FC = () => {
                     <IonCardSubtitle>一句话介绍</IonCardSubtitle>
                   </IonCol>
                   <IonCol size-lg="8" size-md="9" size-sm="10">
-                    <IonLabel className="ion-text-wrap">{ctx.user.intro}</IonLabel>
+                    <IonLabel className="ion-text-wrap">{localStorage.getItem("userId")}</IonLabel>
                   </IonCol>
                 </IonRow>
               </IonGrid>
@@ -87,7 +85,7 @@ const UserSetting: React.FC = () => {
                     <IonCardSubtitle>角色</IonCardSubtitle>
                   </IonCol>
                   <IonCol size-lg="8" size-md="9" size-sm="10">
-                    <IonLabel className="ion-text-wrap">{ctx.user.role}</IonLabel>
+                    <IonLabel className="ion-text-wrap">{localStorage.getItem("userId")}</IonLabel>
                   </IonCol>
                 </IonRow>
               </IonGrid>

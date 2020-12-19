@@ -7,7 +7,6 @@ import {
   IonListHeader,
   IonMenu,
   IonMenuToggle,
-  IonNote,
 } from '@ionic/react';
 import {
   bookmarkOutline,
@@ -27,8 +26,7 @@ import {
   chatbubblesSharp
 } from 'ionicons/icons';
 import './UserMenu.css';
-import React, { useContext } from "react";
-import { Contexts } from "../../util/Contexts"
+import React from "react";
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
@@ -82,19 +80,11 @@ const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
 const UserMenu: React.FC = () => {
   const location = useLocation();
-  const ctx = useContext(Contexts);
 
   const signOut = () => {
     axios.post('/api/user/signout',)
       .then(function (res) {
-        ctx.user = {
-          id: null,
-          username: null,
-          email: null,
-          role: null,
-          skill: null,
-          intro: null
-        }
+        localStorage.removeItem("userId")
         window.location.href = "/"
       })
       .catch(function (error) {
@@ -106,8 +96,7 @@ const UserMenu: React.FC = () => {
       <IonContent>
 
         <IonList id="inbox-list">
-          <IonListHeader>{ctx.user.username}</IonListHeader>
-          <IonNote>{ctx.user.email}</IonNote>
+          <IonListHeader>个人信息</IonListHeader>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
