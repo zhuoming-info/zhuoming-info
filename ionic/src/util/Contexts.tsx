@@ -2,7 +2,7 @@ import { createContext } from 'react';
 
 export const Contexts = createContext({
   deviceSize: "null", 
-  currentUser: {
+  user: {
     id: null,
     username: null,
     email: null,

@@ -1,28 +1,22 @@
-import Menu from './components/Menu';
 import React, { useContext } from "react";
 import {
   IonApp,
   IonRouterOutlet,
   IonTabs, IonTabBar,
   IonTabButton, IonIcon,
-  IonLabel, IonSplitPane
+  IonLabel
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
-import { pulseOutline, volumeHighOutline, folderOutline, chatbubblesOutline } from 'ionicons/icons';
+import { pulseOutline, volumeHighOutline, folderOutline, chatbubblesOutline, personOutline } from 'ionicons/icons';
 
 import Monitor from './pages/Monitor';
 import Response from './pages/Response';
 import Product from './pages/Product';
 import Community from './pages/Community';
-import UserFavorite from './pages/user/UserFavorite'
-import UserNotice from './pages/user/UserNotice'
-import UserPost from './pages/user/UserPost'
-import UserSetting from './pages/user/UserSetting'
-import UserTask from './pages/user/UserTask'
-import UserTrash from './pages/user/UserTrash'
-import Signin from './pages/user/Signin'
-import Signup from './pages/user/Signup'
+import Signin from './pages/Signin'
+import Signup from './pages/Signup'
+import User from './pages/User'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -50,62 +44,30 @@ const App: React.FC = () => {
   axios.get('/api/user/currentuser')
     .then(function (res) {
       if (res.data.currentUser) {
-        ctx.currentUser = res.data.currentUser
+        ctx.user = res.data.currentUser
       }
     })
     .catch(function (error) {
       console.log(error);
     })
 
-  const large = (
-    <IonReactRouter>
-      <Menu />
-      {window.location.pathname.split("/")[1] === "user" ? (
-        <IonSplitPane contentId="main">
-          <Menu />
-          <IonRouterOutlet id="main">
-            <Route path="/user/favorite" component={UserFavorite} exact />
-            <Route path="/user/notice" component={UserNotice} exact />
-            <Route path="/user/post" component={UserPost} exact />
-            <Route path="/user/setting" component={UserSetting} exact />
-            <Route path="/user/task" component={UserTask} exact />
-            <Route path="/user/trash" component={UserTrash} exact />
-            <Route path="/" render={() => <Redirect to="/monitor" />} exact={true} />
-          </IonRouterOutlet>
-        </IonSplitPane>
-      ) : (
-          <IonRouterOutlet id="main">
-            <Route path="/signin" component={Signin} exact />
-            <Route path="/signup" component={Signup} exact />
-            <Route path="/monitor" component={Monitor} exact={true} />
-            <Route path="/response" component={Response} exact={true} />
-            <Route path="/product" component={Product} />
-            <Route path="/community" component={Community} />
-            <Route path="/" render={() => <Redirect to="/monitor" />} exact={true} />
-          </IonRouterOutlet>
-        )}
-    </IonReactRouter>
+  const routes = (
+    <IonRouterOutlet>
+      <Route path="/user" component={User} exact />
+      <Route path="/signin" component={Signin} exact />
+      <Route path="/signup" component={Signup} exact />
+      <Route path="/monitor" component={Monitor} exact={true} />
+      <Route path="/response" component={Response} exact={true} />
+      <Route path="/product" component={Product} />
+      <Route path="/community" component={Community} />
+      <Route path="/" render={() => <Redirect to="/monitor" />} exact={true} />
+    </IonRouterOutlet>
   )
 
   const small = (
     <IonReactRouter>
-      <Menu />
       <IonTabs>
-        <IonRouterOutlet id="main">
-          <Route path="/user/favorite" component={UserFavorite} exact />
-          <Route path="/user/notice" component={UserNotice} exact />
-          <Route path="/user/post" component={UserPost} exact />
-          <Route path="/user/setting" component={UserSetting} exact />
-          <Route path="/user/task" component={UserTask} exact />
-          <Route path="/user/trash" component={UserTrash} exact />
-          <Route path="/signin" component={Signin} exact />
-          <Route path="/signup" component={Signup} exact />
-          <Route path="/monitor" component={Monitor} exact={true} />
-          <Route path="/response" component={Response} exact={true} />
-          <Route path="/product" component={Product} />
-          <Route path="/community" component={Community} />
-          <Route path="/" render={() => <Redirect to="/monitor" />} exact={true} />
-        </IonRouterOutlet>
+        {routes}
         <IonTabBar slot="bottom">
           <IonTabButton tab="monitor" href="/monitor">
             <IonIcon icon={pulseOutline} size="small" />
@@ -123,16 +85,21 @@ const App: React.FC = () => {
             <IonIcon icon={chatbubblesOutline} size="small" />
             <IonLabel>论坛</IonLabel>
           </IonTabButton>
+          <IonTabButton tab="user" href="/user">
+            <IonIcon icon={personOutline} size="small" />
+            <IonLabel>我的</IonLabel>
+          </IonTabButton>
         </IonTabBar>
       </IonTabs>
     </IonReactRouter>
   )
 
   return (
-    <Contexts.Provider value={{ currentUser: ctx.currentUser, deviceSize: ctx.deviceSize }}>
+    <Contexts.Provider value={{ user: ctx.user, deviceSize: ctx.deviceSize }}>
       <IonApp>
-        {ctx.deviceSize === "large" && large}
-        {ctx.deviceSize === "small" && small}
+        {/* {ctx.deviceSize === "large" && large}
+        {ctx.deviceSize === "small" && small} */}
+        {small}
       </IonApp>
     </Contexts.Provider>
   );

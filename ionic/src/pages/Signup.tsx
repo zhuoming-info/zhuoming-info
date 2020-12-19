@@ -8,7 +8,7 @@ import { arrowForwardOutline } from 'ionicons/icons';
 import React, { useState, useContext } from "react";
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import { Contexts } from "../../util/Contexts"
+import { Contexts } from "../util/Contexts"
 
 const Signup: React.FC = () => {
   const ctx = useContext(Contexts);
@@ -23,7 +23,7 @@ const Signup: React.FC = () => {
     if (password === passwordCheck) {
       axios.post('/api/user/signup', { username, email, password, skill, intro })
         .then(function (res) {
-          ctx.currentUser = res.data
+          ctx.user = res.data
           setLogin(true)
         })
         .catch(function (error) {
