@@ -42,11 +42,11 @@ import './theme/variables.css';
 
 import { Contexts } from "./util/Contexts";
 import axios from 'axios';
-import DeviceDetector from "device-detector-js";
+import ScreenSize from "./util/ScreenSize"
 
 const App: React.FC = () => {
   const ctx = useContext(Contexts);
-
+  ctx.deviceSize = ScreenSize(document.documentElement.clientWidth);
   axios.get('/api/user/currentuser')
     .then(function (res) {
       if (res.data.currentUser) {
@@ -57,12 +57,7 @@ const App: React.FC = () => {
       console.log(error);
     })
 
-  const deviceDetector = new DeviceDetector();
-  const userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36";
-  const device = deviceDetector.parse(userAgent);
-  ctx.deviceType = device.device!.type
-
-  const desktop = (
+  const large = (
     <IonReactRouter>
       <Menu />
       {window.location.pathname.split("/")[1] === "user" ? (
@@ -92,7 +87,7 @@ const App: React.FC = () => {
     </IonReactRouter>
   )
 
-  const mobile = (
+  const small = (
     <IonReactRouter>
       <Menu />
       <IonTabs>
@@ -134,10 +129,10 @@ const App: React.FC = () => {
   )
 
   return (
-    <Contexts.Provider value={{ currentUser: ctx.currentUser, deviceType: ctx.deviceType }}>
+    <Contexts.Provider value={{ currentUser: ctx.currentUser, deviceSize: ctx.deviceSize }}>
       <IonApp>
-        {ctx.deviceType === "desktop" && desktop}
-        {ctx.deviceType === "mobile" && mobile}
+        {ctx.deviceSize === "large" && large}
+        {ctx.deviceSize === "small" && small}
       </IonApp>
     </Contexts.Provider>
   );
