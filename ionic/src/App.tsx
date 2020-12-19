@@ -9,13 +9,12 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
-
 import { alertCircleOutline, earthOutline, folderOutline, chatbubblesOutline } from 'ionicons/icons';
+
 import Monitor from './pages/Monitor';
 import Response from './pages/Response';
 import Product from './pages/Product';
 import Community from './pages/Community';
-
 import UserFavorite from './pages/user/UserFavorite'
 import UserNotice from './pages/user/UserNotice'
 import UserPost from './pages/user/UserPost'
@@ -132,8 +131,8 @@ const App: React.FC = () => {
         </IonTabBar>
       </IonTabs>
     </IonReactRouter>
-
   )
+
   return (
     <Contexts.Provider value={{ currentUser: ctx.currentUser, deviceType: ctx.deviceType }}>
       <IonApp>
@@ -142,7 +141,6 @@ const App: React.FC = () => {
       </IonApp>
     </Contexts.Provider>
   );
-
 
 };
 
