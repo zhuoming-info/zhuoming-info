@@ -15,7 +15,7 @@ const Signin: React.FC = () => {
   const [login, setLogin] = useState(false)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-console.log(history)
+  
   const onSubmit = () => {
     axios.post('/api/user/signin', { email, password })
       .then(function (res) {
