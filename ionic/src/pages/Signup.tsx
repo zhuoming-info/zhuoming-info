@@ -2,7 +2,7 @@ import {
   IonGrid, IonRow, IonCol, IonCard, IonCardHeader,
   IonCardSubtitle, IonCardTitle, IonCardContent,
   IonItem, IonLabel, IonInput, IonButton, IonContent, IonIcon,
-  IonHeader, IonToolbar, IonTitle, IonPage, IonButtons, IonBackButton
+  IonHeader, IonToolbar, IonTitle, IonPage
 } from "@ionic/react";
 import { arrowForwardOutline } from 'ionicons/icons';
 import React, { useState, useContext } from "react";
@@ -42,9 +42,6 @@ const Signup: React.FC = () => {
       <IonPage>
         <IonHeader>
           <IonToolbar>
-            <IonButtons slot="start">
-              <IonBackButton defaultHref="/" />
-            </IonButtons>
             <IonTitle>注册</IonTitle>
           </IonToolbar>
         </IonHeader>
