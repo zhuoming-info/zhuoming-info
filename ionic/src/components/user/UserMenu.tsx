@@ -95,6 +95,7 @@ const UserMenu: React.FC = () => {
           skill: null,
           intro: null
         }
+        window.location.href = "/"
       })
       .catch(function (error) {
         console.log(error);
