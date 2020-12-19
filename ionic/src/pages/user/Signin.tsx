@@ -18,13 +18,14 @@ const Signin: React.FC = () => {
   const onSubmit = () => {
     axios.post('/api/user/signin', { email, password })
       .then(function (res) {
-        ctx.user = res.data
+        ctx.currentUser = res.data
         setLogin(true)
       })
       .catch(function (error) {
         console.log(error);
       })
   };
+
   if (login) {
     return (
       <Redirect to="/" />
@@ -32,15 +33,15 @@ const Signin: React.FC = () => {
   } else {
     return (
       <IonPage>
+        <IonHeader>
+          <IonToolbar>
+            <IonButtons slot="start">
+              <IonBackButton defaultHref="/" />
+            </IonButtons>
+            <IonTitle>登录</IonTitle>
+          </IonToolbar>
+        </IonHeader>
         <IonContent fullscreen>
-          <IonHeader>
-            <IonToolbar>
-              <IonButtons slot="start">
-                <IonBackButton defaultHref="/" />
-              </IonButtons>
-              <IonTitle>登录</IonTitle>
-            </IonToolbar>
-          </IonHeader>
           <IonGrid>
             <IonRow>
               <IonCol
@@ -78,7 +79,7 @@ const Signin: React.FC = () => {
                     </IonItem>
                     <br />
                     <IonButton onClick={onSubmit}>登录</IonButton>
-                    <IonButton fill="clear" routerLink={'/user/signup'}>
+                    <IonButton fill="clear" routerLink={'/signup'}>
                       注册 <IonIcon slot="end" icon={arrowForwardOutline} />
                     </IonButton>
                   </IonCardContent>

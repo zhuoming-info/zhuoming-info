@@ -23,7 +23,7 @@ const Signup: React.FC = () => {
     if (password === passwordCheck) {
       axios.post('/api/user/signup', { username, email, password, skill, intro })
         .then(function (res) {
-          ctx.user = res.data
+          ctx.currentUser = res.data
           setLogin(true)
         })
         .catch(function (error) {
@@ -126,7 +126,7 @@ const Signup: React.FC = () => {
                     </IonItem>
                     <br />
                     <IonButton onClick={onSubmit}>注册</IonButton>
-                    <IonButton fill="clear" routerLink={"/user/signin"}>
+                    <IonButton fill="clear" routerLink={"/signin"}>
                       登录 <IonIcon slot="end" icon={arrowForwardOutline} />
                     </IonButton>
                   </IonCardContent>
