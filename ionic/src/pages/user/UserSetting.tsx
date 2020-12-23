@@ -34,6 +34,15 @@ const UserSetting: React.FC = () => {
         console.log(error);
       });
   }, [userId])
+  const updateUserInfo = (data: object) => {
+    axios.put(`/api/user/${userId}`, data)
+      .then(function (res) {
+        console.log(res.data)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
   return (
     <IonSplitPane contentId="main" when="lg">
       <UserMenu />
@@ -66,10 +75,10 @@ const UserSetting: React.FC = () => {
               </IonItem>
               <IonItem>
                 <IonButtons slot="start">
-                  <IonButton>取消</IonButton>
+                  <IonButton onClick={() => setShowPopover({ showPopover: false, event: undefined, key: "", value: "", name: "" })}>取消</IonButton>
                 </IonButtons>
                 <IonButtons slot="end">
-                  <IonButton>确定</IonButton>
+                  <IonButton onClick={() => setShowPopover({ showPopover: false, event: undefined, key: "", value: "", name: "" })}>确定</IonButton>
                 </IonButtons>
               </IonItem>
             </>
