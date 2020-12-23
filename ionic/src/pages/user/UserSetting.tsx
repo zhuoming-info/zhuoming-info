@@ -13,7 +13,8 @@ const UserSetting: React.FC = () => {
   const [popoverState, setShowPopover] = useState({
     showPopover: false,
     event: undefined,
-    select: "",
+    key: "",
+    value: "",
     name: ""
   });
   const [userInfo, setUserInfo] = useState({
@@ -62,12 +63,18 @@ const UserSetting: React.FC = () => {
                 cssClass='my-custom-class'
                 event={popoverState.event}
                 isOpen={popoverState.showPopover}
-                onDidDismiss={() => setShowPopover({ showPopover: false, event: undefined, select: "", name: "" })}
+                onDidDismiss={() => setShowPopover({ showPopover: false, event: undefined, key: "", value: "", name: "" })}
               >
                 <>
+                  {popoverState.key === "password" && (
+                    <IonItem>
+                      <IonLabel position="floating">原密码：</IonLabel>
+                      <IonInput placeholder=". . . . . ."></IonInput>
+                    </IonItem>
+                  )}
                   <IonItem>
                     <IonLabel position="floating">修改{popoverState.name}：</IonLabel>
-                    <IonInput value={popoverState.select} placeholder={popoverState.select}></IonInput>
+                    <IonInput placeholder={popoverState.value}></IonInput>
                   </IonItem>
                   <IonItem lines="none">
                     <IonButtons slot="start">
@@ -79,7 +86,7 @@ const UserSetting: React.FC = () => {
                   </IonItem>
                 </>
               </IonPopover>
-              <IonItem color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, select: "email", name: "邮箱" })}>
+              <IonItem color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "email", value: `${userInfo.email}`, name: "邮箱" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -91,7 +98,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, select: "username", name: "用户名" })}>
+              <IonItem lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "username", value: `${userInfo.username}`, name: "用户名" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -103,7 +110,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, select: "password", name: "密码" })}>
+              <IonItem color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "password", value: `${userInfo.username}`, name: "密码" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -115,7 +122,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, select: "skill", name: "专业/技能" })}>
+              <IonItem lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "skill", value: `${userInfo.skill}`, name: "专业/技能" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -127,7 +134,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, select: "intro", name: "介绍" })}>
+              <IonItem color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "intro", value: `${userInfo.intro}`, name: "介绍" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
