@@ -11,6 +11,7 @@ import UserMenu from '../../components/user/UserMenu'
 
 const UserSetting: React.FC = () => {
   const [userInfo, setUserInfo] = useState({
+    avatar: "",
     username: "",
     email: "",
     skill: "",
@@ -44,7 +45,7 @@ const UserSetting: React.FC = () => {
             <IonList>
               <IonItem>
                 <IonAvatar slot="start">
-                  <img alt="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60" />
+                  <img alt="avatar" src={userInfo.avatar} />
                 </IonAvatar>
                 <IonLabel>
                   <IonCardTitle>{userInfo.username}</IonCardTitle>
