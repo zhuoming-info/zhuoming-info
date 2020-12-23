@@ -7,7 +7,7 @@ import {
 } from '@ionic/react';
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import UserMenu from '../../components/user/UserMenu'
+import UserMenu from '../../components/user/UserMenu';
 
 const UserSetting: React.FC = () => {
   const [popoverState, setShowPopover] = useState({
@@ -86,7 +86,7 @@ const UserSetting: React.FC = () => {
                   </IonItem>
                 </>
               </IonPopover>
-              <IonItem color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "email", value: `${userInfo.email}`, name: "邮箱" })}>
+              <IonItem button color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "email", value: `${userInfo.email}`, name: "邮箱" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -98,7 +98,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "username", value: `${userInfo.username}`, name: "用户名" })}>
+              <IonItem button lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "username", value: `${userInfo.username}`, name: "用户名" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -110,7 +110,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "password", value: `${userInfo.username}`, name: "密码" })}>
+              <IonItem button color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "password", value: `${userInfo.username}`, name: "密码" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -122,7 +122,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "skill", value: `${userInfo.skill}`, name: "专业/技能" })}>
+              <IonItem button lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "skill", value: `${userInfo.skill}`, name: "专业/技能" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -134,7 +134,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "intro", value: `${userInfo.intro}`, name: "介绍" })}>
+              <IonItem button color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "intro", value: `${userInfo.intro}`, name: "介绍" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -153,7 +153,10 @@ const UserSetting: React.FC = () => {
                       <IonCardSubtitle>角色</IonCardSubtitle>
                     </IonCol>
                     <IonCol size-lg="8" size-md="9" size-sm="10">
-                      <IonLabel className="ion-text-wrap">{userInfo.role}</IonLabel>
+                      <IonLabel className="ion-text-wrap">
+                        {userInfo.role === "volunteer" && "志愿者"}
+                        {userInfo.role === "admin" && "管理员"}
+                      </IonLabel>
                     </IonCol>
                   </IonRow>
                 </IonGrid>
