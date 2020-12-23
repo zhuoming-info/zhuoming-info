@@ -56,6 +56,18 @@ const UserSetting: React.FC = () => {
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
+                      <IonCardSubtitle>邮箱</IonCardSubtitle>
+                    </IonCol>
+                    <IonCol size-lg="8" size-md="9" size-sm="10">
+                      <IonLabel className="ion-text-wrap">{userInfo.email}</IonLabel>
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
+              </IonItem>
+              <IonItem lines="none">
+                <IonGrid>
+                  <IonRow>
+                    <IonCol size-lg="4" size-md="3" size-sm="2">
                       <IonCardSubtitle>用户名</IonCardSubtitle>
                     </IonCol>
                     <IonCol size-lg="8" size-md="9" size-sm="10">
@@ -64,7 +76,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem lines="none">
+              <IonItem color="light" lines="none">
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -76,7 +88,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem color="light" lines="none">
+              <IonItem lines="none">
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -88,7 +100,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem lines="none">
+              <IonItem color="light" lines="none">
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -100,7 +112,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem color="light" lines="none">
+              <IonItem lines="none">
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
