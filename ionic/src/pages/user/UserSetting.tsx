@@ -22,8 +22,7 @@ const UserSetting: React.FC = () => {
     username: "",
     email: "",
     skill: "",
-    intro: "",
-    role: ""
+    intro: ""
   })
   const userId = localStorage.getItem('userId')
   useEffect(() => {
@@ -102,13 +101,6 @@ const UserSetting: React.FC = () => {
             <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "intro", value: `${userInfo.intro}`, name: "介绍" })}>
               <IonCardSubtitle>介绍</IonCardSubtitle>
               <IonLabel slot="end">{userInfo.intro}</IonLabel>
-            </IonItem>
-            <IonItem>
-              <IonCardSubtitle>角色</IonCardSubtitle>
-              <IonLabel slot="end">
-                {userInfo.role === "volunteer" && "志愿者"}
-                {userInfo.role === "admin" && "管理员"}
-              </IonLabel>
             </IonItem>
           </IonList>
         </IonContent>
