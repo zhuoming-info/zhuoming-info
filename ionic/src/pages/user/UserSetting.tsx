@@ -41,7 +41,7 @@ const UserSetting: React.FC = () => {
       <IonPage id="main">
         <IonHeader>
           <IonToolbar>
-            <IonButtons slot="start">
+            <IonButtons>
               <IonMenuButton />
             </IonButtons>
             <IonTitle>设置</IonTitle>
@@ -78,33 +78,33 @@ const UserSetting: React.FC = () => {
           <IonList>
             <IonListHeader>个人信息</IonListHeader>
             <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "avatar", value: `${userInfo.avatar}`, name: "头像链接" })}>
-              <IonCardSubtitle slot="start">头像</IonCardSubtitle>
+              <IonCardSubtitle>头像</IonCardSubtitle>
               <IonAvatar slot="end">
                 <img alt="avatar" src={userInfo.avatar} />
               </IonAvatar>
             </IonItem>
             <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "email", value: `${userInfo.email}`, name: "邮箱" })}>
-              <IonCardSubtitle slot="start">邮箱</IonCardSubtitle>
+              <IonCardSubtitle>邮箱</IonCardSubtitle>
               <IonLabel slot="end">{userInfo.email}</IonLabel>
             </IonItem>
             <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "username", value: `${userInfo.username}`, name: "用户名" })}>
-              <IonCardSubtitle slot="start">用户名</IonCardSubtitle>
+              <IonCardSubtitle>用户名</IonCardSubtitle>
               <IonLabel slot="end">{userInfo.username}</IonLabel>
             </IonItem>
             <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "password", value: `${userInfo.username}`, name: "密码" })}>
-              <IonCardSubtitle slot="start">密码</IonCardSubtitle>
+              <IonCardSubtitle>密码</IonCardSubtitle>
               <IonLabel slot="end">........</IonLabel>
             </IonItem>
             <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "skill", value: `${userInfo.skill}`, name: "专业/技能" })}>
-              <IonCardSubtitle slot="start">专业/技能</IonCardSubtitle>
+              <IonCardSubtitle>专业/技能</IonCardSubtitle>
               <IonLabel slot="end">{userInfo.skill}</IonLabel>
             </IonItem>
             <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "intro", value: `${userInfo.intro}`, name: "介绍" })}>
-              <IonCardSubtitle slot="start">介绍</IonCardSubtitle>
+              <IonCardSubtitle>介绍</IonCardSubtitle>
               <IonLabel slot="end">{userInfo.intro}</IonLabel>
             </IonItem>
             <IonItem>
-              <IonCardSubtitle slot="start">角色</IonCardSubtitle>
+              <IonCardSubtitle>角色</IonCardSubtitle>
               <IonLabel slot="end">
                 {userInfo.role === "volunteer" && "志愿者"}
                 {userInfo.role === "admin" && "管理员"}
