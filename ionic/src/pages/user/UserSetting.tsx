@@ -3,13 +3,19 @@ import {
   IonContent, IonButtons, IonMenuButton, IonTitle,
   IonCard, IonList, IonItem, IonAvatar,
   IonLabel, IonCardTitle, IonCardSubtitle,
-  IonGrid, IonRow, IonCol,
+  IonGrid, IonRow, IonCol, IonPopover, IonInput, IonButton
 } from '@ionic/react';
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import UserMenu from '../../components/user/UserMenu'
 
 const UserSetting: React.FC = () => {
+  const [popoverState, setShowPopover] = useState({
+    showPopover: false,
+    event: undefined,
+    select: "",
+    name: ""
+  });
   const [userInfo, setUserInfo] = useState({
     avatar: "",
     username: "",
@@ -52,7 +58,28 @@ const UserSetting: React.FC = () => {
                   <IonCardSubtitle>{userInfo.intro}</IonCardSubtitle>
                 </IonLabel>
               </IonItem>
-              <IonItem color="light" lines="none">
+              <IonPopover
+                cssClass='my-custom-class'
+                event={popoverState.event}
+                isOpen={popoverState.showPopover}
+                onDidDismiss={() => setShowPopover({ showPopover: false, event: undefined, select: "", name: "" })}
+              >
+                <>
+                  <IonItem>
+                    <IonLabel position="floating">修改{popoverState.name}：</IonLabel>
+                    <IonInput value={popoverState.select} placeholder={popoverState.select}></IonInput>
+                  </IonItem>
+                  <IonItem lines="none">
+                    <IonButtons slot="start">
+                      <IonButton>取消</IonButton>
+                    </IonButtons>
+                    <IonButtons slot="end">
+                      <IonButton>确定</IonButton>
+                    </IonButtons>
+                  </IonItem>
+                </>
+              </IonPopover>
+              <IonItem color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, select: "email", name: "邮箱" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -64,7 +91,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem lines="none">
+              <IonItem lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, select: "username", name: "用户名" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -76,7 +103,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem color="light" lines="none">
+              <IonItem color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, select: "password", name: "密码" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -88,7 +115,7 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem lines="none">
+              <IonItem lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, select: "skill", name: "专业/技能" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
@@ -100,11 +127,11 @@ const UserSetting: React.FC = () => {
                   </IonRow>
                 </IonGrid>
               </IonItem>
-              <IonItem color="light" lines="none">
+              <IonItem color="light" lines="none" onClick={() => setShowPopover({ showPopover: true, event: undefined, select: "intro", name: "介绍" })}>
                 <IonGrid>
                   <IonRow>
                     <IonCol size-lg="4" size-md="3" size-sm="2">
-                      <IonCardSubtitle>一句话介绍</IonCardSubtitle>
+                      <IonCardSubtitle>介绍</IonCardSubtitle>
                     </IonCol>
                     <IonCol size-lg="8" size-md="9" size-sm="10">
                       <IonLabel className="ion-text-wrap">{userInfo.intro}</IonLabel>
