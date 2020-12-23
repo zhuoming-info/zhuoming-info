@@ -14,9 +14,16 @@ import Monitor from './pages/Monitor';
 import Response from './pages/Response';
 import Product from './pages/Product';
 import Community from './pages/Community';
-import Signin from './pages/Signin'
-import Signup from './pages/Signup'
-import User from './pages/User'
+import Signin from './pages/Signin';
+import Signup from './pages/Signup';
+import User from './pages/User';
+
+import UserFavorite from './pages/user/UserFavorite';
+import UserNotice from './pages/user/UserNotice';
+import UserPost from './pages/user/UserPost';
+import UserSetting from './pages/user/UserSetting';
+import UserTask from './pages/user/UserTask';
+import UserTrash from './pages/user/UserTrash';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -39,6 +46,12 @@ const App: React.FC = () => {
   const routes = (
     <IonRouterOutlet>
       <Route path="/user" component={User} exact />
+      <Route path="/user/favorite" component={UserFavorite} exact />
+      <Route path="/user/notice" component={UserNotice} exact />
+      <Route path="/user/post" component={UserPost} exact />
+      <Route path="/user/setting" component={UserSetting} exact />
+      <Route path="/user/task" component={UserTask} exact />
+      <Route path="/user/trash" component={UserTrash} exact />
       <Route path="/signin" component={Signin} exact />
       <Route path="/signup" component={Signup} exact />
       <Route path="/monitor" component={Monitor} exact={true} />

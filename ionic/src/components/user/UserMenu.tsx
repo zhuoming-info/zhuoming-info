@@ -23,7 +23,9 @@ import {
   documentTextOutline,
   documentTextSharp,
   chatbubblesOutline,
-  chatbubblesSharp
+  chatbubblesSharp,
+  personOutline,
+  personSharp
 } from 'ionicons/icons';
 import './UserMenu.css';
 import React from "react";
@@ -39,38 +41,44 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
+    title: '我的主页',
+    url: '/user',
+    iosIcon: personOutline,
+    mdIcon: personSharp
+  },
+  {
     title: '任务',
-    url: '/user?type=task',
+    url: '/user/task',
     iosIcon: documentTextOutline,
     mdIcon: documentTextSharp
   },
   {
     title: '帖子',
-    url: '/user?type=post',
+    url: '/user/post',
     iosIcon: chatbubblesOutline,
     mdIcon: chatbubblesSharp
   },
   {
     title: '通知',
-    url: '/user?type=notice',
+    url: '/user/notice',
     iosIcon: notificationsOutline,
     mdIcon: notificationsSharp
   },
   {
     title: '收藏',
-    url: '/user?type=favorite',
+    url: '/user/favorite',
     iosIcon: heartOutline,
     mdIcon: heartSharp
   },
   {
     title: '设置',
-    url: '/user?type=setting',
+    url: '/user/setting',
     iosIcon: settingsOutline,
     mdIcon: settingsSharp
   },
   {
     title: '回收站',
-    url: '/user?type=trash',
+    url: '/user/trash',
     iosIcon: trashOutline,
     mdIcon: trashSharp
   }

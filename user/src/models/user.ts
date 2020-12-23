@@ -20,6 +20,7 @@ interface UserModel extends mongoose.Model<UserDoc> {
 // An interface that describes the properties
 // that a User Document has
 interface UserDoc extends mongoose.Document {
+  avatar: string;
   email: string;
   password: string;
   username: string;
@@ -54,6 +55,11 @@ const userSchema = new mongoose.Schema(
     skill: {
       type: String,
       required: true,
+    },
+    avatar: {
+      type: String,
+      required: true,
+      default: 'https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png'
     }
   },
   {
