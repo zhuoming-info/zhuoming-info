@@ -23,7 +23,9 @@ import {
   documentTextOutline,
   documentTextSharp,
   chatbubblesOutline,
-  chatbubblesSharp
+  chatbubblesSharp,
+  personOutline,
+  personSharp
 } from 'ionicons/icons';
 import './UserMenu.css';
 import React from "react";
@@ -38,6 +40,12 @@ interface AppPage {
 }
 
 const appPages: AppPage[] = [
+  {
+    title: '我的主页',
+    url: '/user',
+    iosIcon: personOutline,
+    mdIcon: personSharp
+  },
   {
     title: '任务',
     url: '/user/task',
