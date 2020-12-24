@@ -1,4 +1,6 @@
 import {
+  IonBackButton,
+  IonButtons,
   IonContent,
   IonIcon,
   IonItem,
@@ -7,6 +9,8 @@ import {
   IonListHeader,
   IonMenu,
   IonMenuToggle,
+  IonHeader,
+  IonToolbar
 } from '@ionic/react';
 import {
   bookmarkOutline,
@@ -25,7 +29,8 @@ import {
   chatbubblesOutline,
   chatbubblesSharp,
   personOutline,
-  personSharp
+  personSharp,
+  homeOutline
 } from 'ionicons/icons';
 import './UserMenu.css';
 import React from "react";
@@ -41,7 +46,7 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
-    title: '我的主页',
+    title: '主页',
     url: '/user',
     iosIcon: personOutline,
     mdIcon: personSharp
@@ -101,10 +106,18 @@ const UserMenu: React.FC = () => {
   }
   return (
     <IonMenu contentId="main" type="overlay" side="start">
+      {localStorage.getItem("deviceSize") === "large" && (
+        <IonHeader className="ion-no-border">
+          <IonToolbar>
+            <IonButtons slot="start">
+              <IonBackButton defaultHref="/" />
+            </IonButtons>
+          </IonToolbar>
+        </IonHeader>
+      )}
       <IonContent>
-
         <IonList id="inbox-list">
-          <IonListHeader>个人信息</IonListHeader>
+          {localStorage.getItem("deviceSize") === "small" && <IonListHeader>我的</IonListHeader>}
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>

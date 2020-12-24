@@ -62,7 +62,12 @@ const UserSetting: React.FC = () => {
             isOpen={popoverState.showPopover}
             onDidDismiss={() => setShowPopover({ showPopover: false, event: undefined, key: "", value: "", name: "" })}
           >
-            <>
+            <IonList lines="full" class="ion-no-margin">
+              <IonListHeader>
+                <IonLabel>
+                  修改{popoverState.name}：
+                </IonLabel>
+              </IonListHeader>
               {popoverState.key === "password" && (
                 <IonItem>
                   <IonLabel position="floating">原密码：</IonLabel>
@@ -70,10 +75,9 @@ const UserSetting: React.FC = () => {
                 </IonItem>
               )}
               <IonItem>
-                <IonLabel position="floating">修改{popoverState.name}：</IonLabel>
                 <IonInput placeholder={popoverState.value}></IonInput>
               </IonItem>
-              <IonItem>
+              <IonItem lines="none">
                 <IonButtons slot="start">
                   <IonButton onClick={() => setShowPopover({ showPopover: false, event: undefined, key: "", value: "", name: "" })}>取消</IonButton>
                 </IonButtons>
@@ -81,7 +85,7 @@ const UserSetting: React.FC = () => {
                   <IonButton onClick={() => setShowPopover({ showPopover: false, event: undefined, key: "", value: "", name: "" })}>确定</IonButton>
                 </IonButtons>
               </IonItem>
-            </>
+            </IonList>
           </IonPopover>
           <IonList>
             <IonListHeader>个人信息</IonListHeader>
