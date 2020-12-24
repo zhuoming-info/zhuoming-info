@@ -4,7 +4,8 @@ import {
   IonTitle, IonItem, IonCard, IonRow, IonGrid,
   IonCol, IonButtons, IonButton, IonIcon,
   IonCardContent, IonCardHeader, IonCardTitle,
-  IonCardSubtitle
+  IonCardSubtitle,
+  IonLabel
 } from '@ionic/react';
 import { heartOutline, chatbubblesOutline } from 'ionicons/icons';
 import HeaderLarge from '../components/HeaderLarge';
@@ -46,14 +47,16 @@ const Community: React.FC = () => {
               {posts.map((post, index) => {
                 return (
                   <IonCard key={index}>
-                    <IonCardHeader>
+                    {/* <IonCardHeader>
                       <IonCardTitle>faiyuching</IonCardTitle>
                       <IonCardSubtitle>2020/12/23 12:34 AM</IonCardSubtitle>
-                    </IonCardHeader>
+                    </IonCardHeader> */}
                     <IonCardContent>
-                      {post.content}
+                      {/* {post.content} */}
+                      半生飘零还故园，一卷清词敛风烟。人生悲离何须叹，沓沓诗风作痴仙。
                     </IonCardContent>
                     <IonItem lines="none">
+                      <IonLabel color="medium">2020/12/23 12:34 AM</IonLabel>
                       <IonButtons slot="end">
                         <IonButton color="medium">
                           <IonIcon icon={heartOutline}></IonIcon>
