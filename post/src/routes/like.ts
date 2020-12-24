@@ -19,10 +19,6 @@ router.put(
       throw new NotFoundError();
     }
 
-    // if (post.userId !== req.currentUser!.id) {
-    //   throw new NotAuthorizedError();
-    // }
-
     // post.set({
     //   content: req.body.content,
     // });
