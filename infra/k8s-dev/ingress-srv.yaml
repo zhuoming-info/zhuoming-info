@@ -14,6 +14,10 @@ spec:
             backend:
               serviceName: user-srv
               servicePort: 3000
+          - path: /api/post/?(.*)
+            backend:
+              serviceName: post-srv
+              servicePort: 3000
           - path: /?(.*)
             backend:
               serviceName: ionic-srv

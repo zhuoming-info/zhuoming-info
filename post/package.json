@@ -1,11 +1,12 @@
 {
-  "name": "user",
+  "name": "post",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "ts-node-dev --poll src/index.ts",
-    "test": "jest --watchAll --no-cache"
+    "test": "jest --watchAll --no-cache",
+    "test:ci": "jest"
   },
   "jest": {
     "preset": "ts-jest",
@@ -24,12 +25,13 @@
     "@types/jsonwebtoken": "^8.3.8",
     "@types/mongoose": "^5.7.8",
     "cookie-session": "^1.4.0",
-    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "express-validator": "^6.4.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.19",
+    "mongoose": "5.10.19",
+    "mongoose-update-if-current": "^1.4.0",
+    "node-nats-streaming": "^0.2.6",
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.8.3"
   },
