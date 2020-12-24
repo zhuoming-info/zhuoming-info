@@ -3,12 +3,13 @@ import mongoose from 'mongoose';
 interface PostAttrs {
   content: string;
   userId: string;
+  tag: string;
 }
 
 interface PostDoc extends mongoose.Document {
   content: string;
   userId: string;
-  tags: Array<string>;
+  tag: string;
   likeUsersId: Array<string>;
   commentsId: Array<string>;
 }
@@ -21,7 +22,7 @@ const postSchema = new mongoose.Schema(
   {
     content: { type: String, required: true },
     userId: { type: String, required: true },
-    tags: { type: [{ type: String }] },
+    tag: { type: String, required: true },
     likeUsersId: { type: [{ type: String }] },
     commentsId: { type: [{ type: String }] },
   },

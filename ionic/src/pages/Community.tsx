@@ -12,10 +12,12 @@ import axios from 'axios';
 const Community: React.FC = () => {
   const [posts, setPosts] = useState([
     {
-      likeUsersId: [],
-      content: "",
+      id: "",
       userId: "",
-      id: ""
+      tag: "",
+      content: "",
+      likeUsersId: [],
+      commentsId: []
     }
   ])
   useEffect(() => {
@@ -66,13 +68,15 @@ const Community: React.FC = () => {
                       {post.content}
                     </IonCardContent>
                     <IonItem lines="none">
-                      <IonBadge color="light">#苏联笑话</IonBadge>
+                      <IonBadge color="light">{post.tag}</IonBadge>
                       <IonButtons slot="end">
                         <IonButton color="medium">
-                          <IonIcon icon={heartOutline}></IonIcon>12
+                          <IonIcon icon={heartOutline}></IonIcon>
+                          {post.likeUsersId.length}
                         </IonButton>
                         <IonButton color="medium">
-                          <IonIcon icon={chatbubblesOutline}></IonIcon>22
+                          <IonIcon icon={chatbubblesOutline}></IonIcon>
+                          {post.commentsId.length}
                         </IonButton>
                       </IonButtons>
                     </IonItem>
