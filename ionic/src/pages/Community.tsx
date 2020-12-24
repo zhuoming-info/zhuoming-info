@@ -35,13 +35,13 @@ const Community: React.FC = () => {
           <IonToolbar>
             <IonButtons slot="start">
               <IonButton>
-                <IonIcon icon={addOutline}></IonIcon>发帖
+                <IonIcon icon={addOutline}></IonIcon>
               </IonButton>
             </IonButtons>
             <IonTitle>论坛</IonTitle>
             <IonButtons slot="end">
               <IonButton>
-                筛选<IonIcon icon={swapVerticalOutline}></IonIcon>
+                <IonIcon icon={swapVerticalOutline}></IonIcon>
               </IonButton>
             </IonButtons>
           </IonToolbar>
