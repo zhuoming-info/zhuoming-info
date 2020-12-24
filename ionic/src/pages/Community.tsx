@@ -5,7 +5,7 @@ import {
   IonCol, IonButtons, IonButton, IonIcon,
   IonCardContent, IonLabel, IonAvatar
 } from '@ionic/react';
-import { heartOutline, chatbubblesOutline } from 'ionicons/icons';
+import { heartOutline, chatbubblesOutline, addOutline, swapVerticalOutline } from 'ionicons/icons';
 import HeaderLarge from '../components/HeaderLarge';
 import axios from 'axios';
 
@@ -33,7 +33,17 @@ const Community: React.FC = () => {
       {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="论坛" /> : (
         <IonHeader>
           <IonToolbar>
+            <IonButtons slot="start">
+              <IonButton>
+                <IonIcon icon={addOutline}></IonIcon>发帖
+              </IonButton>
+            </IonButtons>
             <IonTitle>论坛</IonTitle>
+            <IonButtons slot="end">
+              <IonButton>
+                筛选<IonIcon icon={swapVerticalOutline}></IonIcon>
+              </IonButton>
+            </IonButtons>
           </IonToolbar>
         </IonHeader>
       )}
@@ -44,7 +54,7 @@ const Community: React.FC = () => {
               <IonTitle>所有帖子</IonTitle>
               {posts.map((post, index) => {
                 return (
-                  <IonCard key={index}>
+                  <IonCard key={index} button>
                     <IonItem>
                       <IonAvatar slot="start">
                         <img alt="avatar" src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
