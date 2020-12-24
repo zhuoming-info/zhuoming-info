@@ -35,13 +35,13 @@ const Community: React.FC = () => {
           <IonToolbar>
             <IonButtons slot="start">
               <IonButton>
-                <IonIcon icon={addOutline}></IonIcon>
+                <IonIcon icon={swapVerticalOutline}></IonIcon>
               </IonButton>
             </IonButtons>
             <IonTitle>论坛</IonTitle>
             <IonButtons slot="end">
-              <IonButton>
-                <IonIcon icon={swapVerticalOutline}></IonIcon>
+              <IonButton href={"/community/new"}>
+                <IonIcon icon={addOutline}></IonIcon>
               </IonButton>
             </IonButtons>
           </IonToolbar>
@@ -51,7 +51,6 @@ const Community: React.FC = () => {
         <IonGrid>
           <IonRow>
             <IonCol size-sm="12" size-md="10" size-lg="8" style={{ margin: "0 auto" }}>
-              <IonTitle>所有帖子</IonTitle>
               {posts.map((post, index) => {
                 return (
                   <IonCard key={index} button>
