@@ -8,6 +8,7 @@ import {
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import UserMenu from '../../components/user/UserMenu';
+import Signin from '../Signin';
 
 const UserSetting: React.FC = () => {
   const [popoverState, setShowPopover] = useState({
@@ -43,83 +44,90 @@ const UserSetting: React.FC = () => {
   //       console.log(error);
   //     });
   // }
-  return (
-    <IonSplitPane contentId="main" when="lg">
-      <UserMenu />
-      <IonPage id="main">
-        <IonHeader>
-          <IonToolbar>
-            <IonButtons>
-              <IonMenuButton />
-            </IonButtons>
-            <IonTitle>设置</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent fullscreen>
-          <IonPopover
-            cssClass='my-custom-class'
-            event={popoverState.event}
-            isOpen={popoverState.showPopover}
-            onDidDismiss={() => setShowPopover({ showPopover: false, event: undefined, key: "", value: "", name: "" })}
-          >
-            <IonList lines="full" class="ion-no-margin">
-              <IonListHeader>
-                <IonLabel>
-                  修改{popoverState.name}：
-                </IonLabel>
-              </IonListHeader>
-              {popoverState.key === "password" && (
+  if (!localStorage.getItem("userId")) {
+    return (
+      <Signin />
+    )
+  } else {
+    return (
+      <IonSplitPane contentId="main" when="lg">
+        <UserMenu />
+        <IonPage id="main">
+          <IonHeader>
+            <IonToolbar>
+              <IonButtons>
+                <IonMenuButton />
+              </IonButtons>
+              <IonTitle>设置</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+          <IonContent fullscreen>
+            <IonPopover
+              cssClass='my-custom-class'
+              event={popoverState.event}
+              isOpen={popoverState.showPopover}
+              onDidDismiss={() => setShowPopover({ showPopover: false, event: undefined, key: "", value: "", name: "" })}
+            >
+              <IonList lines="full" class="ion-no-margin">
+                <IonListHeader>
+                  <IonLabel>
+                    修改{popoverState.name}：
+                  </IonLabel>
+                </IonListHeader>
+                {popoverState.key === "password" && (
+                  <IonItem>
+                    <IonLabel position="floating">原密码：</IonLabel>
+                    <IonInput placeholder=". . . . . ."></IonInput>
+                  </IonItem>
+                )}
                 <IonItem>
-                  <IonLabel position="floating">原密码：</IonLabel>
-                  <IonInput placeholder=". . . . . ."></IonInput>
+                  <IonInput placeholder={popoverState.value}></IonInput>
                 </IonItem>
-              )}
-              <IonItem>
-                <IonInput placeholder={popoverState.value}></IonInput>
+                <IonItem lines="none">
+                  <IonButtons slot="start">
+                    <IonButton onClick={() => setShowPopover({ showPopover: false, event: undefined, key: "", value: "", name: "" })}>取消</IonButton>
+                  </IonButtons>
+                  <IonButtons slot="end">
+                    <IonButton onClick={() => setShowPopover({ showPopover: false, event: undefined, key: "", value: "", name: "" })}>确定</IonButton>
+                  </IonButtons>
+                </IonItem>
+              </IonList>
+            </IonPopover>
+            <IonList>
+              <IonListHeader>个人信息</IonListHeader>
+              <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "avatar", value: `${userInfo.avatar}`, name: "头像链接" })}>
+                <IonCardSubtitle>头像</IonCardSubtitle>
+                <IonAvatar slot="end">
+                  <img alt="avatar" src={userInfo.avatar} />
+                </IonAvatar>
               </IonItem>
-              <IonItem lines="none">
-                <IonButtons slot="start">
-                  <IonButton onClick={() => setShowPopover({ showPopover: false, event: undefined, key: "", value: "", name: "" })}>取消</IonButton>
-                </IonButtons>
-                <IonButtons slot="end">
-                  <IonButton onClick={() => setShowPopover({ showPopover: false, event: undefined, key: "", value: "", name: "" })}>确定</IonButton>
-                </IonButtons>
+              <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "email", value: `${userInfo.email}`, name: "邮箱" })}>
+                <IonCardSubtitle>邮箱</IonCardSubtitle>
+                <IonLabel slot="end">{userInfo.email}</IonLabel>
+              </IonItem>
+              <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "username", value: `${userInfo.username}`, name: "用户名" })}>
+                <IonCardSubtitle>用户名</IonCardSubtitle>
+                <IonLabel slot="end">{userInfo.username}</IonLabel>
+              </IonItem>
+              <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "password", value: `${userInfo.username}`, name: "密码" })}>
+                <IonCardSubtitle>密码</IonCardSubtitle>
+                <IonLabel slot="end">........</IonLabel>
+              </IonItem>
+              <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "skill", value: `${userInfo.skill}`, name: "专业/技能" })}>
+                <IonCardSubtitle>专业/技能</IonCardSubtitle>
+                <IonLabel slot="end">{userInfo.skill}</IonLabel>
+              </IonItem>
+              <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "intro", value: `${userInfo.intro}`, name: "介绍" })}>
+                <IonCardSubtitle>介绍</IonCardSubtitle>
+                <IonLabel slot="end">{userInfo.intro}</IonLabel>
               </IonItem>
             </IonList>
-          </IonPopover>
-          <IonList>
-            <IonListHeader>个人信息</IonListHeader>
-            <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "avatar", value: `${userInfo.avatar}`, name: "头像链接" })}>
-              <IonCardSubtitle>头像</IonCardSubtitle>
-              <IonAvatar slot="end">
-                <img alt="avatar" src={userInfo.avatar} />
-              </IonAvatar>
-            </IonItem>
-            <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "email", value: `${userInfo.email}`, name: "邮箱" })}>
-              <IonCardSubtitle>邮箱</IonCardSubtitle>
-              <IonLabel slot="end">{userInfo.email}</IonLabel>
-            </IonItem>
-            <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "username", value: `${userInfo.username}`, name: "用户名" })}>
-              <IonCardSubtitle>用户名</IonCardSubtitle>
-              <IonLabel slot="end">{userInfo.username}</IonLabel>
-            </IonItem>
-            <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "password", value: `${userInfo.username}`, name: "密码" })}>
-              <IonCardSubtitle>密码</IonCardSubtitle>
-              <IonLabel slot="end">........</IonLabel>
-            </IonItem>
-            <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "skill", value: `${userInfo.skill}`, name: "专业/技能" })}>
-              <IonCardSubtitle>专业/技能</IonCardSubtitle>
-              <IonLabel slot="end">{userInfo.skill}</IonLabel>
-            </IonItem>
-            <IonItem button onClick={() => setShowPopover({ showPopover: true, event: undefined, key: "intro", value: `${userInfo.intro}`, name: "介绍" })}>
-              <IonCardSubtitle>介绍</IonCardSubtitle>
-              <IonLabel slot="end">{userInfo.intro}</IonLabel>
-            </IonItem>
-          </IonList>
-        </IonContent>
-      </IonPage>
-    </IonSplitPane>
-  );
+          </IonContent>
+        </IonPage>
+      </IonSplitPane>
+    );
+  }
+
 };
 
 export default UserSetting;
