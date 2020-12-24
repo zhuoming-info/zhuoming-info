@@ -47,7 +47,7 @@ const Community: React.FC = () => {
                   <IonCard key={index}>
                     <IonItem>
                       <IonAvatar slot="start">
-                        <img src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
+                        <img alt="avatar" src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
                       </IonAvatar>
                       <IonLabel>
                         <h2>faiyuching</h2>
@@ -60,12 +60,10 @@ const Community: React.FC = () => {
                     <IonItem lines="none">
                       <IonButtons slot="end">
                         <IonButton color="medium">
-                          <IonIcon icon={heartOutline}></IonIcon>
-                          12
+                          <IonIcon size="small" icon={heartOutline}></IonIcon>12
                         </IonButton>
                         <IonButton color="medium">
-                          <IonIcon icon={chatbubblesOutline}></IonIcon>
-                          22
+                          <IonIcon size="small" icon={chatbubblesOutline}></IonIcon>22
                         </IonButton>
                       </IonButtons>
                     </IonItem>
