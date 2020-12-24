@@ -34,15 +34,15 @@ const UserSetting: React.FC = () => {
         console.log(error);
       });
   }, [userId])
-  const updateUserInfo = (data: object) => {
-    axios.put(`/api/user/${userId}`, data)
-      .then(function (res) {
-        console.log(res.data)
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+  // const updateUserInfo = (data: object) => {
+  //   axios.put(`/api/user/${userId}`, data)
+  //     .then(function (res) {
+  //       console.log(res.data)
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }
   return (
     <IonSplitPane contentId="main" when="lg">
       <UserMenu />

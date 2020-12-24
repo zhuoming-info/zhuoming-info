@@ -30,7 +30,6 @@ import {
   chatbubblesSharp,
   personOutline,
   personSharp,
-  homeOutline
 } from 'ionicons/icons';
 import './UserMenu.css';
 import React from "react";
