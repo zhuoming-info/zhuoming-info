@@ -8,7 +8,9 @@ interface PostAttrs {
 interface PostDoc extends mongoose.Document {
   content: string;
   userId: string;
+  tags: Array<string>;
   likeUsersId: Array<string>;
+  commentsId: Array<string>;
 }
 
 interface PostModel extends mongoose.Model<PostDoc> {
@@ -17,17 +19,14 @@ interface PostModel extends mongoose.Model<PostDoc> {
 
 const postSchema = new mongoose.Schema(
   {
-    content: {
-      type: String,
-      required: true,
-    },
-    userId: {
-      type: String,
-      required: true,
-    },
-    likeUsersId: { type: [{ type: String }], },
+    content: { type: String, required: true },
+    userId: { type: String, required: true },
+    tags: { type: [{ type: String }] },
+    likeUsersId: { type: [{ type: String }] },
+    commentsId: { type: [{ type: String }] },
   },
   {
+    timestamps: true,
     toJSON: {
       transform(doc, ret) {
         ret.id = ret._id;
@@ -35,7 +34,7 @@ const postSchema = new mongoose.Schema(
         delete ret.__v;
       },
     },
-  }
+  },
 );
 
 postSchema.statics.build = (attrs: PostAttrs) => {

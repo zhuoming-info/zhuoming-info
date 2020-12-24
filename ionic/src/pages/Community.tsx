@@ -3,7 +3,7 @@ import {
   IonContent, IonPage, IonHeader, IonToolbar,
   IonTitle, IonItem, IonCard, IonRow, IonGrid,
   IonCol, IonButtons, IonButton, IonIcon,
-  IonCardContent, IonLabel, IonAvatar
+  IonCardContent, IonLabel, IonAvatar, IonBadge
 } from '@ionic/react';
 import { heartOutline, chatbubblesOutline, addOutline, swapVerticalOutline } from 'ionicons/icons';
 import HeaderLarge from '../components/HeaderLarge';
@@ -21,7 +21,6 @@ const Community: React.FC = () => {
   useEffect(() => {
     axios.get('/api/post')
       .then(function (res) {
-        console.log(res.data)
         setPosts(res.data)
       })
       .catch(function (error) {
@@ -67,6 +66,7 @@ const Community: React.FC = () => {
                       {post.content}
                     </IonCardContent>
                     <IonItem lines="none">
+                      <IonBadge color="light">#苏联笑话</IonBadge>
                       <IonButtons slot="end">
                         <IonButton color="medium">
                           <IonIcon icon={heartOutline}></IonIcon>12
