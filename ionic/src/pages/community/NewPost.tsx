@@ -3,16 +3,17 @@ import {
   IonContent, IonPage, IonHeader, IonToolbar,
   IonTitle, IonItem,
   IonButtons, IonButton,
-  IonLabel, IonBackButton, IonTextarea
+  IonLabel, IonBackButton, IonTextarea, IonInput
 } from '@ionic/react';
 import Signin from '../Signin'
 import axios from 'axios';
 
 const NewPost: React.FC = () => {
+  const [tag, setTag] = useState("")
   const [content, setContent] = useState("")
 
   const onSubmit = () => {
-    axios.post('/api/post', { content })
+    axios.post('/api/post', { tag, content })
       .then(function () {
         window.location.href = "/community"
       })
@@ -39,9 +40,13 @@ const NewPost: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen>
-          <IonItem lines="none">
-            <IonLabel position="floating">请输入：</IonLabel>
-            <IonTextarea rows={25} value={content} onIonChange={e => setContent(e.detail.value!)}></IonTextarea>
+          <IonItem>
+            <IonLabel position="stacked">内容：</IonLabel>
+            <IonTextarea rows={10} value={content} onIonChange={e => setContent(e.detail.value!)}></IonTextarea>
+          </IonItem>
+          <IonItem>
+            <IonLabel position="stacked">标签:</IonLabel>
+            <IonInput value={tag} onIonChange={e => setTag(e.detail.value!)}>#</IonInput>
           </IonItem>
         </IonContent>
       </IonPage>

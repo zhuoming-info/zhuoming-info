@@ -13,10 +13,11 @@ router.post(
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { content, price } = req.body;
+    const { content, tag } = req.body;
 
     const post = Post.build({
       content,
+      tag,
       userId: req.currentUser!.id,
     });
     await post.save();
