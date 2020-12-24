@@ -22,6 +22,7 @@ router.put(
     // post.set({
     //   content: req.body.content,
     // });
+    
 
     const index = post.likeUsersId.map((userId) => userId.toString()).indexOf(req.currentUser!.id);
     if (index > -1) {
