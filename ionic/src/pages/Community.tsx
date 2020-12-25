@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import {
   IonContent, IonPage, IonHeader, IonToolbar,
-  IonTitle, IonItem, IonCard, IonRow, IonGrid,
-  IonCol, IonButtons, IonButton, IonIcon,
-  IonCardContent, IonLabel, IonAvatar, IonBadge
+  IonTitle, IonRow, IonGrid, IonIcon,
+  IonCol, IonButtons, IonButton,
 } from '@ionic/react';
-import { heartOutline, chatbubblesOutline, addOutline, swapVerticalOutline } from 'ionicons/icons';
+import { addOutline, swapVerticalOutline } from 'ionicons/icons';
 import HeaderLarge from '../components/HeaderLarge';
 import axios from 'axios';
+import PostItem from '../components/community/PostItem'
 
 const Community: React.FC = () => {
   const [posts, setPosts] = useState([
@@ -17,7 +17,8 @@ const Community: React.FC = () => {
       tag: "",
       content: "",
       likeUsersId: [],
-      commentsId: []
+      commentsId: [],
+      createdAt: ""
     }
   ])
   useEffect(() => {
@@ -54,33 +55,16 @@ const Community: React.FC = () => {
             <IonCol size-sm="12" size-md="10" size-lg="8" style={{ margin: "0 auto" }}>
               {posts.map((post, index) => {
                 return (
-                  <IonCard key={index} button>
-                    <IonItem>
-                      <IonAvatar slot="start">
-                        <img alt="avatar" src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
-                      </IonAvatar>
-                      <IonLabel>
-                        <h2>faiyuching</h2>
-                        <p>2020/12/23 12:34 AM</p>
-                      </IonLabel>
-                    </IonItem>
-                    <IonCardContent>
-                      {post.content}
-                    </IonCardContent>
-                    <IonItem lines="none">
-                      <IonBadge color="light">{post.tag}</IonBadge>
-                      <IonButtons slot="end">
-                        <IonButton color="medium">
-                          <IonIcon icon={heartOutline}></IonIcon>
-                          {post.likeUsersId.length}
-                        </IonButton>
-                        <IonButton color="medium">
-                          <IonIcon icon={chatbubblesOutline}></IonIcon>
-                          {post.commentsId.length}
-                        </IonButton>
-                      </IonButtons>
-                    </IonItem>
-                  </IonCard>
+                  <PostItem
+                    key={index}
+                    id={post.id}
+                    userId={post.userId}
+                    tag={post.tag}
+                    content={post.content}
+                    likeUsersId={post.likeUsersId}
+                    commentsId={post.commentsId}
+                    createdAt={post.createdAt}
+                  />
                 )
               })}
             </IonCol>
