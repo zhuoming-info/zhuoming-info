@@ -7,9 +7,9 @@ import {
 import { addOutline, swapVerticalOutline } from 'ionicons/icons';
 import HeaderLarge from '../components/HeaderLarge';
 import axios from 'axios';
-import PostItem from '../components/community/PostItem'
+import PostItem from '../components/forum/PostItem'
 
-const Community: React.FC = () => {
+const Forum: React.FC = () => {
   const [posts, setPosts] = useState([
     {
       id: "",
@@ -42,7 +42,7 @@ const Community: React.FC = () => {
             </IonButtons>
             <IonTitle>论坛</IonTitle>
             <IonButtons slot="end">
-              <IonButton href={"/community/new"}>
+              <IonButton href={"/forum/new"}>
                 <IonIcon icon={addOutline}></IonIcon>
               </IonButton>
             </IonButtons>
@@ -75,7 +75,7 @@ const Community: React.FC = () => {
   );
 };
 
-export default Community;
+export default Forum;
 
 
 

@@ -24,8 +24,9 @@ import UserSetting from './pages/user/UserSetting';
 import UserTask from './pages/user/UserTask';
 import UserTrash from './pages/user/UserTrash';
 
-import Community from './pages/Community';
-import NewPost from './pages/community/NewPost'
+import Forum from './pages/Forum';
+import NewPost from './pages/forum/NewPost';
+import Post from './pages/forum/Post';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -56,8 +57,11 @@ const App: React.FC = () => {
       <Route path="/user/trash" component={UserTrash} exact />
       <Route path="/signin" component={Signin} exact />
       <Route path="/signup" component={Signup} exact />
-      <Route path="/community" component={Community} />
-      <Route path="/community/new" component={NewPost} />
+
+      <Route path="/forum" component={Forum} />
+      <Route path="/forum/new" component={NewPost} />
+      <Route path="/forum/post/:id" component={Post} />
+
       <Route path="/monitor" component={Monitor} exact={true} />
       <Route path="/response" component={Response} exact={true} />
       <Route path="/product" component={Product} />
@@ -81,7 +85,7 @@ const App: React.FC = () => {
           <IonIcon icon={folderOutline} size="small" />
           <IonLabel>产品</IonLabel>
         </IonTabButton>
-        <IonTabButton tab="community" href="/community">
+        <IonTabButton tab="forum" href="/forum">
           <IonIcon icon={chatbubblesOutline} size="small" />
           <IonLabel>论坛</IonLabel>
         </IonTabButton>

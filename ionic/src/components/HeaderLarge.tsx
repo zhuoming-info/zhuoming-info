@@ -16,7 +16,7 @@ const HeaderLarge: React.FC<ContainerProps> = ({ title }) => {
           <IonButton color="dark" routerLink={'/monitor'}>预测</IonButton>
           <IonButton color="dark" routerLink={'/response'}>响应</IonButton>
           <IonButton color="dark" routerLink={'/product'}>产品</IonButton>
-          <IonButton color="dark" routerLink={'/community'}>论坛</IonButton>
+          <IonButton color="dark" routerLink={'/forum'}>论坛</IonButton>
           <IonButton color="dark" target="_blank" href="https://github.com/zhuoming-info/zhuoming-info.github.io">
             <IonIcon slot="start" icon={logoGithub} />参与开发
             </IonButton>
