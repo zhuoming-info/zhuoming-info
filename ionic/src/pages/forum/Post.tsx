@@ -59,7 +59,7 @@ const Post: React.FC = (props: any) => {
         <IonHeader>
           <IonToolbar>
             <IonButtons slot="start">
-              <IonBackButton defaultHref="/forum" />
+              <IonBackButton defaultHref="/forum" text="返回"/>
             </IonButtons>
             <IonTitle>查看帖子</IonTitle>
           </IonToolbar>
