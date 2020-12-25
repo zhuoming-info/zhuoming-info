@@ -15,7 +15,7 @@ const NewPost: React.FC = () => {
   const onSubmit = () => {
     axios.post('/api/post', { tag, content })
       .then(function () {
-        window.location.href = "/community"
+        window.location.href = "/forum"
       })
       .catch(function (error) {
         console.log(error);
@@ -31,7 +31,7 @@ const NewPost: React.FC = () => {
         <IonHeader>
           <IonToolbar>
             <IonButtons slot="start">
-              <IonBackButton defaultHref="/community" text="取消" />
+              <IonBackButton defaultHref="/forum" text="取消" />
             </IonButtons>
             <IonTitle>发帖</IonTitle>
             <IonButtons slot="end">
