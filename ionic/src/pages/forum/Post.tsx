@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
   IonCardContent, IonLabel, IonAvatar, IonBadge, IonItem,
-  IonButtons, IonButton, IonIcon, IonBackButton, IonItemDivider
+  IonButtons, IonButton, IonIcon, IonBackButton
 } from '@ionic/react';
 import { heartOutline, chatbubblesOutline } from 'ionicons/icons';
 import axios from 'axios';
@@ -66,7 +66,7 @@ const Post: React.FC = (props: any) => {
         </IonHeader>
       )}
       <IonContent fullscreen>
-        <IonItem>
+        <IonItem lines="none">
           <IonAvatar slot="start">
             <img alt="" src={user.avatar} />
           </IonAvatar>
@@ -78,7 +78,7 @@ const Post: React.FC = (props: any) => {
         <IonCardContent>
           {post.content}
         </IonCardContent>
-        <IonItem lines="none">
+        <IonItem>
           <IonBadge color="light">#{post.tag}</IonBadge>
           <IonButtons slot="end">
             <IonButton color="medium">
@@ -91,7 +91,7 @@ const Post: React.FC = (props: any) => {
             </IonButton>
           </IonButtons>
         </IonItem>
-        <IonItemDivider><IonLabel>所有评论</IonLabel></IonItemDivider>
+
         <IonItem lines="none">
           <IonAvatar slot="start">
             <img alt="" src={user.avatar} />
@@ -100,16 +100,23 @@ const Post: React.FC = (props: any) => {
             <h2>{user.username}</h2>
             <p>{moment(post.createdAt).format("L") + "  " + moment(post.createdAt).format("LT")}</p>
           </IonLabel>
-          <IonButtons slot="end">
-            <IonButton color="medium">
-              <IonIcon icon={heartOutline}></IonIcon>
-              {post.likeUsersId.length}
-            </IonButton>
-          </IonButtons>
         </IonItem>
         <IonItem lines="none">
           test
         </IonItem>
+        <IonItem>
+          <IonButtons slot="end">
+            <IonButton color="medium">
+              <IonIcon icon={heartOutline}></IonIcon>
+              {post.likeUsersId.length}
+            </IonButton>
+            <IonButton color="medium">
+              <IonIcon icon={chatbubblesOutline}></IonIcon>
+              {post.commentsId.length}
+            </IonButton>
+          </IonButtons>
+        </IonItem>
+
         <IonItem lines="none">
           <IonAvatar slot="start">
             <img alt="" src={user.avatar} />
@@ -118,16 +125,23 @@ const Post: React.FC = (props: any) => {
             <h2>{user.username}</h2>
             <p>{moment(post.createdAt).format("L") + "  " + moment(post.createdAt).format("LT")}</p>
           </IonLabel>
+        </IonItem>
+        <IonItem lines="none">
+          test
+        </IonItem>
+        <IonItem>
           <IonButtons slot="end">
             <IonButton color="medium">
               <IonIcon icon={heartOutline}></IonIcon>
               {post.likeUsersId.length}
             </IonButton>
+            <IonButton color="medium">
+              <IonIcon icon={chatbubblesOutline}></IonIcon>
+              {post.commentsId.length}
+            </IonButton>
           </IonButtons>
         </IonItem>
-        <IonItem lines="none">
-          评论
-        </IonItem>
+
         <IonItem lines="none">
           <IonAvatar slot="start">
             <img alt="" src={user.avatar} />
@@ -136,16 +150,23 @@ const Post: React.FC = (props: any) => {
             <h2>{user.username}</h2>
             <p>{moment(post.createdAt).format("L") + "  " + moment(post.createdAt).format("LT")}</p>
           </IonLabel>
+        </IonItem>
+        <IonItem lines="none">
+          test
+        </IonItem>
+        <IonItem>
           <IonButtons slot="end">
             <IonButton color="medium">
               <IonIcon icon={heartOutline}></IonIcon>
               {post.likeUsersId.length}
             </IonButton>
+            <IonButton color="medium">
+              <IonIcon icon={chatbubblesOutline}></IonIcon>
+              {post.commentsId.length}
+            </IonButton>
           </IonButtons>
         </IonItem>
-        <IonItem lines="none">
-          阿哈哈哈
-        </IonItem>
+
       </IonContent>
     </IonPage>
   );
