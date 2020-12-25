@@ -37,7 +37,7 @@ const PostItem: React.FC<postType> = (post) => {
   }, [post.userId])
   return (
     <IonCard button href={`/forum/post/${post.id}`} >
-      <IonItem>
+      <IonItem lines="none">
         <IonAvatar slot="start">
           <img alt="" src={user.avatar} />
         </IonAvatar>
