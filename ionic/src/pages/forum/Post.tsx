@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
   IonCardContent, IonLabel, IonAvatar, IonBadge, IonItem,
-  IonButtons, IonButton, IonIcon, IonBackButton
+  IonButtons, IonButton, IonIcon, IonBackButton, IonItemDivider
 } from '@ionic/react';
 import { heartOutline, chatbubblesOutline } from 'ionicons/icons';
 import axios from 'axios';
@@ -59,7 +59,7 @@ const Post: React.FC = (props: any) => {
         <IonHeader>
           <IonToolbar>
             <IonButtons slot="start">
-              <IonBackButton defaultHref="/forum" text="返回"/>
+              <IonBackButton defaultHref="/forum" text="返回" />
             </IonButtons>
             <IonTitle>查看帖子</IonTitle>
           </IonToolbar>
@@ -78,7 +78,7 @@ const Post: React.FC = (props: any) => {
         <IonCardContent>
           {post.content}
         </IonCardContent>
-        <IonItem>
+        <IonItem lines="none">
           <IonBadge color="light">#{post.tag}</IonBadge>
           <IonButtons slot="end">
             <IonButton color="medium">
@@ -90,6 +90,61 @@ const Post: React.FC = (props: any) => {
               {post.commentsId.length}
             </IonButton>
           </IonButtons>
+        </IonItem>
+        <IonItemDivider><IonLabel>所有评论</IonLabel></IonItemDivider>
+        <IonItem lines="none">
+          <IonAvatar slot="start">
+            <img alt="" src={user.avatar} />
+          </IonAvatar>
+          <IonLabel>
+            <h2>{user.username}</h2>
+            <p>{moment(post.createdAt).format("L") + "  " + moment(post.createdAt).format("LT")}</p>
+          </IonLabel>
+          <IonButtons slot="end">
+            <IonButton color="medium">
+              <IonIcon icon={heartOutline}></IonIcon>
+              {post.likeUsersId.length}
+            </IonButton>
+          </IonButtons>
+        </IonItem>
+        <IonItem lines="none">
+          test
+        </IonItem>
+        <IonItem lines="none">
+          <IonAvatar slot="start">
+            <img alt="" src={user.avatar} />
+          </IonAvatar>
+          <IonLabel>
+            <h2>{user.username}</h2>
+            <p>{moment(post.createdAt).format("L") + "  " + moment(post.createdAt).format("LT")}</p>
+          </IonLabel>
+          <IonButtons slot="end">
+            <IonButton color="medium">
+              <IonIcon icon={heartOutline}></IonIcon>
+              {post.likeUsersId.length}
+            </IonButton>
+          </IonButtons>
+        </IonItem>
+        <IonItem lines="none">
+          评论
+        </IonItem>
+        <IonItem lines="none">
+          <IonAvatar slot="start">
+            <img alt="" src={user.avatar} />
+          </IonAvatar>
+          <IonLabel>
+            <h2>{user.username}</h2>
+            <p>{moment(post.createdAt).format("L") + "  " + moment(post.createdAt).format("LT")}</p>
+          </IonLabel>
+          <IonButtons slot="end">
+            <IonButton color="medium">
+              <IonIcon icon={heartOutline}></IonIcon>
+              {post.likeUsersId.length}
+            </IonButton>
+          </IonButtons>
+        </IonItem>
+        <IonItem lines="none">
+          阿哈哈哈
         </IonItem>
       </IonContent>
     </IonPage>
