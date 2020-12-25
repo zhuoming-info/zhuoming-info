@@ -6,7 +6,7 @@ import { Post } from '../models/post';
 const router = express.Router();
 
 router.post(
-  '/api/post',
+  '/api/forum/post',
   requireAuth,
   [
     body('content').not().isEmpty().withMessage('Content is required'),

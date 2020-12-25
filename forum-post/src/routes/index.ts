@@ -3,7 +3,7 @@ import { Post } from '../models/post';
 
 const router = express.Router();
 
-router.get('/api/post', async (req: Request, res: Response) => {
+router.get('/api/forum/post', async (req: Request, res: Response) => {
   const post = await Post.find();
 
   res.send(post);

@@ -4,7 +4,7 @@ import { Post } from '../models/post';
 
 const router = express.Router();
 
-router.get('/api/post/:id', async (req: Request, res: Response) => {
+router.get('/api/forum/post/:id', async (req: Request, res: Response) => {
   const post = await Post.findById(req.params.id);
 
   if (!post) {

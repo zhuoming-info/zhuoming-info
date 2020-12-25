@@ -8,16 +8,7 @@ import { heartOutline, chatbubblesOutline } from 'ionicons/icons';
 import axios from 'axios';
 import moment from 'moment';
 import HeaderLarge from '../../components/HeaderLarge';
-
-interface postType {
-  id: string,
-  userId: string,
-  tag: string,
-  content: string,
-  likeUsersId: Array<string>,
-  commentsId: Array<string>,
-  createdAt: string
-}
+import CommentItem from '../../components/forum/CommentItem'
 
 const Post: React.FC = (props: any) => {
   const [post, setPost] = useState(
@@ -38,7 +29,7 @@ const Post: React.FC = (props: any) => {
     }
   )
   useEffect(() => {
-    axios.get(`/api/post/${props.match.params.id}`)
+    axios.get(`/api/forum/post/${props.match.params.id}`)
       .then(function (post) {
         setPost(post.data)
         axios.get(`/api/user/${post.data.userId}`)
@@ -91,82 +82,9 @@ const Post: React.FC = (props: any) => {
             </IonButton>
           </IonButtons>
         </IonItem>
-
-        <IonItem lines="none">
-          <IonAvatar slot="start">
-            <img alt="" src={user.avatar} />
-          </IonAvatar>
-          <IonLabel>
-            <h2>{user.username}</h2>
-            <p>{moment(post.createdAt).format("L") + "  " + moment(post.createdAt).format("LT")}</p>
-          </IonLabel>
-        </IonItem>
-        <IonItem lines="none">
-          test
-        </IonItem>
-        <IonItem>
-          <IonButtons slot="end">
-            <IonButton color="medium">
-              <IonIcon icon={heartOutline}></IonIcon>
-              {post.likeUsersId.length}
-            </IonButton>
-            <IonButton color="medium">
-              <IonIcon icon={chatbubblesOutline}></IonIcon>
-              {post.commentsId.length}
-            </IonButton>
-          </IonButtons>
-        </IonItem>
-
-        <IonItem lines="none">
-          <IonAvatar slot="start">
-            <img alt="" src={user.avatar} />
-          </IonAvatar>
-          <IonLabel>
-            <h2>{user.username}</h2>
-            <p>{moment(post.createdAt).format("L") + "  " + moment(post.createdAt).format("LT")}</p>
-          </IonLabel>
-        </IonItem>
-        <IonItem lines="none">
-          test
-        </IonItem>
-        <IonItem>
-          <IonButtons slot="end">
-            <IonButton color="medium">
-              <IonIcon icon={heartOutline}></IonIcon>
-              {post.likeUsersId.length}
-            </IonButton>
-            <IonButton color="medium">
-              <IonIcon icon={chatbubblesOutline}></IonIcon>
-              {post.commentsId.length}
-            </IonButton>
-          </IonButtons>
-        </IonItem>
-
-        <IonItem lines="none">
-          <IonAvatar slot="start">
-            <img alt="" src={user.avatar} />
-          </IonAvatar>
-          <IonLabel>
-            <h2>{user.username}</h2>
-            <p>{moment(post.createdAt).format("L") + "  " + moment(post.createdAt).format("LT")}</p>
-          </IonLabel>
-        </IonItem>
-        <IonItem lines="none">
-          test
-        </IonItem>
-        <IonItem>
-          <IonButtons slot="end">
-            <IonButton color="medium">
-              <IonIcon icon={heartOutline}></IonIcon>
-              {post.likeUsersId.length}
-            </IonButton>
-            <IonButton color="medium">
-              <IonIcon icon={chatbubblesOutline}></IonIcon>
-              {post.commentsId.length}
-            </IonButton>
-          </IonButtons>
-        </IonItem>
-
+        {/* {post.commentsId.map((comment, index) => {
+          <CommentItem key={index} id={comment.id} />
+        })} */}
       </IonContent>
     </IonPage>
   );

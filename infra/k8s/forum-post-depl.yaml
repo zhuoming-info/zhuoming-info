@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: post-depl
+  name: forum-post-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: post
+      app: forum-post
   template:
     metadata:
       labels:
-        app: post
+        app: forum-post
     spec:
       containers:
-        - name: post
-          image: faiyuching/post
+        - name: forum-post
+          image: faiyuching/forum-post
           env:
             - name: MONGO_URI
-              value: 'mongodb://post-mongo-srv:27017/post'
+              value: 'mongodb://forum-post-mongo-srv:27017/forum-post'
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
@@ -27,12 +27,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: post-srv
+  name: forum-post-srv
 spec:
   selector:
-    app: post
+    app: forum-post
   ports:
-    - name: post
+    - name: forum-post
       protocol: TCP
       port: 3000
       targetPort: 3000
