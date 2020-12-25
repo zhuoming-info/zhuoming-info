@@ -13,7 +13,7 @@ const NewPost: React.FC = () => {
   const [content, setContent] = useState("")
 
   const onSubmit = () => {
-    axios.post('/api/post', { tag, content })
+    axios.post('/api/forum/post', { tag, content })
       .then(function () {
         window.location.href = "/forum"
       })

@@ -9,7 +9,7 @@ import { Post } from '../models/post';
 const router = express.Router();
 
 router.put(
-  '/api/post/like/:id',
+  '/api/forum/post/like/:id',
   requireAuth,
   validateRequest,
   async (req: Request, res: Response) => {

@@ -22,7 +22,7 @@ const Forum: React.FC = () => {
     }
   ])
   useEffect(() => {
-    axios.get('/api/post')
+    axios.get('/api/forum/post')
       .then(function (res) {
         setPosts(res.data)
       })

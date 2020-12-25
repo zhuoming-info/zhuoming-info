@@ -1,25 +1,25 @@
-name: deploy-post
+name: deploy-forum-post
 
 on:
   push:
     branches: 
       - main
     paths:
-      - 'post/**'
+      - 'forum-post/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd post && docker build -t faiyuching/post .
+      - run: cd forum-post && docker build -t faiyuching/forum-post .
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker push faiyuching/post
+      - run: docker push faiyuching/forum-post
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save zhuoming-info
-      - run: kubectl rollout restart deployment post-depl
+      - run: kubectl rollout restart deployment forum-post-depl

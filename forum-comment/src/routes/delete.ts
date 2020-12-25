@@ -1,17 +1,17 @@
 import express, { Request, Response } from 'express';
 import { requireAuth, validateRequest } from '@sgtickets/common';
-import { Post } from '../models/post';
+import { Comment } from '../models/comment';
 
 const router = express.Router();
 
 router.delete(
-  '/api/post/:id',
+  '/api/forum/comment/:id',
   requireAuth,
   validateRequest,
   async (req: Request, res: Response) => {
-    const post = await Post.findByIdAndDelete(req.params.id);
-    res.status(204).send(post);
+    const comment = await Comment.findByIdAndDelete(req.params.id);
+    res.status(204).send(comment);
   }
 );
 
-export { router as deletePostRouter };
+export { router as deleteCommentRouter };

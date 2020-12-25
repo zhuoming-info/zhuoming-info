@@ -25,8 +25,16 @@ build:
         manual:
           - src: 'src/**/*.tsx'
             dest: .
-    - image: faiyuching/post
-      context: post
+    - image: faiyuching/forum-post
+      context: forum-post
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: faiyuching/forum-comment
+      context: forum-comment
       docker:
         dockerfile: Dockerfile
       sync:
