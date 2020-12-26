@@ -120,10 +120,17 @@ const Signup: React.FC = () => {
                     ></IonInput>
                   </IonItem>
                   <br />
-                  <IonButton onClick={onSubmit}>注册</IonButton>
-                  <IonButton fill="clear" routerLink={"/signin"}>
-                    登录 <IonIcon slot="end" icon={arrowForwardOutline} />
-                  </IonButton>
+                  <IonButton expand={localStorage.getItem("deviceSize") === "small" ? "block" : undefined} onClick={onSubmit}>注册</IonButton>
+                  <IonItem lines="none">
+                    <IonButtons slot="start">
+                      <IonButton fill="clear" routerLink={'/signin'}>
+                        登录 <IonIcon slot="end" icon={arrowForwardOutline} />
+                      </IonButton>
+                    </IonButtons>
+                    <IonButtons slot="end">
+                      <IonButton>关于卓明</IonButton>
+                    </IonButtons>
+                  </IonItem>
                 </IonCardContent>
               </IonCard>
             </IonCol>
