@@ -22,6 +22,10 @@ spec:
             backend:
               serviceName: forum-comment-srv
               servicePort: 3000
+          - path: /api/product/folders/?(.*)
+            backend:
+              serviceName: product-folders-srv
+              servicePort: 3000
           - path: /?(.*)
             backend:
               serviceName: ionic-srv

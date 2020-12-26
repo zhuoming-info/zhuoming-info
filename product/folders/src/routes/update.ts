@@ -6,35 +6,35 @@ import {
   requireAuth,
   NotAuthorizedError
 } from '@sgtickets/common';
-import { Document } from '../models/document';
+import { Folders } from '../models/folders';
 
 const router = express.Router();
 
 router.put(
-  '/api/document/:id',
+  '/api/product/folders/:id',
   requireAuth,
   [
-    body('content').not().isEmpty().withMessage('Content is required'),
+    body('name').not().isEmpty().withMessage('Name is required'),
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const document = await Document.findById(req.params.id);
+    const folders = await Folders.findById(req.params.id);
 
-    if (!document) {
+    if (!folders) {
       throw new NotFoundError();
     }
 
-    if (document.userId !== req.currentUser!.id) {
+    if (folders.userId !== req.currentUser!.id) {
       throw new NotAuthorizedError();
     }
 
-    document.set({
-      content: req.body.content,
+    folders.set({
+      name: req.body.name,
     });
-    await document.save();
+    await folders.save();
 
-    res.send(document);
+    res.send(folders);
   }
 );
 
-export { router as updateDocumentRouter };
+export { router as updateFoldersRouter };

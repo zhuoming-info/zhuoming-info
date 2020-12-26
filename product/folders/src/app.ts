@@ -3,12 +3,12 @@ import 'express-async-errors';
 import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
 import { errorHandler, NotFoundError, currentUser } from '@sgtickets/common';
-import { createDocumentRouter } from './routes/new';
-import { showDocumentRouter } from './routes/show';
-import { indexDocumentRouter } from './routes/index';
-import { updateDocumentRouter } from './routes/update';
-import { likeDocumentRouter } from './routes/like';
-import { deleteDocumentRouter } from './routes/delete';
+import { createFoldersRouter } from './routes/new';
+import { showFoldersRouter } from './routes/show';
+import { indexFoldersRouter } from './routes/index';
+import { updateFoldersRouter } from './routes/update';
+import { likeFoldersRouter } from './routes/like';
+import { deleteFoldersRouter } from './routes/delete';
 
 const app = express();
 app.set('trust proxy', true);
@@ -21,12 +21,12 @@ app.use(
 );
 app.use(currentUser);
 
-app.use(createDocumentRouter);
-app.use(showDocumentRouter);
-app.use(indexDocumentRouter);
-app.use(updateDocumentRouter);
-app.use(likeDocumentRouter);
-app.use(deleteDocumentRouter);
+app.use(createFoldersRouter);
+app.use(showFoldersRouter);
+app.use(indexFoldersRouter);
+app.use(updateFoldersRouter);
+app.use(likeFoldersRouter);
+app.use(deleteFoldersRouter);
 
 app.all('*', async (req, res) => {
   throw new NotFoundError();
