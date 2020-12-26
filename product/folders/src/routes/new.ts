@@ -1,29 +1,28 @@
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
 import { requireAuth, validateRequest } from '@sgtickets/common';
-import { Document } from '../models/document';
+import { Folders } from '../models/folders';
 
 const router = express.Router();
 
 router.post(
-  '/api/document',
+  '/api/product/folders',
   requireAuth,
   [
-    body('content').not().isEmpty().withMessage('Content is required'),
+    body('name').not().isEmpty().withMessage('Name is required'),
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { content, tag } = req.body;
+    const { name } = req.body;
 
-    const document = Document.build({
-      content,
-      tag,
+    const folders = Folders.build({
+      name,
       userId: req.currentUser!.id,
     });
-    await document.save();
+    await folders.save();
 
-    res.status(201).send(document);
+    res.status(201).send(folders);
   }
 );
 
-export { router as createDocumentRouter };
+export { router as createFoldersRouter };

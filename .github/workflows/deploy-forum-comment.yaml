@@ -5,7 +5,7 @@ on:
     branches: 
       - main
     paths:
-      - 'forum-comment/**'
+      - 'forum/comment/**'
 
 jobs:
   build:
