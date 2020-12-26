@@ -3,12 +3,12 @@ import 'express-async-errors';
 import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
 import { errorHandler, NotFoundError, currentUser } from '@sgtickets/common';
-import { createJxswRouter } from './routes/new';
-import { showJxswRouter } from './routes/show';
-import { indexJxswRouter } from './routes/index';
-import { updateJxswRouter } from './routes/update';
-import { likeJxswRouter } from './routes/like';
-import { deleteJxswRouter } from './routes/delete';
+import { createJiangxiRouter } from './routes/new';
+import { showJiangxiRouter } from './routes/show';
+import { indexJiangxiRouter } from './routes/index';
+import { updateJiangxiRouter } from './routes/update';
+import { likeJiangxiRouter } from './routes/like';
+import { deleteJiangxiRouter } from './routes/delete';
 
 const app = express();
 app.set('trust proxy', true);
@@ -21,12 +21,12 @@ app.use(
 );
 app.use(currentUser);
 
-app.use(createJxswRouter);
-app.use(showJxswRouter);
-app.use(indexJxswRouter);
-app.use(updateJxswRouter);
-app.use(likeJxswRouter);
-app.use(deleteJxswRouter);
+app.use(createJiangxiRouter);
+app.use(showJiangxiRouter);
+app.use(indexJiangxiRouter);
+app.use(updateJiangxiRouter);
+app.use(likeJiangxiRouter);
+app.use(deleteJiangxiRouter);
 
 app.all('*', async (req, res) => {
   throw new NotFoundError();

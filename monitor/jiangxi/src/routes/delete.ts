@@ -1,17 +1,17 @@
 import express, { Request, Response } from 'express';
 import { requireAuth, validateRequest } from '@sgtickets/common';
-import { Jxsw } from '../models/jxsw';
+import { Jiangxi } from '../models/jiangxi';
 
 const router = express.Router();
 
 router.delete(
-  '/api/forum/jxsw/:id',
+  '/api/forum/jiangxi/:id',
   requireAuth,
   validateRequest,
   async (req: Request, res: Response) => {
-    const jxsw = await Jxsw.findByIdAndDelete(req.params.id);
-    res.status(204).send(jxsw);
+    const jiangxi = await Jiangxi.findByIdAndDelete(req.params.id);
+    res.status(204).send(jiangxi);
   }
 );
 
-export { router as deleteJxswRouter };
+export { router as deleteJiangxiRouter };
