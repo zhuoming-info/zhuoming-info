@@ -6,35 +6,35 @@ import {
   requireAuth,
   NotAuthorizedError
 } from '@sgtickets/common';
-import { Jxsw } from '../models/jxsw';
+import { Jiangxi } from '../models/jiangxi';
 
 const router = express.Router();
 
 router.put(
-  '/api/forum/jxsw/:id',
+  '/api/forum/jiangxi/:id',
   requireAuth,
   [
     body('content').not().isEmpty().withMessage('Content is required'),
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const jxsw = await Jxsw.findById(req.params.id);
+    const jiangxi = await Jiangxi.findById(req.params.id);
 
-    if (!jxsw) {
+    if (!jiangxi) {
       throw new NotFoundError();
     }
 
-    if (jxsw.userId !== req.currentUser!.id) {
+    if (jiangxi.userId !== req.currentUser!.id) {
       throw new NotAuthorizedError();
     }
 
-    jxsw.set({
+    jiangxi.set({
       content: req.body.content,
     });
-    await jxsw.save();
+    await jiangxi.save();
 
-    res.send(jxsw);
+    res.send(jiangxi);
   }
 );
 
-export { router as updateJxswRouter };
+export { router as updateJiangxiRouter };

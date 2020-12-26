@@ -1,12 +1,12 @@
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
 import { requireAuth, validateRequest } from '@sgtickets/common';
-import { Jxsw } from '../models/jxsw';
+import { Jiangxi } from '../models/jiangxi';
 
 const router = express.Router();
 
 router.post(
-  '/api/forum/jxsw',
+  '/api/forum/jiangxi',
   requireAuth,
   [
     body('content').not().isEmpty().withMessage('Content is required'),
@@ -15,15 +15,15 @@ router.post(
   async (req: Request, res: Response) => {
     const { content, tag } = req.body;
 
-    const jxsw = Jxsw.build({
+    const jiangxi = Jiangxi.build({
       content,
       tag,
       userId: req.currentUser!.id,
     });
-    await jxsw.save();
+    await jiangxi.save();
 
-    res.status(201).send(jxsw);
+    res.status(201).send(jiangxi);
   }
 );
 
-export { router as createJxswRouter };
+export { router as createJiangxiRouter };

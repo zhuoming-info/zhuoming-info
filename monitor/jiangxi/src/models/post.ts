@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 
-interface JxswAttrs {
+interface JiangxiAttrs {
   content: string;
   userId: string;
   tag: string;
 }
 
-interface JxswDoc extends mongoose.Document {
+interface JiangxiDoc extends mongoose.Document {
   content: string;
   userId: string;
   tag: string;
@@ -14,8 +14,8 @@ interface JxswDoc extends mongoose.Document {
   commentsId: Array<string>;
 }
 
-interface JxswModel extends mongoose.Model<JxswDoc> {
-  build(attrs: JxswAttrs): JxswDoc;
+interface JiangxiModel extends mongoose.Model<JiangxiDoc> {
+  build(attrs: JiangxiAttrs): JiangxiDoc;
 }
 
 const postSchema = new mongoose.Schema(
@@ -38,10 +38,10 @@ const postSchema = new mongoose.Schema(
   },
 );
 
-postSchema.statics.build = (attrs: JxswAttrs) => {
-  return new Jxsw(attrs);
+postSchema.statics.build = (attrs: JiangxiAttrs) => {
+  return new Jiangxi(attrs);
 };
 
-const Jxsw = mongoose.model<JxswDoc, JxswModel>('Jxsw', postSchema);
+const Jiangxi = mongoose.model<JiangxiDoc, JiangxiModel>('Jiangxi', postSchema);
 
-export { Jxsw };
+export { Jiangxi };
