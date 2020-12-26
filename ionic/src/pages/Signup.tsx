@@ -1,7 +1,7 @@
 import {
   IonGrid, IonRow, IonCol, IonCard, IonCardHeader,
-  IonCardSubtitle, IonCardTitle, IonCardContent,
-  IonItem, IonLabel, IonInput, IonButton, IonContent, IonIcon,
+  IonCardContent, IonAvatar, IonText,
+  IonItem, IonLabel, IonInput, IonButton, IonContent, IonIcon, IonImg,
   IonHeader, IonToolbar, IonTitle, IonPage, IonButtons, IonBackButton
 } from "@ionic/react";
 import { arrowForwardOutline } from 'ionicons/icons';
@@ -51,8 +51,12 @@ const Signup: React.FC = () => {
             >
               <IonCard>
                 <IonCardHeader>
-                  <IonCardTitle>卓明</IonCardTitle>
-                  <IonCardSubtitle>注册</IonCardSubtitle>
+                  <IonItem lines="none">
+                    <IonAvatar slot="start" >
+                      <IonImg src="/assets/icon/icon.png" />
+                    </IonAvatar>
+                    <IonText><h5>卓明灾害信息服务中心</h5></IonText>
+                  </IonItem>
                 </IonCardHeader>
                 <IonCardContent>
                   <IonItem>

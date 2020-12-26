@@ -1,5 +1,5 @@
 import React from "react";
-import { IonContent, IonPage, IonHeader, IonToolbar, IonTitle } from '@ionic/react';
+import { IonContent, IonPage, IonHeader, IonToolbar, IonTitle, IonItem, IonThumbnail, IonLabel, IonImg } from '@ionic/react';
 import HeaderLarge from '../components/HeaderLarge';
 
 const Product: React.FC = () => {
@@ -13,7 +13,15 @@ const Product: React.FC = () => {
         </IonHeader>
       )}
       <IonContent fullscreen>
-        Product
+        <IonItem>
+          <IonThumbnail slot="start">
+            <IonImg src="/assets/folder.svg" />
+          </IonThumbnail>
+          <IonLabel>
+            <h3>长江II级洪灾响应</h3>
+            <p>2020/12/13 23:10</p>
+          </IonLabel>
+        </IonItem>
       </IonContent>
     </IonPage>
   );
