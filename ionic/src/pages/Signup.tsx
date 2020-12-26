@@ -1,8 +1,8 @@
 import {
   IonGrid, IonRow, IonCol, IonCard, IonCardHeader,
-  IonCardContent, IonAvatar, IonText,
+  IonCardContent, IonText, IonThumbnail,
   IonItem, IonLabel, IonInput, IonButton, IonContent, IonIcon, IonImg,
-  IonHeader, IonToolbar, IonTitle, IonPage, IonButtons, IonBackButton
+  IonHeader, IonToolbar, IonTitle, IonPage, IonButtons, IonBackButton,
 } from "@ionic/react";
 import { arrowForwardOutline } from 'ionicons/icons';
 import React, { useState } from "react";
@@ -52,10 +52,10 @@ const Signup: React.FC = () => {
               <IonCard>
                 <IonCardHeader>
                   <IonItem lines="none">
-                    <IonAvatar slot="start" >
+                    <IonThumbnail slot="start" >
                       <IonImg src="/assets/icon/icon.png" />
-                    </IonAvatar>
-                    <IonText><h5>卓明灾害信息服务中心</h5></IonText>
+                    </IonThumbnail>
+                    <IonText><h6>卓明灾害信息服务中心</h6></IonText>
                   </IonItem>
                 </IonCardHeader>
                 <IonCardContent>
