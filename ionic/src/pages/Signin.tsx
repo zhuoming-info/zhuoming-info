@@ -1,7 +1,7 @@
 import {
-  IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle,
+  IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonIcon, IonAvatar, IonImg,
   IonCardContent, IonItem, IonLabel, IonInput, IonButton, IonContent,
-  IonHeader, IonToolbar, IonTitle, IonPage, IonButtons, IonBackButton, IonIcon
+  IonHeader, IonToolbar, IonTitle, IonPage, IonButtons, IonBackButton, IonText,
 } from "@ionic/react";
 import { arrowForwardOutline } from 'ionicons/icons';
 import React, { useState } from "react";
@@ -44,8 +44,12 @@ const Signin: React.FC = () => {
             >
               <IonCard>
                 <IonCardHeader>
-                  <IonCardTitle>卓明</IonCardTitle>
-                  <IonCardSubtitle>登录</IonCardSubtitle>
+                  <IonItem lines="none">
+                    <IonAvatar slot="start" >
+                      <IonImg src="/assets/icon/icon.png" />
+                    </IonAvatar>
+                    <IonText><h5>卓明灾害信息服务中心</h5></IonText>
+                  </IonItem>
                 </IonCardHeader>
                 <IonCardContent>
                   <IonItem>
