@@ -10,7 +10,6 @@ import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import { pulseOutline, volumeHighOutline, folderOutline, chatbubblesOutline, personOutline } from 'ionicons/icons';
 
-import Monitor from './pages/Monitor';
 import Response from './pages/Response';
 import Product from './pages/Product';
 
@@ -27,6 +26,9 @@ import UserTrash from './pages/user/UserTrash';
 import Forum from './pages/Forum';
 import NewPost from './pages/forum/NewPost';
 import Post from './pages/forum/Post';
+
+import Monitor from './pages/Monitor';
+import Jiangxi from './pages/monitor/Jiangxi';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -63,6 +65,8 @@ const App: React.FC = () => {
       <Route path="/forum/post/:id" component={Post} />
 
       <Route path="/monitor" component={Monitor} exact={true} />
+      <Route path="/monitor/jiangxi" component={Jiangxi} exact={true} />
+
       <Route path="/response" component={Response} exact={true} />
       <Route path="/product" component={Product} />
       <Route path="/" render={() => <Redirect to="/monitor" />} exact={true} />
