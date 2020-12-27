@@ -12,6 +12,10 @@
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
+    },
+    {
+      "src": "assets/product/folder.svg",
+      "sizes": "any"
     }
   ],
   "start_url": ".",

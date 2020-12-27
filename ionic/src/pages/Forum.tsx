@@ -53,7 +53,7 @@ const Forum: React.FC = () => {
         <IonGrid>
           <IonRow>
             <IonCol size-sm="12" size-md="10" size-lg="8" style={{ margin: "0 auto" }}>
-              {posts.map((post, index) => {
+              {posts.length !== 0 ? "暂无帖子" : posts.map((post, index) => {
                 return (
                   <PostItem
                     key={index}
