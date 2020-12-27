@@ -1,6 +1,7 @@
 import React from "react";
 import { IonContent, IonPage, IonHeader, IonToolbar, IonTitle } from '@ionic/react';
 import HeaderLarge from '../components/HeaderLarge';
+import JiangxiCover from '../components/monitor/jiangxi/JiangxiCover';
 
 const Monitor: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const Monitor: React.FC = () => {
         </IonHeader>
       )}
       <IonContent fullscreen>
-        Monitor
+        <JiangxiCover />
       </IonContent>
     </IonPage>
   );
