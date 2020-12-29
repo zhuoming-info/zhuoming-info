@@ -19,9 +19,9 @@ spec:
             backend:
               serviceName: user-srv
               servicePort: 3000
-          - path: /api/forum/post/?(.*)
+          - path: /api/post/?(.*)
             backend:
-              serviceName: forum-post-srv
+              serviceName: post-srv
               servicePort: 3000
           - path: /?(.*)
             backend:

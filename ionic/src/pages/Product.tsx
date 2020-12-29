@@ -15,7 +15,7 @@ const Product: React.FC = () => {
       <IonContent fullscreen>
         <IonItem>
           <IonThumbnail slot="start">
-            <IonImg src="/assets/folder.svg" />
+            <IonImg src="/assets/product/folder.svg" />
           </IonThumbnail>
           <IonLabel>
             <h3>长江II级洪灾响应</h3>

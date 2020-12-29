@@ -29,7 +29,7 @@ const Post: React.FC = (props: any) => {
     }
   )
   useEffect(() => {
-    axios.get(`/api/forum/post/${props.match.params.id}`)
+    axios.get(`/api/post/${props.match.params.id}`)
       .then(function (post) {
         setPost(post.data)
         axios.get(`/api/user/${post.data.userId}`)
