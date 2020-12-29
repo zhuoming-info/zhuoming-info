@@ -7,7 +7,7 @@ import {
 import { addOutline, swapVerticalOutline } from 'ionicons/icons';
 import HeaderLarge from '../components/HeaderLarge';
 import axios from 'axios';
-import PostItem from '../components/forum/PostItem'
+import PostCard from '../components/forum/PostCard'
 
 const Forum: React.FC = () => {
   const [posts, setPosts] = useState([
@@ -22,7 +22,7 @@ const Forum: React.FC = () => {
     }
   ])
   useEffect(() => {
-    axios.get('/api/forum/post')
+    axios.get('/api/post')
       .then(function (res) {
         setPosts(res.data)
       })
@@ -53,9 +53,9 @@ const Forum: React.FC = () => {
         <IonGrid>
           <IonRow>
             <IonCol size-sm="12" size-md="10" size-lg="8" style={{ margin: "0 auto" }}>
-              {posts.length !== 0 ? "暂无帖子" : posts.map((post, index) => {
+              {posts.length === 0 ? "暂无帖子" : posts.map((post, index) => {
                 return (
-                  <PostItem
+                  <PostCard
                     key={index}
                     id={post.id}
                     userId={post.userId}

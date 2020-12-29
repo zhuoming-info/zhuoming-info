@@ -14,17 +14,17 @@ spec:
             backend:
               serviceName: user-srv
               servicePort: 3000
-          - path: /api/forum/post/?(.*)
+          - path: /api/post/?(.*)
             backend:
-              serviceName: forum-post-srv
+              serviceName: post-srv
               servicePort: 3000
-          - path: /api/forum/comment/?(.*)
+          - path: /api/comment/?(.*)
             backend:
-              serviceName: forum-comment-srv
+              serviceName: comment-srv
               servicePort: 3000
-          - path: /api/product/folders/?(.*)
+          - path: /api/folders/?(.*)
             backend:
-              serviceName: product-folders-srv
+              serviceName: folders-srv
               servicePort: 3000
           - path: /?(.*)
             backend:
