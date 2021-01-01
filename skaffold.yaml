@@ -41,11 +41,3 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: faiyuching/folders
-      context: folders
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: 'src/**/*.ts'
-            dest: .
