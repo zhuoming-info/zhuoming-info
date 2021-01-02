@@ -56,13 +56,15 @@ const Forum: React.FC = () => {
               size-md="8"
               size-lg="6"
               style={{ margin: "0 auto" }}>
-              {posts.length !== 0 && localStorage.getItem("deviceSize") === "large" &&
+              {localStorage.getItem("deviceSize") === "large" &&
                 <IonItem lines="none">
-                  <IonButtons slot="start">
-                    <IonButton color="primary">
-                      <IonIcon icon={swapVerticalOutline}></IonIcon>筛选
-                    </IonButton>
-                  </IonButtons>
+                  {posts.length !== 0 &&
+                    <IonButtons slot="start">
+                      <IonButton color="primary">
+                        <IonIcon icon={swapVerticalOutline}></IonIcon>筛选
+                      </IonButton>
+                    </IonButtons>
+                  }
                   <IonButtons slot="end">
                     <IonButton href={"/forum/new"} color="primary">
                       <IonIcon icon={addOutline}></IonIcon>添加
