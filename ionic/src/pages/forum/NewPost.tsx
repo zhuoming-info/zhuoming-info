@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import {
   IonContent, IonPage, IonHeader, IonToolbar,
-  IonTitle, IonItem,
-  IonButtons, IonButton,
-  IonLabel, IonBackButton, IonTextarea, IonInput
+  IonTitle, IonItem, IonButtons, IonButton,
+  IonLabel, IonBackButton, IonTextarea, IonInput,
+  IonGrid, IonRow, IonCol
 } from '@ionic/react';
 import Signin from '../Signin'
 import axios from 'axios';
@@ -40,14 +40,25 @@ const NewPost: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen>
-          <IonItem>
-            <IonLabel position="stacked">内容：</IonLabel>
-            <IonTextarea rows={10} value={content} onIonChange={e => setContent(e.detail.value!)}></IonTextarea>
-          </IonItem>
-          <IonItem>
-            <IonLabel position="stacked">标签:</IonLabel>
-            <IonInput value={tag} onIonChange={e => setTag(e.detail.value!)}>#</IonInput>
-          </IonItem>
+          <IonGrid>
+            <IonRow>
+              <IonCol
+                size-xs="12"
+                size-sm="10"
+                size-md="8"
+                size-lg="6"
+                style={{ margin: "0 auto" }}>
+                <IonItem>
+                  <IonLabel position="stacked">标签:</IonLabel>
+                  <IonInput value={tag} onIonChange={e => setTag(e.detail.value!)}>#</IonInput>
+                </IonItem>
+                <IonItem>
+                  <IonLabel position="stacked">内容：</IonLabel>
+                  <IonTextarea rows={10} value={content} onIonChange={e => setContent(e.detail.value!)}></IonTextarea>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+          </IonGrid>
         </IonContent>
       </IonPage>
     );
