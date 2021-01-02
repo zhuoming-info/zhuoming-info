@@ -1,5 +1,5 @@
 import React from "react";
-import { IonSplitPane, IonPage, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent } from '@ionic/react';
+import { IonSplitPane, IonPage, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, IonGrid, IonRow, IonCol } from '@ionic/react';
 import UserMenu from '../components/user/UserMenu'
 import Signin from './Signin'
 
@@ -23,7 +23,18 @@ const User: React.FC = () => {
             </IonToolbar>
           </IonHeader>
           <IonContent fullscreen>
-            User
+            <IonGrid>
+              <IonRow>
+                <IonCol
+                  size-xs="12"
+                  size-sm="10"
+                  size-md="8"
+                  size-lg="6"
+                  style={{ margin: "0 auto" }}>
+                  User
+                </IonCol>
+              </IonRow>
+            </IonGrid>
           </IonContent>
         </IonPage>
       </IonSplitPane>
