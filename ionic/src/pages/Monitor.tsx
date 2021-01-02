@@ -6,7 +6,7 @@ import JiangxiCover from '../components/monitor/jiangxi/JiangxiCover';
 const Monitor: React.FC = () => {
   return (
     <IonPage>
-      {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="监测" /> : (
+      {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="monitor" /> : (
         <IonHeader>
           <IonToolbar>
             <IonTitle>监测</IonTitle>

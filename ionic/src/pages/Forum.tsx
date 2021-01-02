@@ -32,7 +32,7 @@ const Forum: React.FC = () => {
   }, [])
   return (
     <IonPage>
-      {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="论坛" /> : (
+      {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="forum" /> : (
         <IonHeader>
           <IonToolbar>
             <IonButtons slot="start">
