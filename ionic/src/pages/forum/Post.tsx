@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import {
   IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
   IonCardContent, IonLabel, IonAvatar, IonBadge, IonItem,
-  IonButtons, IonButton, IonIcon, IonBackButton, IonGrid, IonRow, IonCol
+  IonButtons, IonButton, IonIcon, IonBackButton, IonGrid,
+  IonRow, IonCol, IonAlert
 } from '@ionic/react';
 import { heartOutline, chatbubblesOutline } from 'ionicons/icons';
 import axios from 'axios';
@@ -10,6 +11,7 @@ import moment from 'moment';
 import CommentItem from '../../components/forum/CommentItem'
 
 const Post: React.FC = (props: any) => {
+  const [showDelete, setShowDelete] = useState(false);
   const [post, setPost] = useState(
     {
       id: "",
@@ -43,6 +45,17 @@ const Post: React.FC = (props: any) => {
         console.log(error);
       });
   }, [props.match.params.id])
+
+  const onDelete = () => {
+    axios.delete(`/api/post/${props.match.params.id}`)
+      .then(() => {
+        window.location.href = "/forum"
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -54,7 +67,13 @@ const Post: React.FC = (props: any) => {
           {localStorage.getItem("userId") &&
             <IonButtons slot="end">
               <IonButton color="primary">编辑</IonButton>
-              <IonButton color="danger">删除</IonButton>
+              <IonButton color="danger" onClick={() => { setShowDelete(true) }}>删除</IonButton>
+              <IonAlert
+                isOpen={showDelete}
+                onDidDismiss={() => setShowDelete(false)}
+                header={'是否删除？'}
+                buttons={[{ text: "否" }, { text: "是", handler: () => { onDelete() } }]}
+              />
             </IonButtons>
           }
         </IonToolbar>
