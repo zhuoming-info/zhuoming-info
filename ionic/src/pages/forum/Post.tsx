@@ -7,7 +7,6 @@ import {
 import { heartOutline, chatbubblesOutline } from 'ionicons/icons';
 import axios from 'axios';
 import moment from 'moment';
-import HeaderLarge from '../../components/HeaderLarge';
 import CommentItem from '../../components/forum/CommentItem'
 
 const Post: React.FC = (props: any) => {
