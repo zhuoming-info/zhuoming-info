@@ -26,6 +26,7 @@ import UserTrash from './pages/user/UserTrash';
 import Forum from './pages/Forum';
 import NewPost from './pages/forum/NewPost';
 import Post from './pages/forum/Post';
+import UpdatePost from './pages/forum/UpdatePost';
 
 import Monitor from './pages/Monitor';
 import Jiangxi from './pages/monitor/Jiangxi';
@@ -61,8 +62,9 @@ const App: React.FC = () => {
       <Route path="/signup" component={Signup} exact />
 
       <Route path="/forum" component={Forum} />
-      <Route path="/forum/new" component={NewPost} />
-      <Route path="/forum/post/:id" component={Post} />
+      <Route path="/forum/post/new" component={NewPost} />
+      <Route path="/forum/post/detail/:id" component={Post} />
+      <Route path="/forum/post/update/:id" component={UpdatePost} />
 
       <Route path="/monitor" component={Monitor} exact={true} />
       <Route path="/monitor/jiangxi" component={Jiangxi} exact={true} />
