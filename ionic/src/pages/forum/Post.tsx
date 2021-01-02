@@ -66,7 +66,7 @@ const Post: React.FC = (props: any) => {
           <IonTitle>查看帖子</IonTitle>
           {localStorage.getItem("userId") &&
             <IonButtons slot="end">
-              <IonButton color="primary">编辑</IonButton>
+              <IonButton color="primary" href={`/forum/post/update/${props.match.params.id}`}>编辑</IonButton>
               <IonButton color="danger" onClick={() => { setShowDelete(true) }}>删除</IonButton>
               <IonAlert
                 isOpen={showDelete}

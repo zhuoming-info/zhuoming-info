@@ -1,7 +1,7 @@
 import { IonButtons, IonButton, IonHeader, IonTitle, IonToolbar, IonIcon } from '@ionic/react';
 import { logoGithub } from 'ionicons/icons';
 import React from "react";
-import { personOutline } from 'ionicons/icons';
+import { personCircleOutline } from 'ionicons/icons';
 
 interface ContainerProps {
   title: string;
@@ -26,7 +26,7 @@ const HeaderLarge: React.FC<ContainerProps> = ({ title }) => {
           </IonButton>
           {localStorage.getItem("userId") ? (
             <IonButton color="primary" routerLink={'/user'}>
-              <IonIcon icon={personOutline} size="small" slot="start" />个人中心
+              <IonIcon icon={personCircleOutline} slot="start"/>个人中心
             </IonButton>
           ) : <IonButton color="primary" routerLink={'/signup'}>登录｜注册</IonButton>}
         </IonButtons>
