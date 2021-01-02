@@ -23,14 +23,15 @@ const Forum: React.FC = () => {
     }
   ])
   useEffect(() => {
-    axios.get('/api/post')
+    axios.get(`/api/post?sort=${sort}`)
       .then(function (res) {
         setPosts(res.data)
       })
       .catch(function (error) {
         console.log(error);
       });
-  }, [])
+  }, [sort])
+
   return (
     <IonPage>
       {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="forum" /> : (
@@ -62,12 +63,10 @@ const Forum: React.FC = () => {
               style={{ margin: "0 auto" }}>
               {localStorage.getItem("deviceSize") === "large" &&
                 <IonItem lines="none">
-                  {posts.length !== 0 &&
-                    <IonSelect interface="popover" value={sort} onIonChange={e => setSort(e.detail.value)}>
-                      <IonSelectOption value="time">按时间排序</IonSelectOption>
-                      <IonSelectOption value="hot">按热度排序</IonSelectOption>
-                    </IonSelect>
-                  }
+                  <IonSelect interface="popover" value={sort} onIonChange={e => setSort(e.detail.value)}>
+                    <IonSelectOption value="time">按时间排序</IonSelectOption>
+                    <IonSelectOption value="hot">按热度排序</IonSelectOption>
+                  </IonSelect>
                   <IonButtons slot="end">
                     <IonButton href={"/forum/post/new"} color="primary">
                       <IonIcon icon={addOutline}></IonIcon>发帖
