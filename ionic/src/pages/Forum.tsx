@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   IonContent, IonPage, IonHeader, IonToolbar,
   IonTitle, IonRow, IonGrid, IonIcon,
-  IonCol, IonButtons, IonButton,
+  IonCol, IonButtons, IonButton, IonItem
 } from '@ionic/react';
 import { addOutline, swapVerticalOutline } from 'ionicons/icons';
 import HeaderLarge from '../components/HeaderLarge';
@@ -42,9 +42,7 @@ const Forum: React.FC = () => {
             </IonButtons>
             <IonTitle>论坛</IonTitle>
             <IonButtons slot="end">
-              <IonButton href={"/forum/new"}>
-                <IonIcon icon={addOutline}></IonIcon>
-              </IonButton>
+              <IonButton href={"/forum/new"}>添加</IonButton>
             </IonButtons>
           </IonToolbar>
         </IonHeader>
@@ -58,6 +56,20 @@ const Forum: React.FC = () => {
               size-md="8"
               size-lg="6"
               style={{ margin: "0 auto" }}>
+              {localStorage.getItem("deviceSize") === "large" &&
+                <IonItem lines="none">
+                  <IonButtons slot="start">
+                    <IonButton color="primary">
+                      <IonIcon icon={swapVerticalOutline}></IonIcon>筛选
+                    </IonButton>
+                  </IonButtons>
+                  <IonButtons slot="end">
+                    <IonButton href={"/forum/new"} color="primary">
+                      <IonIcon icon={addOutline}></IonIcon>添加
+                    </IonButton>
+                  </IonButtons>
+                </IonItem>
+              }
               {posts.length === 0 ? "暂无帖子" : posts.map((post, index) => {
                 return (
                   <PostCard
