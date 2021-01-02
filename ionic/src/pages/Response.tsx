@@ -5,7 +5,7 @@ import HeaderLarge from '../components/HeaderLarge';
 const Response: React.FC = () => {
   return (
     <IonPage>
-      {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="响应" /> : (
+      {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="response" /> : (
         <IonHeader>
           <IonToolbar>
             <IonTitle>响应</IonTitle>
