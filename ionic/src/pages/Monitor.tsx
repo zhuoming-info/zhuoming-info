@@ -1,5 +1,5 @@
 import React from "react";
-import { IonContent, IonPage, IonHeader, IonToolbar, IonTitle } from '@ionic/react';
+import { IonContent, IonPage, IonHeader, IonToolbar, IonTitle, IonGrid, IonRow, IonCol } from '@ionic/react';
 import HeaderLarge from '../components/HeaderLarge';
 import JiangxiCover from '../components/monitor/jiangxi/JiangxiCover';
 
@@ -14,7 +14,18 @@ const Monitor: React.FC = () => {
         </IonHeader>
       )}
       <IonContent fullscreen>
-        <JiangxiCover />
+        <IonGrid>
+          <IonRow>
+            <IonCol
+              size-xs="12"
+              size-sm="10"
+              size-md="8"
+              size-lg="6"
+              style={{ margin: "0 auto" }}>
+              <JiangxiCover />
+            </IonCol>
+          </IonRow>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );

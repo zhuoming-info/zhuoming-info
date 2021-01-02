@@ -1,5 +1,5 @@
 import React from "react";
-import { IonContent, IonPage, IonHeader, IonToolbar, IonTitle } from '@ionic/react';
+import { IonContent, IonPage, IonHeader, IonToolbar, IonTitle, IonGrid, IonRow, IonCol } from '@ionic/react';
 import HeaderLarge from '../components/HeaderLarge';
 
 const Response: React.FC = () => {
@@ -13,7 +13,18 @@ const Response: React.FC = () => {
         </IonHeader>
       )}
       <IonContent fullscreen>
-        Response
+        <IonGrid>
+          <IonRow>
+            <IonCol
+              size-xs="12"
+              size-sm="10"
+              size-md="8"
+              size-lg="6"
+              style={{ margin: "0 auto" }}>
+              Response
+            </IonCol>
+          </IonRow>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );

@@ -52,7 +52,12 @@ const Forum: React.FC = () => {
       <IonContent fullscreen>
         <IonGrid>
           <IonRow>
-            <IonCol size-sm="12" size-md="10" size-lg="8" style={{ margin: "0 auto" }}>
+            <IonCol
+              size-xs="12"
+              size-sm="10"
+              size-md="8"
+              size-lg="6"
+              style={{ margin: "0 auto" }}>
               {posts.length === 0 ? "暂无帖子" : posts.map((post, index) => {
                 return (
                   <PostCard
