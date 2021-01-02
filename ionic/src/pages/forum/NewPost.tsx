@@ -35,7 +35,7 @@ const NewPost: React.FC = () => {
             </IonButtons>
             <IonTitle>发帖</IonTitle>
             <IonButtons slot="end">
-              <IonButton onClick={onSubmit}>提交</IonButton>
+              <IonButton onClick={onSubmit} color="primary">提交</IonButton>
             </IonButtons>
           </IonToolbar>
         </IonHeader>

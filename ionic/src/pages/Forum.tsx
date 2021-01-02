@@ -46,7 +46,7 @@ const Forum: React.FC = () => {
             </IonButtons>
             <IonTitle>论坛</IonTitle>
             <IonButtons slot="start">
-              <IonButton href={"/forum/new"}>添加</IonButton>
+              <IonButton href={"/forum/new"}>发帖</IonButton>
             </IonButtons>
           </IonToolbar>
         </IonHeader>
@@ -70,7 +70,7 @@ const Forum: React.FC = () => {
                   }
                   <IonButtons slot="end">
                     <IonButton href={"/forum/new"} color="primary">
-                      <IonIcon icon={addOutline}></IonIcon>添加
+                      <IonIcon icon={addOutline}></IonIcon>发帖
                     </IonButton>
                   </IonButtons>
                 </IonItem>

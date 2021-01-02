@@ -51,6 +51,12 @@ const Post: React.FC = (props: any) => {
             <IonBackButton defaultHref="/forum" text="返回" />
           </IonButtons>
           <IonTitle>查看帖子</IonTitle>
+          {localStorage.getItem("userId") &&
+            <IonButtons slot="end">
+              <IonButton color="primary">编辑</IonButton>
+              <IonButton color="danger">删除</IonButton>
+            </IonButtons>
+          }
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
