@@ -56,7 +56,7 @@ const Forum: React.FC = () => {
               size-md="8"
               size-lg="6"
               style={{ margin: "0 auto" }}>
-              {localStorage.getItem("deviceSize") === "large" &&
+              {posts.length !== 0 && localStorage.getItem("deviceSize") === "large" &&
                 <IonItem lines="none">
                   <IonButtons slot="start">
                     <IonButton color="primary">
