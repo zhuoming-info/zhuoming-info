@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import {
   IonContent, IonPage, IonHeader, IonToolbar,
   IonTitle, IonRow, IonGrid, IonIcon,
-  IonCol, IonButtons, IonButton, IonItem
+  IonCol, IonButtons, IonButton, IonItem, IonSelect, IonSelectOption
 } from '@ionic/react';
-import { addOutline, swapVerticalOutline } from 'ionicons/icons';
+import { addOutline } from 'ionicons/icons';
 import HeaderLarge from '../components/HeaderLarge';
 import axios from 'axios';
 import PostCard from '../components/forum/PostCard'
 
 const Forum: React.FC = () => {
+  const [sort, setSort] = useState("time")
   const [posts, setPosts] = useState([
     {
       id: "",
@@ -35,13 +36,16 @@ const Forum: React.FC = () => {
       {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="forum" /> : (
         <IonHeader>
           <IonToolbar>
-            <IonButtons slot="start">
+            <IonButtons slot="end">
               <IonButton>
-                <IonIcon icon={swapVerticalOutline}></IonIcon>
+                <IonSelect interface="popover" value={sort} onIonChange={e => setSort(e.detail.value)}>
+                  <IonSelectOption value="time">按时间</IonSelectOption>
+                  <IonSelectOption value="hot">按热度</IonSelectOption>
+                </IonSelect>
               </IonButton>
             </IonButtons>
             <IonTitle>论坛</IonTitle>
-            <IonButtons slot="end">
+            <IonButtons slot="start">
               <IonButton href={"/forum/new"}>添加</IonButton>
             </IonButtons>
           </IonToolbar>
@@ -59,11 +63,10 @@ const Forum: React.FC = () => {
               {localStorage.getItem("deviceSize") === "large" &&
                 <IonItem lines="none">
                   {posts.length !== 0 &&
-                    <IonButtons slot="start">
-                      <IonButton color="primary">
-                        <IonIcon icon={swapVerticalOutline}></IonIcon>筛选
-                      </IonButton>
-                    </IonButtons>
+                    <IonSelect interface="popover" value={sort} onIonChange={e => setSort(e.detail.value)}>
+                      <IonSelectOption value="time">按时间排序</IonSelectOption>
+                      <IonSelectOption value="hot">按热度排序</IonSelectOption>
+                    </IonSelect>
                   }
                   <IonButtons slot="end">
                     <IonButton href={"/forum/new"} color="primary">
