@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   IonContent, IonPage, IonHeader, IonToolbar,
   IonTitle, IonRow, IonGrid, IonIcon,
-  IonCol, IonButtons, IonButton, IonItem, IonSelect, IonSelectOption
+  IonCol, IonButtons, IonButton, IonItem, IonSelect, IonSelectOption, IonCard, IonCardHeader
 } from '@ionic/react';
 import { addOutline } from 'ionicons/icons';
 import HeaderLarge from '../components/HeaderLarge';
@@ -41,7 +41,7 @@ const Forum: React.FC = () => {
               <IonButton>
                 <IonSelect interface="popover" value={sort} onIonChange={e => setSort(e.detail.value)}>
                   <IonSelectOption value="time">按时间</IonSelectOption>
-                  <IonSelectOption value="hot">按热度</IonSelectOption>
+                  <IonSelectOption value="like">按点赞</IonSelectOption>
                 </IonSelect>
               </IonButton>
             </IonButtons>
@@ -65,7 +65,7 @@ const Forum: React.FC = () => {
                 <IonItem lines="none">
                   <IonSelect interface="popover" value={sort} onIonChange={e => setSort(e.detail.value)}>
                     <IonSelectOption value="time">按时间排序</IonSelectOption>
-                    <IonSelectOption value="hot">按热度排序</IonSelectOption>
+                    <IonSelectOption value="like">按点赞排序</IonSelectOption>
                   </IonSelect>
                   <IonButtons slot="end">
                     <IonButton href={"/forum/post/new"} color="primary">
@@ -74,7 +74,11 @@ const Forum: React.FC = () => {
                   </IonButtons>
                 </IonItem>
               }
-              {posts.length === 0 ? "暂无帖子" : posts.map((post, index) => {
+              {posts.length === 0 ? (
+                <IonCard>
+                  <IonCardHeader>暂无帖子</IonCardHeader>
+                </IonCard>
+              ) : posts.map((post, index) => {
                 return (
                   <PostCard
                     key={index}
