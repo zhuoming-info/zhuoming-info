@@ -12,6 +12,8 @@ import CommentItem from '../../components/forum/CommentItem'
 
 const Post: React.FC = (props: any) => {
   const [showDelete, setShowDelete] = useState(false);
+  const [isLike, setIsLike] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
   const [post, setPost] = useState(
     {
       id: "",
@@ -33,6 +35,10 @@ const Post: React.FC = (props: any) => {
     axios.get(`/api/post/${props.match.params.id}`)
       .then(function (post) {
         setPost(post.data)
+        setLikeCount(post.data.likeUsersId.length)
+        if (post.data.likeUsersId.includes(localStorage.getItem("userId"))) {
+          setIsLike(true)
+        }
         axios.get(`/api/user/${post.data.userId}`)
           .then(function (user) {
             setUser(user.data)
@@ -56,6 +62,17 @@ const Post: React.FC = (props: any) => {
       })
   }
 
+  const onLike = () => {
+    axios.put(`/api/post/like/${props.match.params.id}`)
+      .then(() => {
+        setLikeCount(isLike ? likeCount - 1 : likeCount + 1)
+        setIsLike(!isLike)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -64,7 +81,7 @@ const Post: React.FC = (props: any) => {
             <IonBackButton defaultHref="/forum" text="返回" />
           </IonButtons>
           <IonTitle>查看帖子</IonTitle>
-          {localStorage.getItem("userId") &&
+          {localStorage.getItem("userId") === post.userId &&
             <IonButtons slot="end">
               <IonButton color="primary" href={`/forum/post/update/${props.match.params.id}`}>编辑</IonButton>
               <IonButton color="danger" onClick={() => { setShowDelete(true) }}>删除</IonButton>
@@ -102,9 +119,9 @@ const Post: React.FC = (props: any) => {
               <IonItem>
                 <IonBadge color="light">#{post.tag}</IonBadge>
                 <IonButtons slot="end">
-                  <IonButton color="medium">
+                  <IonButton color={isLike ? "danger" : "medium"} onClick={() => { onLike() }}>
                     <IonIcon icon={heartOutline}></IonIcon>
-                    {post.likeUsersId.length}
+                    {likeCount}
                   </IonButton>
                   <IonButton color="medium">
                     <IonIcon icon={chatbubblesOutline}></IonIcon>
