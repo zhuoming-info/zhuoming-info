@@ -21,7 +21,7 @@ const Product: React.FC = () => {
               size-md="8"
               size-lg="6"
               style={{ margin: "0 auto" }}>
-              <IonItem>
+              <IonItem button>
                 <IonThumbnail slot="start">
                   <IonImg src="/assets/product/folder.svg" />
                 </IonThumbnail>

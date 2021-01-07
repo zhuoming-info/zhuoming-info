@@ -1,7 +1,7 @@
 import React from "react";
 import { IonContent, IonPage, IonHeader, IonToolbar, IonTitle, IonGrid, IonRow, IonCol } from '@ionic/react';
 import HeaderLarge from '../components/HeaderLarge';
-import JiangxiCover from '../components/monitor/jiangxi/JiangxiCover';
+import JiangxiRiverWarning from '../components/monitor/JiangxiRiverWarningCover';
 
 const Monitor: React.FC = () => {
   return (
@@ -22,7 +22,7 @@ const Monitor: React.FC = () => {
               size-md="8"
               size-lg="6"
               style={{ margin: "0 auto" }}>
-              <JiangxiCover />
+              <JiangxiRiverWarning />
             </IonCol>
           </IonRow>
         </IonGrid>

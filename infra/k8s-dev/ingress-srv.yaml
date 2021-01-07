@@ -22,6 +22,10 @@ spec:
             backend:
               serviceName: comment-srv
               servicePort: 3000
+          - path: /api/jiangxi/?(.*)
+            backend:
+              serviceName: jiangxi-srv
+              servicePort: 3000
           - path: /?(.*)
             backend:
               serviceName: ionic-srv
