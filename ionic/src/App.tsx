@@ -29,7 +29,7 @@ import Post from './pages/forum/Post';
 import UpdatePost from './pages/forum/UpdatePost';
 
 import Monitor from './pages/Monitor';
-import Jiangxi from './pages/monitor/Jiangxi';
+import JiangxiRiverWarning from './pages/monitor/JiangxiRiverWarning';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -67,7 +67,7 @@ const App: React.FC = () => {
       <Route path="/forum/post/update/:id" component={UpdatePost} />
 
       <Route path="/monitor" component={Monitor} exact={true} />
-      <Route path="/monitor/jiangxi" component={Jiangxi} exact={true} />
+      <Route path="/monitor/jiangxi-river-warning" component={JiangxiRiverWarning} exact={true} />
 
       <Route path="/response" component={Response} exact={true} />
       <Route path="/product" component={Product} />

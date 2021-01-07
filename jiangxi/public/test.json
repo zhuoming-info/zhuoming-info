@@ -1,0 +1,5 @@
+{
+  "msg": "执行成功",
+  "data": "<h1 class='title'>暂无最近24小时内，1小时雨量超过30毫米的测站</h1>\n<h1 class='title'>暂无最近24小时内，3小时雨量超过50毫米的测站</h1>\n<h1 class='title'>最近<font color='red'>24小时</font>内雨量超过<font color='red'>80毫米</font>的测站（<font color='red'>1条</font>）</h1><table cellpadding='0' cellspacing='0' width='776' align='center'>\n <tr><td align='center'>\n <table class='main' width='99%' border='0' align='center' cellspacing='1'>\n  <tr bgcolor='336699' align='center'>\n   <th width='10%'>县　名</th>\n   <th width='28%'>详细地址</th>\n   <th width='15%'>站　名</th>\n  <th>雨量及发生时间段</th></tr>\n  <tr height='22' align='left' onfocusin=\"this.className='selected'\" onfocusout=\"this.className='unselected'\">\n   <td align='center'>弋阳县</td>\n   <td>　江西省上饶弋阳县曹溪镇外洪村</td>\n   <td>　程家源水库</td>\n   <td align='center' style='cursor: hand;'>\n1月6日7点~7日8点　:　84.0毫米   </td></tr>\n </table>\n </td></tr>\n</table>\n<br><center>更新时间: 2021-01-07 07:00:06</center>",
+  "status": 1
+}
