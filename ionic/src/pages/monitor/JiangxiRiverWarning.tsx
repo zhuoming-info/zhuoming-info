@@ -71,7 +71,6 @@ const JiangxiRiverWarning: React.FC = () => {
           rootProps={{ 'data-testid': '1' }}
         />
       </IonContent>
-      数据来源:http://slt.jiangxi.gov.cn/col/col29334/index.html
     </IonPage>
   );
 };
