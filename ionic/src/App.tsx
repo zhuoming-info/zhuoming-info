@@ -10,12 +10,14 @@ import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import { pulseOutline, volumeHighOutline, folderOutline, chatbubblesOutline, personOutline } from 'ionicons/icons';
 
-import Response from './pages/Response';
-import Product from './pages/Product';
+import Response from './pages/response/Response';
+
+import Product from './pages/product/Product';
+import Folder from './pages/product/Folder';
 
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
-import User from './pages/User';
+import User from './pages/user/User';
 import UserFavorite from './pages/user/UserFavorite';
 import UserNotice from './pages/user/UserNotice';
 import UserPost from './pages/user/UserPost';
@@ -23,12 +25,12 @@ import UserSetting from './pages/user/UserSetting';
 import UserTask from './pages/user/UserTask';
 import UserTrash from './pages/user/UserTrash';
 
-import Forum from './pages/Forum';
+import Forum from './pages/forum/Forum';
 import NewPost from './pages/forum/NewPost';
 import Post from './pages/forum/Post';
 import UpdatePost from './pages/forum/UpdatePost';
 
-import Monitor from './pages/Monitor';
+import Monitor from './pages/monitor/Monitor';
 import JiangxiRiverWarning from './pages/monitor/JiangxiRiverWarning';
 
 /* Core CSS required for Ionic components to work properly */
@@ -70,7 +72,10 @@ const App: React.FC = () => {
       <Route path="/monitor/jiangxi-river-warning" component={JiangxiRiverWarning} exact={true} />
 
       <Route path="/response" component={Response} exact={true} />
+
       <Route path="/product" component={Product} />
+      <Route path="/product/folder/:id" component={Folder} />
+
       <Route path="/" render={() => <Redirect to="/monitor" />} exact={true} />
     </IonRouterOutlet>
   )
