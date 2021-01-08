@@ -11,7 +11,7 @@ const JiangxiRiverWarning: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/" />
+            <IonBackButton defaultHref="/" text="返回"/>
           </IonButtons>
           <IonTitle>江西省｜中小河流洪水预警</IonTitle>
         </IonToolbar>

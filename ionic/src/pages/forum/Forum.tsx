@@ -5,9 +5,9 @@ import {
   IonCol, IonButtons, IonButton, IonItem, IonSelect, IonSelectOption, IonCard, IonCardHeader
 } from '@ionic/react';
 import { addOutline } from 'ionicons/icons';
-import HeaderLarge from '../components/HeaderLarge';
+import HeaderLarge from '../../components/HeaderLarge';
 import axios from 'axios';
-import PostCard from '../components/forum/PostCard'
+import PostCard from '../../components/forum/PostCard'
 
 const Forum: React.FC = () => {
   const [sort, setSort] = useState("time")

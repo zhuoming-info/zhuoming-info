@@ -1,7 +1,7 @@
 import React from "react";
 import { IonSplitPane, IonPage, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, IonGrid, IonRow, IonCol } from '@ionic/react';
-import UserMenu from '../components/user/UserMenu'
-import Signin from './Signin'
+import UserMenu from '../../components/user/UserMenu'
+import Signin from '../Signin'
 
 const User: React.FC = () => {
 
@@ -11,9 +11,9 @@ const User: React.FC = () => {
     )
   } else {
     return (
-      <IonSplitPane contentId="main" when="lg">
+      <IonSplitPane contentId="user" when="lg">
         <UserMenu />
-        <IonPage id="main">
+        <IonPage id="user">
           <IonHeader>
             <IonToolbar>
               <IonButtons slot="start">

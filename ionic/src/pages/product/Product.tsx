@@ -1,6 +1,6 @@
 import React from "react";
-import { IonContent, IonPage, IonHeader, IonToolbar, IonTitle, IonItem, IonThumbnail, IonLabel, IonImg, IonGrid, IonRow, IonCol } from '@ionic/react';
-import HeaderLarge from '../components/HeaderLarge';
+import { IonContent, IonPage, IonHeader, IonToolbar, IonTitle, IonItem, IonThumbnail, IonLabel, IonImg, IonGrid, IonRow, IonCol, IonButtons, IonButton } from '@ionic/react';
+import HeaderLarge from '../../components/HeaderLarge';
 
 const Product: React.FC = () => {
   return (
@@ -9,6 +9,9 @@ const Product: React.FC = () => {
         <IonHeader>
           <IonToolbar>
             <IonTitle>产品</IonTitle>
+            <IonButtons slot="end">
+              <IonButton>新建</IonButton>
+            </IonButtons>
           </IonToolbar>
         </IonHeader>
       )}
@@ -21,7 +24,7 @@ const Product: React.FC = () => {
               size-md="8"
               size-lg="6"
               style={{ margin: "0 auto" }}>
-              <IonItem button>
+              <IonItem button href={'/product/folder/123'}>
                 <IonThumbnail slot="start">
                   <IonImg src="/assets/product/folder.svg" />
                 </IonThumbnail>

@@ -1,14 +1,15 @@
 import React from "react";
 import { IonContent, IonPage, IonHeader, IonToolbar, IonTitle, IonGrid, IonRow, IonCol } from '@ionic/react';
-import HeaderLarge from '../components/HeaderLarge';
+import HeaderLarge from '../../components/HeaderLarge';
+import JiangxiRiverWarning from '../../components/monitor/JiangxiRiverWarningCover';
 
-const Response: React.FC = () => {
+const Monitor: React.FC = () => {
   return (
     <IonPage>
-      {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="response" /> : (
+      {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="monitor" /> : (
         <IonHeader>
           <IonToolbar>
-            <IonTitle>响应</IonTitle>
+            <IonTitle>监测</IonTitle>
           </IonToolbar>
         </IonHeader>
       )}
@@ -21,7 +22,7 @@ const Response: React.FC = () => {
               size-md="8"
               size-lg="6"
               style={{ margin: "0 auto" }}>
-              Response
+              <JiangxiRiverWarning />
             </IonCol>
           </IonRow>
         </IonGrid>
@@ -30,4 +31,6 @@ const Response: React.FC = () => {
   );
 };
 
-export default Response;
+export default Monitor;
+
+
