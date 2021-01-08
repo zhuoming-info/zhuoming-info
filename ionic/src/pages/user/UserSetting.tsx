@@ -50,9 +50,9 @@ const UserSetting: React.FC = () => {
     )
   } else {
     return (
-      <IonSplitPane contentId="main" when="lg">
+      <IonSplitPane contentId="user" when="lg">
         <UserMenu />
-        <IonPage id="main">
+        <IonPage id="user">
           <IonHeader>
             <IonToolbar>
               <IonButtons>

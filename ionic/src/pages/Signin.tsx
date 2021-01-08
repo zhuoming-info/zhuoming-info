@@ -27,7 +27,7 @@ const Signin: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/" />
+            {localStorage.getItem("deviceSize") === "large" && <IonBackButton defaultHref="/" />}
           </IonButtons>
           <IonTitle>登录</IonTitle>
         </IonToolbar>
