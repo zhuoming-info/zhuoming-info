@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import axios from 'axios';
+import cheerio from 'cheerio';
 
 const router = express.Router();
 
@@ -10,7 +11,9 @@ router.get('/api/jiangxi/river-warning', async (req: Request, res: Response) => 
     axios.get('http://111.75.205.67:7080/syq/findsliderain/findSlideRainHandler')
       .then((res) => {
         if (res.data.msg === '执行成功' && res.data.status === 1) {
-          console.log(res.data.data)
+          // console.log(res.data.data)
+          const $ = cheerio.load(res.data.data);
+          console.log($('th').text());
         } else {
           console.log(res.data)
         }
