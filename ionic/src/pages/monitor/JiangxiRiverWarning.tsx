@@ -1,7 +1,8 @@
 import React from "react";
 import {
   IonContent, IonPage, IonHeader, IonToolbar,
-  IonTitle, IonButtons, IonBackButton, IonToggle
+  IonTitle, IonButtons, IonBackButton, IonToggle,
+  IonSpinner
 } from '@ionic/react';
 import { Chart } from 'react-google-charts';
 
@@ -24,7 +25,7 @@ const JiangxiRiverWarning: React.FC = () => {
           width={'100%'}
           height={'100%'}
           chartType="Table"
-          loader={<div>Loading Chart</div>}
+          loader={<div style={{ textAlign: "center", position: "absolute", left: 0, right: 0, top: "50%" }}><IonSpinner /></div>}
           data={[
             [
               { type: 'string', label: '县名' },
