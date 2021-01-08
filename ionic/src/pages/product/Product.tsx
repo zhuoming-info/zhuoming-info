@@ -24,7 +24,7 @@ const Product: React.FC = () => {
               size-md="8"
               size-lg="6"
               style={{ margin: "0 auto" }}>
-              <IonItem button routerLink={'/product/folder/123'}>
+              <IonItem button href={'/product/folder/123'}>
                 <IonThumbnail slot="start">
                   <IonImg src="/assets/product/folder.svg" />
                 </IonThumbnail>
