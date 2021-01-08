@@ -1,7 +1,7 @@
 import React from "react";
 import {
   IonContent, IonPage, IonHeader, IonToolbar,
-  IonTitle, IonButtons, IonBackButton
+  IonTitle, IonButtons, IonBackButton, IonToggle
 } from '@ionic/react';
 import { Chart } from 'react-google-charts';
 
@@ -11,9 +11,12 @@ const JiangxiRiverWarning: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/" text="返回"/>
+            <IonBackButton defaultHref="/" text="返回" />
           </IonButtons>
           <IonTitle>江西省｜中小河流洪水预警</IonTitle>
+          <IonButtons slot="end">
+            <IonToggle color="primary" />
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen forceOverscroll scrollY={false}>
