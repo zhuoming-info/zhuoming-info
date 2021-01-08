@@ -1,22 +1,28 @@
-import express from 'express';
-import axios from 'axios';
-import { json } from 'body-parser';
-var path = require('path');
+import mongoose from 'mongoose';
+import { app } from './app';
 
-const app = express();
-app.use(json());
+const start = async () => {
+  if (!process.env.JWT_KEY) {
+    throw new Error('JWT_KEY must be defined');
+  }
+  if (!process.env.MONGO_URI) {
+    throw new Error('MONGO_URI must be defined');
+  }
 
-app.use(express.static(path.join(__dirname, 'public')));
+  try {
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    });
+    console.log('Connected to MongoDb');
+  } catch (err) {
+    console.error(err);
+  }
 
-const getHtml = () => {
-  axios.get('http://111.75.205.67:7080/syq/findsliderain/findSlideRainHandler')
-    .then((res) => {
-      console.log(res.data.data)
-    })
-}
+  app.listen(3000, () => {
+    console.log('Listening on port 3000!!!!!!!!');
+  });
+};
 
-setInterval(getHtml, 1000 * 60 * 60);
-
-app.listen(3000, () => {
-  console.log('Listening on port 3000');
-});
+start();
