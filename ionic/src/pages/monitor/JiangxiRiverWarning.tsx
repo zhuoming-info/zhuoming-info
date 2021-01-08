@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   IonContent, IonPage, IonHeader, IonToolbar,
   IonTitle, IonButtons, IonBackButton, IonToggle,
@@ -7,6 +7,7 @@ import {
 import { Chart } from 'react-google-charts';
 
 const JiangxiRiverWarning: React.FC = () => {
+  const [checked, setChecked] = useState(false);
   return (
     <IonPage>
       <IonHeader>
@@ -16,7 +17,7 @@ const JiangxiRiverWarning: React.FC = () => {
           </IonButtons>
           <IonTitle>江西省｜中小河流洪水预警</IonTitle>
           <IonButtons slot="end">
-            <IonToggle color="primary" />
+            <IonToggle color="primary" checked={checked} onIonChange={e => setChecked(e.detail.checked)} />
           </IonButtons>
         </IonToolbar>
       </IonHeader>
