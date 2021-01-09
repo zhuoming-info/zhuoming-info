@@ -15,14 +15,14 @@ const Folder: React.FC = () => {
             <IonButtons slot="start">
               <IonMenuButton />
             </IonButtons>
-            <IonTitle>概述</IonTitle>
+            <IonTitle>参与开发指南</IonTitle>
             <IonButtons slot="end">
               <IonButton>编辑</IonButton>
             </IonButtons>
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen>
-          content
+          目录
         </IonContent>
       </IonPage>
     </IonSplitPane>

@@ -11,7 +11,7 @@ const DocumentMenu: React.FC = () => {
         <IonToolbar>
           <IonButtons slot="start">
             <IonButton>
-              <IonBackButton defaultHref="/document" />
+              <IonBackButton defaultHref="/document" text="返回"/>
             </IonButton>
           </IonButtons>
         </IonToolbar>
