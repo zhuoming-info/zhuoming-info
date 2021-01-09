@@ -3,12 +3,12 @@ import {
   IonContent, IonPage, IonHeader, IonToolbar, IonTitle, IonButtons,
   IonButton, IonMenuButton, IonSplitPane
 } from '@ionic/react';
-import ProductMenu from '../../components/product/ProductMenu';
+import DocumentMenu from '../../components/document/DocumentMenu';
 
 const Folder: React.FC = () => {
   return (
     <IonSplitPane contentId="folder" when="lg">
-      <ProductMenu />
+      <DocumentMenu />
       <IonPage id="folder">
         <IonHeader>
           <IonToolbar>

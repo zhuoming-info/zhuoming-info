@@ -2,13 +2,13 @@ import React from "react";
 import { IonContent, IonPage, IonHeader, IonToolbar, IonTitle, IonItem, IonThumbnail, IonLabel, IonImg, IonGrid, IonRow, IonCol, IonButtons, IonButton } from '@ionic/react';
 import HeaderLarge from '../../components/HeaderLarge';
 
-const Product: React.FC = () => {
+const Document: React.FC = () => {
   return (
     <IonPage>
-      {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="product" /> : (
+      {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="document" /> : (
         <IonHeader>
           <IonToolbar>
-            <IonTitle>产品</IonTitle>
+            <IonTitle>文档</IonTitle>
             <IonButtons slot="end">
               <IonButton>新建</IonButton>
             </IonButtons>
@@ -24,12 +24,12 @@ const Product: React.FC = () => {
               size-md="8"
               size-lg="6"
               style={{ margin: "0 auto" }}>
-              <IonItem button href={'/product/folder/123'}>
+              <IonItem button href={'/document/folder/123'}>
                 <IonThumbnail slot="start">
-                  <IonImg src="/assets/product/folder.svg" />
+                  <IonImg src="/assets/document/folder.svg" />
                 </IonThumbnail>
                 <IonLabel>
-                  <h3>长江II级洪灾响应</h3>
+                  <h3>（示例）参与开发指南</h3>
                   <p>2020/12/13 23:10</p>
                 </IonLabel>
               </IonItem>
@@ -41,5 +41,5 @@ const Product: React.FC = () => {
   );
 };
 
-export default Product;
+export default Document;
 
