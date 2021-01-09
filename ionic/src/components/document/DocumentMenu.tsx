@@ -23,7 +23,7 @@ const DocumentMenu: React.FC = () => {
           <IonItem button>使用的技术</IonItem>
           <IonItem button>环境搭建</IonItem>
           <IonItem button>如何开发一个完全独立的服务</IonItem>
-          <IonItem button>如何开发与其他服务交互的服务</IonItem>
+          <IonItem button>如何开发一个不完全独立的服务</IonItem>
         </IonList>
       </IonContent>
     </IonMenu>
