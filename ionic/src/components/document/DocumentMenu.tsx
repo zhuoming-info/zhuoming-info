@@ -4,14 +4,14 @@ import {
 } from '@ionic/react';
 import React from "react";
 
-const ProductMenu: React.FC = () => {
+const DocumentMenu: React.FC = () => {
   return (
     <IonMenu contentId="folder" type="overlay" side="start">
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
             <IonButton>
-              <IonBackButton defaultHref="/product" />
+              <IonBackButton defaultHref="/document" />
             </IonButton>
           </IonButtons>
         </IonToolbar>
@@ -30,4 +30,4 @@ const ProductMenu: React.FC = () => {
   )
 };
 
-export default ProductMenu;
+export default DocumentMenu;

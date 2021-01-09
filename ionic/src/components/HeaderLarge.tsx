@@ -17,7 +17,7 @@ const HeaderLarge: React.FC<ContainerProps> = ({ title }) => {
           </IonButton>
           <IonButton color={title === "monitor" ? "primary" : "dark"} routerLink={'/monitor'}>监测</IonButton>
           <IonButton color={title === "response" ? "primary" : "dark"} routerLink={'/response'}>响应</IonButton>
-          <IonButton color={title === "product" ? "primary" : "dark"} routerLink={'/product'}>产品</IonButton>
+          <IonButton color={title === "document" ? "primary" : "dark"} routerLink={'/document'}>文档</IonButton>
           <IonButton color={title === "forum" ? "primary" : "dark"} routerLink={'/forum'}>论坛</IonButton>
         </IonButtons>
         <IonButtons slot="end">

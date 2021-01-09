@@ -12,8 +12,8 @@ import { pulseOutline, volumeHighOutline, folderOutline, chatbubblesOutline, per
 
 import Response from './pages/response/Response';
 
-import Product from './pages/product/Product';
-import Folder from './pages/product/Folder';
+import Document from './pages/document/Document';
+import Folder from './pages/document/Folder';
 
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
@@ -73,8 +73,8 @@ const App: React.FC = () => {
 
       <Route path="/response" component={Response} exact={true} />
 
-      <Route path="/product" component={Product} />
-      <Route path="/product/folder/:id" component={Folder} />
+      <Route path="/document" component={Document} />
+      <Route path="/document/folder/:id" component={Folder} />
 
       <Route path="/" render={() => <Redirect to="/monitor" />} exact={true} />
     </IonRouterOutlet>
@@ -92,9 +92,9 @@ const App: React.FC = () => {
           <IonIcon icon={volumeHighOutline} size="small" />
           <IonLabel>响应</IonLabel>
         </IonTabButton>
-        <IonTabButton tab="product" href="/product">
+        <IonTabButton tab="document" href="/document">
           <IonIcon icon={folderOutline} size="small" />
-          <IonLabel>产品</IonLabel>
+          <IonLabel>文档</IonLabel>
         </IonTabButton>
         <IonTabButton tab="forum" href="/forum">
           <IonIcon icon={chatbubblesOutline} size="small" />
