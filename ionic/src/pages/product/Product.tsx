@@ -29,7 +29,7 @@ const Product: React.FC = () => {
                   <IonImg src="/assets/product/folder.svg" />
                 </IonThumbnail>
                 <IonLabel>
-                  <h3>长江II级洪灾响应</h3>
+                  <h3>（示例）参与开发指南</h3>
                   <p>2020/12/13 23:10</p>
                 </IonLabel>
               </IonItem>
