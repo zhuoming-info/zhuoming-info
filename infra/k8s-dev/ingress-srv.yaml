@@ -14,17 +14,17 @@ spec:
             backend:
               serviceName: user-srv
               servicePort: 3000
-          - path: /api/post/?(.*)
+          - path: /api/forum/?(.*)
             backend:
-              serviceName: post-srv
+              serviceName: forum-srv
               servicePort: 3000
-          - path: /api/comment/?(.*)
+          - path: /api/monitor/?(.*)
             backend:
-              serviceName: comment-srv
+              serviceName: monitor-srv
               servicePort: 3000
-          - path: /api/jiangxi/?(.*)
+          - path: /api/document/?(.*)
             backend:
-              serviceName: jiangxi-srv
+              serviceName: document-srv
               servicePort: 3000
           - path: /?(.*)
             backend:

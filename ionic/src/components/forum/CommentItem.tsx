@@ -26,7 +26,7 @@ const CommentItem: React.FC = (commentsId) => {
     }
   )
   useEffect(() => {
-    axios.get(`/api/comment/${commentsId}`)
+    axios.get(`/api/forum/comment/${commentsId}`)
       .then(function (comment) {
         setComment(comment.data)
         axios.get(`/api/user/${comment.data.userId}`)

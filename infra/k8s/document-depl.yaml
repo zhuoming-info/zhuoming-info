@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: document-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: document
+  template:
+    metadata:
+      labels:
+        app: document
+    spec:
+      containers:
+        - name: document
+          image: faiyuching/document
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://document-mongo-srv:27017/document'
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: document-srv
+spec:
+  selector:
+    app: document
+  ports:
+    - name: document
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

@@ -32,7 +32,7 @@ const Post: React.FC = (props: any) => {
     }
   )
   useEffect(() => {
-    axios.get(`/api/post/${props.match.params.id}`)
+    axios.get(`/api/forum/post/${props.match.params.id}`)
       .then(function (post) {
         setPost(post.data)
         setLikeCount(post.data.likeUsersId.length)
@@ -53,7 +53,7 @@ const Post: React.FC = (props: any) => {
   }, [props.match.params.id])
 
   const onDelete = () => {
-    axios.delete(`/api/post/${props.match.params.id}`)
+    axios.delete(`/api/forum/post/${props.match.params.id}`)
       .then(() => {
         window.location.href = "/forum"
       })
@@ -63,7 +63,7 @@ const Post: React.FC = (props: any) => {
   }
 
   const onLike = () => {
-    axios.put(`/api/post/like/${props.match.params.id}`)
+    axios.put(`/api/forum/post/like/${props.match.params.id}`)
       .then(() => {
         setLikeCount(isLike ? likeCount - 1 : likeCount + 1)
         setIsLike(!isLike)

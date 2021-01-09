@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitor-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monitor
+  template:
+    metadata:
+      labels:
+        app: monitor
+    spec:
+      containers:
+        - name: monitor
+          image: faiyuching/monitor
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://monitor-mongo-srv:27017/monitor'
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: monitor-srv
+spec:
+  selector:
+    app: monitor
+  ports:
+    - name: monitor
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
