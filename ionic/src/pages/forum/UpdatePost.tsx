@@ -13,7 +13,7 @@ const UpdatePost: React.FC = (props: any) => {
   const [content, setContent] = useState("")
 
   useEffect(() => {
-    axios.get(`/api/post/${props.match.params.id}`)
+    axios.get(`/api/forum/post/${props.match.params.id}`)
       .then(function (post) {
         setTag(post.data.tag)
         setContent(post.data.content)
@@ -24,7 +24,7 @@ const UpdatePost: React.FC = (props: any) => {
   }, [props.match.params.id])
 
   const onSubmit = () => {
-    axios.put(`/api/post/${props.match.params.id}`, { tag, content })
+    axios.put(`/api/forum/post/${props.match.params.id}`, { tag, content })
       .then(function () {
         window.location.href = "/forum"
       })

@@ -1,19 +1,18 @@
 import {
   IonContent, IonItem, IonList, IonMenu, IonHeader, IonToolbar,
-  IonButtons, IonButton, IonBackButton
+  IonButtons, IonTitle, IonBackButton
 } from '@ionic/react';
 import React from "react";
 
 const DocumentMenu: React.FC = () => {
   return (
-    <IonMenu contentId="folder" type="overlay" side="start">
+    <IonMenu contentId="folder" type="reveal" side="start">
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonButton>
-              <IonBackButton defaultHref="/document" text="返回"/>
-            </IonButton>
+            {localStorage.getItem("deviceSize") === "large" && <IonBackButton defaultHref="/document" />}
           </IonButtons>
+          <IonTitle>目录</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

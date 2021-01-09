@@ -25,24 +25,24 @@ build:
         manual:
           - src: 'src/**/*.tsx'
             dest: .
-    - image: faiyuching/post
-      context: post
+    - image: faiyuching/forum
+      context: forum
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: faiyuching/comment
-      context: comment
+    - image: faiyuching/monitor
+      context: monitor
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: faiyuching/jiangxi
-      context: jiangxi
+    - image: faiyuching/document
+      context: document
       docker:
         dockerfile: Dockerfile
       sync:

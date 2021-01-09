@@ -23,7 +23,7 @@ const Forum: React.FC = () => {
     }
   ])
   useEffect(() => {
-    axios.get(`/api/post?sort=${sort}`)
+    axios.get(`/api/forum/post?sort=${sort}`)
       .then(function (res) {
         setPosts(res.data)
       })

@@ -1,7 +1,7 @@
 import React from "react";
 import {
   IonContent, IonPage, IonHeader, IonToolbar, IonTitle, IonButtons,
-  IonButton, IonMenuButton, IonSplitPane
+  IonButton, IonMenuButton, IonSplitPane, IonGrid, IonRow, IonCol
 } from '@ionic/react';
 import DocumentMenu from '../../components/document/DocumentMenu';
 
@@ -22,7 +22,13 @@ const Folder: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen>
-          目录
+          <IonGrid>
+            <IonRow>
+              <IonCol>
+                toc
+              </IonCol>
+            </IonRow>
+          </IonGrid>
         </IonContent>
       </IonPage>
     </IonSplitPane>

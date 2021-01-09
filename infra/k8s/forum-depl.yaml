@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forum-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: forum
+  template:
+    metadata:
+      labels:
+        app: forum
+    spec:
+      containers:
+        - name: forum
+          image: faiyuching/forum
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://forum-mongo-srv:27017/forum'
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: forum-srv
+spec:
+  selector:
+    app: forum
+  ports:
+    - name: forum
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
