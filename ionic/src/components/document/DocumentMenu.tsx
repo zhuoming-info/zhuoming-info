@@ -2,7 +2,7 @@ import {
   IonContent, IonItem, IonList, IonMenu, IonHeader, IonToolbar,
   IonButtons, IonTitle, IonBackButton, IonIcon, IonLabel
 } from '@ionic/react';
-import { chevronForwardOutline, chevronDownOutline } from 'ionicons/icons';
+import { chevronForwardOutline, chevronDownOutline, addOutline } from 'ionicons/icons';
 import React, { useState } from "react";
 
 const DocumentMenu: React.FC = () => {
@@ -34,6 +34,10 @@ const DocumentMenu: React.FC = () => {
               <IonItem button detailIcon="">
                 <IonIcon /><IonLabel>3.three</IonLabel>
               </IonItem>
+              <IonItem button detailIcon="">
+                <IonIcon /><IonIcon size="small" icon={addOutline} />
+                <IonLabel>Add a page</IonLabel>
+              </IonItem>
             </>
           }
           <IonItem button detailIcon="" onClick={() => { setOpen(!open) }}>
@@ -55,6 +59,10 @@ const DocumentMenu: React.FC = () => {
           <IonItem button detailIcon="" onClick={() => { setOpen(!open) }}>
             <IonIcon size="small" icon={open ? chevronDownOutline : chevronForwardOutline} />
             <IonLabel>如何开发一个不完全独立的服务</IonLabel>
+          </IonItem>
+          <IonItem button detailIcon="">
+            <IonIcon size="small" icon={addOutline} />
+            <IonLabel>Add a page</IonLabel>
           </IonItem>
         </IonList>
         <IonItem lines="none"></IonItem>
