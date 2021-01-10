@@ -104,7 +104,7 @@ const UserMenu: React.FC = () => {
       })
   }
   return (
-    <IonMenu contentId="main" type="overlay" side="start">
+    <IonMenu contentId="user" type="overlay" side="start">
       {localStorage.getItem("deviceSize") === "large" && (
         <IonHeader className="ion-no-border">
           <IonToolbar>
