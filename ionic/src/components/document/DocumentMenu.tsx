@@ -1,6 +1,6 @@
 import {
   IonContent, IonItem, IonList, IonMenu, IonHeader, IonToolbar,
-  IonButtons, IonTitle, IonBackButton, IonIcon
+  IonButtons, IonTitle, IonBackButton, IonIcon, IonLabel
 } from '@ionic/react';
 import { chevronForwardOutline, chevronDownOutline } from 'ionicons/icons';
 import React, { useState } from "react";
@@ -20,45 +20,44 @@ const DocumentMenu: React.FC = () => {
       <IonContent>
         <IonList>
           <IonItem button detailIcon="" onClick={() => { setOpen(!open) }}>
-            <IonIcon size="small" icon={open ? chevronDownOutline : chevronForwardOutline} />概述
+            <IonIcon size="small" icon={open ? chevronDownOutline : chevronForwardOutline} />
+            <IonLabel>概述</IonLabel>
           </IonItem>
           {open &&
             <>
-              <IonItem button detailIcon=""><IonIcon />1.one</IonItem>
-              <IonItem button detailIcon=""><IonIcon />2.two</IonItem>
-              <IonItem button detailIcon=""><IonIcon />3.three</IonItem>
+              <IonItem button detailIcon="">
+                <IonIcon /><IonLabel>1.one</IonLabel>
+              </IonItem>
+              <IonItem button detailIcon="">
+                <IonIcon /><IonLabel>2.two</IonLabel>
+              </IonItem>
+              <IonItem button detailIcon="">
+                <IonIcon /><IonLabel>3.three</IonLabel>
+              </IonItem>
             </>
           }
           <IonItem button detailIcon="" onClick={() => { setOpen(!open) }}>
-            <IonIcon size="small" icon={open ? chevronDownOutline : chevronForwardOutline} />微服务架构
-          </IonItem>
-          {open &&
-            <>
-              <IonItem button detailIcon=""><IonIcon />1.one</IonItem>
-              <IonItem button detailIcon=""><IonIcon />2.two</IonItem>
-              <IonItem button detailIcon=""><IonIcon />3.three</IonItem>
-            </>
-          }
-          <IonItem button detailIcon="" onClick={() => { setOpen(!open) }}>
-            <IonIcon size="small" icon={open ? chevronDownOutline : chevronForwardOutline} />使用的技术
-          </IonItem>
-          {open &&
-            <>
-              <IonItem button detailIcon=""><IonIcon />1.one</IonItem>
-              <IonItem button detailIcon=""><IonIcon />2.two</IonItem>
-              <IonItem button detailIcon=""><IonIcon />3.three</IonItem>
-            </>
-          }
-          <IonItem button detailIcon="" onClick={() => { setOpen(!open) }}>
-            <IonIcon size="small" icon={open ? chevronDownOutline : chevronForwardOutline} />环境搭建
+            <IonIcon size="small" icon={open ? chevronDownOutline : chevronForwardOutline} />
+            <IonLabel>微服务架构</IonLabel>
           </IonItem>
           <IonItem button detailIcon="" onClick={() => { setOpen(!open) }}>
-            <IonIcon size="small" icon={open ? chevronDownOutline : chevronForwardOutline} />如何开发一个完全独立的服务
+            <IonIcon size="small" icon={open ? chevronDownOutline : chevronForwardOutline} />
+            <IonLabel>使用的技术</IonLabel>
           </IonItem>
           <IonItem button detailIcon="" onClick={() => { setOpen(!open) }}>
-            <IonIcon size="small" icon={open ? chevronDownOutline : chevronForwardOutline} />如何开发一个不完全独立的服务
+            <IonIcon size="small" icon={open ? chevronDownOutline : chevronForwardOutline} />
+            <IonLabel>环境搭建</IonLabel>
+          </IonItem>
+          <IonItem button detailIcon="" onClick={() => { setOpen(!open) }}>
+            <IonIcon size="small" icon={open ? chevronDownOutline : chevronForwardOutline} />
+            <IonLabel>如何开发一个完全独立的服务</IonLabel>
+          </IonItem>
+          <IonItem button detailIcon="" onClick={() => { setOpen(!open) }}>
+            <IonIcon size="small" icon={open ? chevronDownOutline : chevronForwardOutline} />
+            <IonLabel>如何开发一个不完全独立的服务</IonLabel>
           </IonItem>
         </IonList>
+        <IonItem lines="none"></IonItem>
       </IonContent>
     </IonMenu>
   )
