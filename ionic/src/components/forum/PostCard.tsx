@@ -47,7 +47,7 @@ const PostCard: React.FC<postType> = (post) => {
         </IonLabel>
       </IonItem>
       <IonCardContent>
-        {post.content}
+        {post.content.length > 150 ? post.content.slice(0, 150) + "......" : post.content}
       </IonCardContent>
       <IonItem lines="none">
         <IonBadge color="light">#{post.tag}</IonBadge>
