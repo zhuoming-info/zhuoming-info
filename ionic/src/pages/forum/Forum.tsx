@@ -38,16 +38,16 @@ const Forum: React.FC = () => {
         <IonHeader>
           <IonToolbar>
             <IonButtons slot="start">
+              <IonButton href={"/forum/post/new"}>发帖</IonButton>
+            </IonButtons>
+            <IonTitle>论坛</IonTitle>
+            <IonButtons slot="end">
               <IonButton>
                 <IonSelect interface="popover" value={sort} onIonChange={e => setSort(e.detail.value)}>
                   <IonSelectOption value="time">按时间</IonSelectOption>
                   <IonSelectOption value="like">按点赞</IonSelectOption>
                 </IonSelect>
               </IonButton>
-            </IonButtons>
-            <IonTitle>论坛</IonTitle>
-            <IonButtons slot="end">
-              <IonButton href={"/forum/post/new"}>发帖</IonButton>
             </IonButtons>
           </IonToolbar>
         </IonHeader>
