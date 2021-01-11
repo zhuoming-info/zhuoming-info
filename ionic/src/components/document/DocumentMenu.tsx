@@ -62,6 +62,9 @@ const DocumentMenu: React.FC = () => {
                 <IonIcon /><IonLabel>与其他服务通信（可选）</IonLabel>
               </IonItem>
               <IonItem button detailIcon="">
+                <IonIcon /><IonLabel>编写测试代码（可选）</IonLabel>
+              </IonItem>
+              <IonItem button detailIcon="">
                 <IonIcon /><IonLabel>编写前端代码</IonLabel>
               </IonItem>
               <IonItem button detailIcon="">
