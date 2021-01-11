@@ -37,7 +37,7 @@ const Forum: React.FC = () => {
       {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="forum" /> : (
         <IonHeader>
           <IonToolbar>
-            <IonButtons slot="end">
+            <IonButtons slot="start">
               <IonButton>
                 <IonSelect interface="popover" value={sort} onIonChange={e => setSort(e.detail.value)}>
                   <IonSelectOption value="time">按时间</IonSelectOption>
@@ -46,7 +46,7 @@ const Forum: React.FC = () => {
               </IonButton>
             </IonButtons>
             <IonTitle>论坛</IonTitle>
-            <IonButtons slot="start">
+            <IonButtons slot="end">
               <IonButton href={"/forum/post/new"}>发帖</IonButton>
             </IonButtons>
           </IonToolbar>
