@@ -30,9 +30,9 @@ const Response: React.FC = () => {
               <IonCard>
                 <IonCardContent>当前暂无正在进行中的响应</IonCardContent>
               </IonCard>
-              <IonCard>
+              <IonCard routerLink={'/response/123'}>
                 <IonCardHeader>
-                  <IonCardTitle>长江II级响应</IonCardTitle>
+                  <IonCardTitle>长江洪灾II级响应</IonCardTitle>
                   <IonCardSubtitle>2020/6/20 - 2020/7/20</IonCardSubtitle>
                 </IonCardHeader>
                 <IonCardContent>
