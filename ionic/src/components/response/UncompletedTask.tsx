@@ -4,7 +4,7 @@ import {
 } from '@ionic/react';
 const UncompletedTask: React.FC = () => {
   return (
-    <IonCard>
+    <IonCard routerLink="/response/task/123">
       <IonCardHeader>
         <IonCardTitle>任务标题</IonCardTitle>
         <IonCardSubtitle>任务截止时间｜需要人数</IonCardSubtitle>
