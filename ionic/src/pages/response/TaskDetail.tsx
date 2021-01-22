@@ -39,7 +39,7 @@ const TaskDetail: React.FC = () => {
               <IonItem lines="none">2/10</IonItem>
               <IonItemDivider>任务内容</IonItemDivider>
               <IonItem lines="none">搜集抖音/微博上的灾情信息，按照模版提交</IonItem>
-              <IonItemDivider>模版</IonItemDivider>
+              <IonItemDivider>提交模版</IonItemDivider>
               <IonItem lines="none">
                 <IonCard>
                   <IonCardContent>
