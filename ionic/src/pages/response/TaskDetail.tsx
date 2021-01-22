@@ -35,7 +35,7 @@ const TaskDetail: React.FC = () => {
               <IonProgressBar value={0.5}></IonProgressBar>
               <IonItem lines="none">2/10</IonItem>
               <IonItemDivider>任务内容</IonItemDivider>
-              <IonItem lines="none">搜集抖音/微博上的灾情信息，按照模版发布</IonItem>
+              <IonItem lines="none">搜集抖音/微博上的灾情信息，按照模版提交</IonItem>
               <IonItemDivider>模版</IonItemDivider>
               <IonItem lines="none">
                 <IonCard>
