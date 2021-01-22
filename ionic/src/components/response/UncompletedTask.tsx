@@ -6,11 +6,11 @@ const UncompletedTask: React.FC = () => {
   return (
     <IonCard routerLink="/response/task/123">
       <IonCardHeader>
-        <IonCardTitle>任务标题</IonCardTitle>
-        <IonCardSubtitle>任务截止时间｜需要人数</IonCardSubtitle>
+        <IonCardTitle>灾害信息员</IonCardTitle>
+        <IonCardSubtitle>2020/7/9 23:59｜10人</IonCardSubtitle>
       </IonCardHeader>
       <IonCardContent>
-        任务内容
+        搜集抖音/微博上的灾情信息，按照模版提交
       </IonCardContent>
     </IonCard>
   );
