@@ -32,7 +32,7 @@ const TaskDetail: React.FC = () => {
               <IonItemDivider>截止时间</IonItemDivider>
               <IonItem lines="none">2020/7/9 23:59</IonItem>
               <IonItemDivider>需要人数</IonItemDivider>
-              <IonProgressBar value={0.5}></IonProgressBar>
+              <IonProgressBar value={0.2}></IonProgressBar>
               <IonItem lines="none">2/10</IonItem>
               <IonItemDivider>任务内容</IonItemDivider>
               <IonItem lines="none">搜集抖音/微博上的灾情信息，按照模版提交</IonItem>
