@@ -12,6 +12,7 @@ import { pulseOutline, volumeHighOutline, folderOutline, chatbubblesOutline, per
 
 import Response from './pages/response/Response';
 import ResponseDetail from './pages/response/ResponseDetail';
+import TaskDetail from './pages/response/TaskDetail';
 
 import Document from './pages/document/Document';
 import Folder from './pages/document/Folder';
@@ -74,6 +75,7 @@ const App: React.FC = () => {
 
       <Route path="/response" component={Response} exact={true} />
       <Route path="/response/:id" component={ResponseDetail} exact={true} />
+      <Route path="/response/task/:id" component={TaskDetail} exact={true} />
 
       <Route path="/document" component={Document} />
       <Route path="/document/folder/:id" component={Folder} />
