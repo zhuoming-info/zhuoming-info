@@ -26,7 +26,7 @@ const TaskDetail: React.FC = () => {
               size-lg="6"
               style={{ margin: "0 auto" }}>
               <IonItemDivider>任务标题</IonItemDivider>
-              <IonItem lines="none">搜集抖音/微博上的灾情信息</IonItem>
+              <IonItem lines="none">灾害信息员</IonItem>
               <IonItemDivider>任务类型</IonItemDivider>
               <IonItem lines="none">I（impact，灾害影响）</IonItem>
               <IonItemDivider>截止时间</IonItemDivider>
