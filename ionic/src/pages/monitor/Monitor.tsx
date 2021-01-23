@@ -9,7 +9,7 @@ const Monitor: React.FC = () => {
       {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="monitor" /> : (
         <IonHeader>
           <IonToolbar>
-            <IonTitle>监测</IonTitle>
+            <IonTitle>工具</IonTitle>
           </IonToolbar>
         </IonHeader>
       )}

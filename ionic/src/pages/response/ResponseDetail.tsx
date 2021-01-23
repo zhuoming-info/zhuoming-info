@@ -16,7 +16,7 @@ const ResponseDetail: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/response" text=""/>
+            <IonBackButton defaultHref="/response" text="返回"/>
           </IonButtons>
           <IonTitle>长江洪灾II级响应</IonTitle>
           <IonButtons slot="end">
