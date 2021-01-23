@@ -31,7 +31,7 @@ const TaskDetail: React.FC = () => {
               <IonItemDivider>任务标题</IonItemDivider>
               <IonItem lines="none">灾害信息员</IonItem>
               <IonItemDivider>任务类型</IonItemDivider>
-              <IonItem lines="none">I（impact，灾害影响）</IonItem>
+              <IonItem lines="none">搜集</IonItem>
               <IonItemDivider>截止时间</IonItemDivider>
               <IonItem lines="none">2020/7/9 23:59</IonItem>
               <IonItemDivider>需要人数</IonItemDivider>

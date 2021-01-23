@@ -6,7 +6,7 @@ const UncompletedTask: React.FC = () => {
   return (
     <IonCard routerLink="/response/task/123">
       <IonCardHeader>
-        <IonCardTitle>灾害信息员</IonCardTitle>
+        {/* <IonCardTitle>灾害信息员</IonCardTitle> */}
         <IonCardSubtitle>截止：2020/7/9 23:59｜需要：10人</IonCardSubtitle>
       </IonCardHeader>
       <IonCardContent>
