@@ -11,7 +11,7 @@ const TaskDetail: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/response" text="" />
+            <IonBackButton defaultHref="/response" text="返回" />
           </IonButtons>
           <IonTitle>任务详情</IonTitle>
           <IonButtons slot="end">

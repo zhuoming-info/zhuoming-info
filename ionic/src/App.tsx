@@ -90,7 +90,7 @@ const App: React.FC = () => {
       <IonTabBar slot="bottom">
         <IonTabButton tab="monitor" href="/monitor">
           <IonIcon icon={pulseOutline} size="small" />
-          <IonLabel>监测</IonLabel>
+          <IonLabel>工具</IonLabel>
         </IonTabButton>
         <IonTabButton tab="response" href="/response">
           <IonIcon icon={volumeHighOutline} size="small" />
