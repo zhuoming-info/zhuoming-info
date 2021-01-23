@@ -80,14 +80,14 @@ const App: React.FC = () => {
       <Route path="/document" component={Document} />
       <Route path="/document/folder/:id" component={Folder} />
 
-      <Route path="/" render={() => <Redirect to="/monitor" />} exact={true} />
+      <Route path="/" render={() => <Redirect to="/response" />} exact={true} />
     </IonRouterOutlet>
   )
 
   const small = (
     <IonTabs>
       {routes}
-      <IonTabBar slot="bottom">
+      <IonTabBar slot="bottom" selectedTab="response">
         <IonTabButton tab="monitor" href="/monitor">
           <IonIcon icon={hammerOutline} size="small" />
           <IonLabel>工具</IonLabel>
