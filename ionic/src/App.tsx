@@ -80,7 +80,7 @@ const App: React.FC = () => {
       <Route path="/document" component={Document} />
       <Route path="/document/folder/:id" component={Folder} />
 
-      <Route path="/" render={() => <Redirect to="/monitor" />} exact={true} />
+      <Route path="/" render={() => <Redirect to="/response" />} exact={true} />
     </IonRouterOutlet>
   )
 
