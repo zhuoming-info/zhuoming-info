@@ -87,7 +87,7 @@ const App: React.FC = () => {
   const small = (
     <IonTabs>
       {routes}
-      <IonTabBar slot="bottom">
+      <IonTabBar slot="bottom" selectedTab="response">
         <IonTabButton tab="monitor" href="/monitor">
           <IonIcon icon={hammerOutline} size="small" />
           <IonLabel>工具</IonLabel>
