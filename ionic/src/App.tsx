@@ -92,13 +92,13 @@ const App: React.FC = () => {
           <IonIcon icon={pulseOutline} size="small" />
           <IonLabel>工具</IonLabel>
         </IonTabButton>
-        <IonTabButton tab="response" href="/response">
-          <IonIcon icon={volumeHighOutline} size="small" />
-          <IonLabel>响应</IonLabel>
-        </IonTabButton>
         <IonTabButton tab="document" href="/document">
           <IonIcon icon={folderOutline} size="small" />
           <IonLabel>文档</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="response" href="/response">
+          <IonIcon icon={volumeHighOutline} size="small" />
+          <IonLabel>响应</IonLabel>
         </IonTabButton>
         <IonTabButton tab="forum" href="/forum">
           <IonIcon icon={chatbubblesOutline} size="small" />
