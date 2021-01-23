@@ -36,7 +36,7 @@ const PostCard: React.FC<postType> = (post) => {
     }
   }, [post.userId])
   return (
-    <IonCard button href={`/forum/post/detail/${post.id}`} >
+    <IonCard button routerLink={`/forum/post/detail/${post.id}`} >
       <IonItem lines="none">
         <IonAvatar slot="start">
           <img alt="" src={user.avatar} />
