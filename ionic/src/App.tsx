@@ -8,7 +8,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
-import { pulseOutline, volumeHighOutline, folderOutline, chatbubblesOutline, personOutline } from 'ionicons/icons';
+import { hammerOutline, volumeHighOutline, folderOutline, chatbubblesOutline, personOutline } from 'ionicons/icons';
 
 import Response from './pages/response/Response';
 import ResponseDetail from './pages/response/ResponseDetail';
@@ -89,7 +89,7 @@ const App: React.FC = () => {
       {routes}
       <IonTabBar slot="bottom">
         <IonTabButton tab="monitor" href="/monitor">
-          <IonIcon icon={pulseOutline} size="small" />
+          <IonIcon icon={hammerOutline} size="small" />
           <IonLabel>工具</IonLabel>
         </IonTabButton>
         <IonTabButton tab="document" href="/document">
