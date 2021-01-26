@@ -3,25 +3,25 @@ import {
   IonContent, IonPage, IonHeader, IonToolbar, IonTitle, IonButtons,
   IonButton, IonMenuButton, IonSplitPane, IonGrid, IonRow, IonCol
 } from '@ionic/react';
-import DocumentMenu from '../../components/document/DocumentMenu';
+import DocumentMenu from '../../components/library/DocumentMenu';
 
-const Folder: React.FC = () => {
+const Document: React.FC = () => {
   return (
-    <IonSplitPane contentId="folder" when="lg">
+    <IonSplitPane contentId="document" when="lg">
       <DocumentMenu />
-      <IonPage id="folder">
+      <IonPage id="document">
         <IonHeader>
           <IonToolbar>
             <IonButtons slot="start">
               <IonMenuButton />
             </IonButtons>
-            <IonTitle>参与开发指南</IonTitle>
+            <IonTitle>开发者文档</IonTitle>
             <IonButtons slot="end">
               <IonButton>编辑</IonButton>
             </IonButtons>
           </IonToolbar>
         </IonHeader>
-        <IonContent fullscreen>
+        <IonContent>
           <IonGrid>
             <IonRow>
               <IonCol>
@@ -35,5 +35,5 @@ const Folder: React.FC = () => {
   );
 };
 
-export default Folder;
+export default Document;
 

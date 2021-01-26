@@ -1,100 +1,78 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
-  IonContent, IonPage, IonHeader, IonToolbar,
-  IonTitle, IonRow, IonGrid, IonIcon,
-  IonCol, IonButtons, IonButton, IonItem, IonSelect, IonSelectOption, IonCard, IonCardHeader
+  IonContent, IonPage, IonHeader, IonToolbar, IonTitle,
+  IonButtons, IonButton, IonCard, IonItem, IonAvatar, IonLabel, IonCardContent,
+  IonBadge, IonIcon, IonSegment, IonSegmentButton, IonImg
 } from '@ionic/react';
-import { addOutline } from 'ionicons/icons';
-import HeaderLarge from '../../components/HeaderLarge';
-import axios from 'axios';
-import PostCard from '../../components/forum/PostCard'
+import { heartOutline, chatbubblesOutline } from 'ionicons/icons';
 
 const Forum: React.FC = () => {
-  const [sort, setSort] = useState("time")
-  const [posts, setPosts] = useState([
-    {
-      id: "",
-      userId: "",
-      tag: "",
-      content: "",
-      likeUsersId: [],
-      commentsId: [],
-      createdAt: ""
-    }
-  ])
-  useEffect(() => {
-    axios.get(`/api/forum/post?sort=${sort}`)
-      .then(function (res) {
-        setPosts(res.data)
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, [sort])
-
+  const [select, setSelect] = useState('response')
   return (
     <IonPage>
-      {localStorage.getItem("deviceSize") === "large" ? <HeaderLarge title="forum" /> : (
-        <IonHeader>
-          <IonToolbar>
-            <IonButtons slot="start">
-              <IonButton href={"/forum/post/new"}>发帖</IonButton>
-            </IonButtons>
-            <IonTitle>论坛</IonTitle>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>论坛</IonTitle>
+          <IonButtons slot="end">
+            <IonButton>发帖</IonButton>
+          </IonButtons>
+        </IonToolbar>
+        <IonSegment value={select} onIonChange={e => setSelect(e.detail.value!)}>
+          <IonSegmentButton value="response">正在响应</IonSegmentButton>
+          <IonSegmentButton value="all">全部</IonSegmentButton>
+        </IonSegment>
+      </IonHeader>
+      <IonContent>
+        <IonCard button>
+          <IonItem lines="none">
+            <IonAvatar slot="start">
+              <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
+            </IonAvatar>
+            <IonLabel>
+              <h2>faiyuqing</h2>
+              <p>2020/09/12</p>
+            </IonLabel>
+          </IonItem>
+          <IonCardContent>
+            冬季的莫斯科由于燃气没有得到及时的供应，很多居民都开始抱怨一周供暖的时间不足。三个平民在一起讨论这个事情。第一个人说：如果我是党的干部就好了，一周里，家里暖气能供应5天，每天16个小时。这时第二个人说：如果我是东德人就好了，家里暖气每周能供应6天，每天20个小时。第三......
+                </IonCardContent>
+          <IonItem lines="none">
+            <IonBadge color="light">#标签</IonBadge>
             <IonButtons slot="end">
-              <IonButton>
-                <IonSelect interface="popover" value={sort} onIonChange={e => setSort(e.detail.value)}>
-                  <IonSelectOption value="time">按时间</IonSelectOption>
-                  <IonSelectOption value="like">按点赞</IonSelectOption>
-                </IonSelect>
-              </IonButton>
-            </IonButtons>
-          </IonToolbar>
-        </IonHeader>
-      )}
-      <IonContent fullscreen>
-        <IonGrid>
-          <IonRow>
-            <IonCol
-              size-xs="12"
-              size-sm="10"
-              size-md="8"
-              size-lg="6"
-              style={{ margin: "0 auto" }}>
-              {localStorage.getItem("deviceSize") === "large" &&
-                <IonItem lines="none">
-                  <IonSelect interface="popover" value={sort} onIonChange={e => setSort(e.detail.value)}>
-                    <IonSelectOption value="time">按时间排序</IonSelectOption>
-                    <IonSelectOption value="like">按点赞排序</IonSelectOption>
-                  </IonSelect>
-                  <IonButtons slot="end">
-                    <IonButton href={"/forum/post/new"} color="primary">
-                      <IonIcon icon={addOutline}></IonIcon>发帖
+              <IonButton color="medium">
+                <IonIcon icon={heartOutline}></IonIcon>9
+                  </IonButton>
+              <IonButton color="medium">
+                <IonIcon icon={chatbubblesOutline}></IonIcon>4
                     </IonButton>
-                  </IonButtons>
-                </IonItem>
-              }
-              {posts.length === 0 ? (
-                <IonCard>
-                  <IonCardHeader>暂无帖子</IonCardHeader>
-                </IonCard>
-              ) : posts.map((post, index) => {
-                return (
-                  <PostCard
-                    key={index}
-                    id={post.id}
-                    userId={post.userId}
-                    tag={post.tag}
-                    content={post.content}
-                    likeUsersId={post.likeUsersId}
-                    commentsId={post.commentsId}
-                    createdAt={post.createdAt}
-                  />
-                )
-              })}
-            </IonCol>
-          </IonRow>
-        </IonGrid>
+            </IonButtons>
+          </IonItem>
+        </IonCard>
+        <IonCard button>
+          <IonItem lines="none">
+            <IonAvatar slot="start">
+              <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
+            </IonAvatar>
+            <IonLabel>
+              <h2>faiyuqing</h2>
+              <p>2020/09/12</p>
+            </IonLabel>
+          </IonItem>
+          <IonCardContent>
+            冬季的莫斯科由于燃气没有得到及时的供应，很多居民都开始抱怨一周供暖的时间不足。三个平民在一起讨论这个事情。第一个人说：如果我是党的干部就好了，一周里，家里暖气能供应5天，每天16个小时。这时第二个人说：如果我是东德人就好了，家里暖气每周能供应6天，每天20个小时。第三......
+                </IonCardContent>
+          <IonItem lines="none">
+            <IonBadge color="light">#标签</IonBadge>
+            <IonButtons slot="end">
+              <IonButton color="medium">
+                <IonIcon icon={heartOutline}></IonIcon>9
+                  </IonButton>
+              <IonButton color="medium">
+                <IonIcon icon={chatbubblesOutline}></IonIcon>4
+                    </IonButton>
+            </IonButtons>
+          </IonItem>
+        </IonCard>
       </IonContent>
     </IonPage>
   );
