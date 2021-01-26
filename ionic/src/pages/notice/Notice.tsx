@@ -21,7 +21,7 @@ const Notice: React.FC = () => {
           <IonSegmentButton value="all">全部</IonSegmentButton>
         </IonSegment>
       </IonHeader>
-      <IonContent fullscreen>
+      <IonContent>
         <IonList>
           <IonItem button detailIcon="">
             <IonAvatar slot="start">
