@@ -1,52 +1,43 @@
 import React, { useState } from "react";
 import {
-  IonContent, IonPage, IonHeader, IonToolbar, IonTitle, IonBackButton,
-  IonButtons, IonSegment, IonSegmentButton, IonLabel, IonButton
+  IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
+  IonSelect, IonSelectOption, IonButtons, IonButton,
+  IonSegment, IonSegmentButton
 } from '@ionic/react';
-import ResponseTask from '../../components/response/ResponseTask'
-import ResponseGroup from '../../components/response/ResponseGroup'
-import ResponseMember from '../../components/response/ResponseMember'
-import ResponseProduct from '../../components/response/ResponseProduct'
-import ResponseFlow from '../../components/response/ResponseFlow'
+import Guide from "../../components/response/Guide";
+import Task from "../../components/response/Task";
+import Member from "../../components/response/Member";
 
 const ResponseDetail: React.FC = () => {
-  const [select, setSelect] = useState('task')
+  const [group, setGroup] = useState('all')
+  const [item, setItem] = useState('guide')
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/response" text="返回"/>
-          </IonButtons>
-          <IonTitle>长江洪灾II级响应</IonTitle>
+          <IonTitle>响应名称</IonTitle>
           <IonButtons slot="end">
-            <IonButton>设置</IonButton>
+            <IonButton>
+              <IonSelect slot="end" interface="popover" value={group} onIonChange={e => setGroup(e.detail.value)}>
+                <IonSelectOption value="all">所有组</IonSelectOption>
+                <IonSelectOption value="monitor">监测组</IonSelectOption>
+                <IonSelectOption value="info">信息组</IonSelectOption>
+                <IonSelectOption value="action">行动组</IonSelectOption>
+                <IonSelectOption value="product">产品组</IonSelectOption>
+              </IonSelect>
+            </IonButton>
           </IonButtons>
         </IonToolbar>
-        <IonSegment value={select} onIonChange={e => setSelect(e.detail.value!)}>
-          <IonSegmentButton value="task">
-            <IonLabel>任务</IonLabel>
-          </IonSegmentButton>
-          <IonSegmentButton value="group">
-            <IonLabel>组别</IonLabel>
-          </IonSegmentButton>
-          <IonSegmentButton value="member">
-            <IonLabel>成员</IonLabel>
-          </IonSegmentButton>
-          <IonSegmentButton value="product">
-            <IonLabel>产品</IonLabel>
-          </IonSegmentButton>
-          <IonSegmentButton value="flow">
-            <IonLabel>流程</IonLabel>
-          </IonSegmentButton>
+        <IonSegment value={item} onIonChange={e => setItem(e.detail.value!)}>
+          <IonSegmentButton value="guide">指南</IonSegmentButton>
+          <IonSegmentButton value="task">任务</IonSegmentButton>
+          <IonSegmentButton value="member">成员</IonSegmentButton>
         </IonSegment>
       </IonHeader>
-      <IonContent fullscreen>
-        {select === 'task' && <ResponseTask />}
-        {select === 'group' && <ResponseGroup />}
-        {select === 'member' && <ResponseMember />}
-        {select === 'product' && <ResponseProduct />}
-        {select === 'flow' && <ResponseFlow />}
+      <IonContent>
+        {item === "guide" && <Guide />}
+        {item === "task" && <Task />}
+        {item === "member" && <Member />}
       </IonContent>
     </IonPage>
   );

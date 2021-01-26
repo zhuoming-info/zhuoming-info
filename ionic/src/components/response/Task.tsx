@@ -1,8 +1,9 @@
-import React from "react";
+import React from 'react';
 import {
-  IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,
+  IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent
 } from '@ionic/react';
-const UncompletedTask: React.FC = () => {
+
+const Task: React.FC = () => {
   return (
     <IonCard routerLink="/response/task/123">
       <IonCardHeader>
@@ -16,4 +17,4 @@ const UncompletedTask: React.FC = () => {
   );
 };
 
-export default UncompletedTask;
+export default Task;

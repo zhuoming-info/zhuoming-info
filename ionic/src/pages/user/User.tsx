@@ -1,88 +1,62 @@
-import React from "react";
+import React from 'react';
 import {
-  IonSplitPane, IonPage, IonHeader, IonToolbar, IonButtons, IonMenuButton,
-  IonTitle, IonContent, IonGrid, IonRow, IonCol, IonItem, IonCard, IonListHeader,
-  IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonList, IonLabel
+  IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
+  IonCard, IonItem, IonAvatar, IonLabel, IonCardContent,
+  IonButtons, IonButton, IonItemDivider, IonCardHeader, 
+  IonCardTitle, IonCardSubtitle, IonImg
 } from '@ionic/react';
-import UserMenu from '../../components/user/UserMenu'
-import Signin from '../Signin'
 
 const User: React.FC = () => {
-
-  if (!localStorage.getItem("userId")) {
-    return (
-      <Signin />
-    )
-  } else {
-    return (
-      <IonSplitPane contentId="user" when="lg">
-        <UserMenu />
-        <IonPage id="user">
-          <IonHeader>
-            <IonToolbar>
-              <IonButtons slot="start">
-                <IonMenuButton />
+  return (
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>我的</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <IonCard>
+          <IonCardContent>
+            <IonItem lines="none">
+              <IonAvatar slot="start">
+                <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
+              </IonAvatar>
+              <IonLabel>faiyuching</IonLabel>
+              <IonButtons>
+                <IonButton color="primary" href={'/user/update'}>编辑个人资料</IonButton>
               </IonButtons>
-              <IonTitle>我的</IonTitle>
-            </IonToolbar>
-          </IonHeader>
-          <IonContent fullscreen>
-            <IonList>
-              <IonListHeader>任务</IonListHeader>
-              <IonItem>
-                <IonLabel>
-                  <h2>Poe</h2>
-                  <p>I just upgraded my X-Wing. Next time...</p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonLabel>
-                  <h2>Ben</h2>
-                  <p>These aren't the droids you're looking for...</p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonLabel>
-                  <h2>Leia</h2>
-                  <p>I've placed information vital to the survival...</p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonLabel>
-                  <h2>Yoda</h2>
-                  <p>Do or do not. There is no try...</p>
-                </IonLabel>
-              </IonItem>
-              <IonListHeader>通知</IonListHeader>
-              <IonItem>
-                <IonLabel>
-                  <h2>Finn</h2>
-                  <p>Listen, I've had a pretty messed up day...</p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonLabel>
-                  <h2>Han</h2>
-                  <p>I've got enough on my plate as it is, and I...</p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonLabel>
-                  <h2>Rey</h2>
-                  <p>You will remove these restraints and leave...</p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonLabel>
-                  <h2>Luke</h2>
-                  <p>I feel the good in you, the conflict...</p>
-                </IonLabel>
-              </IonItem>
-            </IonList>
-          </IonContent>
-        </IonPage>
-      </IonSplitPane>
-    )
-  }
+            </IonItem>
+            <IonItem lines="none">城市：杭州</IonItem>
+            <IonItem lines="none">技能：开发</IonItem>
+            <IonItem lines="none">石墨：faiyuching@gmail.com</IonItem>
+          </IonCardContent>
+        </IonCard>
+        <IonItemDivider></IonItemDivider>
+        <IonCard>
+          <IonCardHeader>
+            <IonCardHeader>
+              <IonCardTitle>XXX响应｜XXX组长</IonCardTitle>
+              <IonCardSubtitle>2020/12/14-2020/12/20</IonCardSubtitle>
+            </IonCardHeader>
+            <IonCardContent>
+              完成：XXX任务，XXX任务
+            </IonCardContent>
+          </IonCardHeader>
+        </IonCard>
+        <IonCard>
+          <IonCardHeader>
+            <IonCardHeader>
+              <IonCardTitle>XXX响应｜XXX志愿者</IonCardTitle>
+              <IonCardSubtitle>2020/12/14-2020/12/20</IonCardSubtitle>
+            </IonCardHeader>
+            <IonCardContent>
+              完成：XXX任务
+            </IonCardContent>
+          </IonCardHeader>
+        </IonCard>
+      </IonContent>
+    </IonPage>
+  );
 };
+
 export default User;
