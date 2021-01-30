@@ -4,13 +4,13 @@ import {
   IonSelect, IonSelectOption, IonButtons, IonButton,
   IonSegment, IonSegmentButton
 } from '@ionic/react';
-import Guide from "../../components/response/Guide";
-import Task from "../../components/response/Task";
-import Member from "../../components/response/Member";
+import Guide from "../../components/response/response/Guide";
+import Task from "../../components/response/response/Task";
+import Member from "../../components/response/response/Member";
 
 const ResponseDetail: React.FC = () => {
   const [group, setGroup] = useState('all')
-  const [item, setItem] = useState('guide')
+  const [item, setItem] = useState('task')
   return (
     <IonPage>
       <IonHeader>
