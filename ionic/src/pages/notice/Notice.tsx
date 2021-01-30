@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons,
   IonButton, IonItem, IonList, IonLabel, IonSegment, IonSegmentButton,
-  IonItemSliding, IonItemOptions, IonItemOption, IonNote
+  IonItemSliding, IonItemOptions, IonItemOption, IonNote, IonAvatar, IonImg
 } from '@ionic/react';
 
 const Notice: React.FC = () => {
@@ -27,18 +27,130 @@ const Notice: React.FC = () => {
             <IonItemOptions side="start">
               <IonItemOption onClick={() => console.log('unread clicked')}>置顶</IonItemOption>
             </IonItemOptions>
-            <IonItem href="#">
+            <IonItem>
+              <IonAvatar slot="start">
+                <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
+              </IonAvatar>
               <IonLabel>
-                <h2>HubStruck Notifications</h2>
-                <p>A new message in your network</p>
-                <p>Oceanic Next has joined your network</p>
+                <h2>系统通知</h2>
+                <p>A new message in your network...</p>
               </IonLabel>
               <IonNote slot="end">
                 10:45 AM
               </IonNote>
             </IonItem>
             <IonItemOptions side="end">
-              <IonItemOption color="success">
+              <IonItemOption color="medium">
+                归档
+              </IonItemOption>
+            </IonItemOptions>
+          </IonItemSliding>
+          <IonItemSliding>
+            <IonItemOptions side="start">
+              <IonItemOption onClick={() => console.log('unread clicked')}>置顶</IonItemOption>
+            </IonItemOptions>
+            <IonItem>
+              <IonAvatar slot="start">
+                <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
+              </IonAvatar>
+              <IonLabel>
+                <h2>会议通知</h2>
+                <p>A new message in your network...</p>
+              </IonLabel>
+              <IonNote slot="end">
+                10:45 AM
+              </IonNote>
+            </IonItem>
+            <IonItemOptions side="end">
+              <IonItemOption color="medium">
+                归档
+              </IonItemOption>
+            </IonItemOptions>
+          </IonItemSliding>
+          <IonItemSliding>
+            <IonItemOptions side="start">
+              <IonItemOption onClick={() => console.log('unread clicked')}>置顶</IonItemOption>
+            </IonItemOptions>
+            <IonItem>
+              <IonAvatar slot="start">
+                <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
+              </IonAvatar>
+              <IonLabel>
+                <h2>任务通知</h2>
+                <p>A new message in your network...</p>
+              </IonLabel>
+              <IonNote slot="end">
+                10:45 AM
+              </IonNote>
+            </IonItem>
+            <IonItemOptions side="end">
+              <IonItemOption color="medium">
+                归档
+              </IonItemOption>
+            </IonItemOptions>
+          </IonItemSliding>
+          <IonItemSliding>
+            <IonItemOptions side="start">
+              <IonItemOption onClick={() => console.log('unread clicked')}>置顶</IonItemOption>
+            </IonItemOptions>
+            <IonItem>
+              <IonAvatar slot="start">
+                <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
+              </IonAvatar>
+              <IonLabel>
+                <h2>信息组</h2>
+                <p>A new message in your network...</p>
+              </IonLabel>
+              <IonNote slot="end">
+                10:45 AM
+              </IonNote>
+            </IonItem>
+            <IonItemOptions side="end">
+              <IonItemOption color="medium">
+                归档
+              </IonItemOption>
+            </IonItemOptions>
+          </IonItemSliding>
+          <IonItemSliding>
+            <IonItemOptions side="start">
+              <IonItemOption onClick={() => console.log('unread clicked')}>置顶</IonItemOption>
+            </IonItemOptions>
+            <IonItem>
+              <IonAvatar slot="start">
+                <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
+              </IonAvatar>
+              <IonLabel>
+                <h2>产品组</h2>
+                <p>A new message in your network...</p>
+              </IonLabel>
+              <IonNote slot="end">
+                10:45 AM
+              </IonNote>
+            </IonItem>
+            <IonItemOptions side="end">
+              <IonItemOption color="medium">
+                归档
+              </IonItemOption>
+            </IonItemOptions>
+          </IonItemSliding>
+          <IonItemSliding>
+            <IonItemOptions side="start">
+              <IonItemOption onClick={() => console.log('unread clicked')}>置顶</IonItemOption>
+            </IonItemOptions>
+            <IonItem>
+              <IonAvatar slot="start">
+                <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
+              </IonAvatar>
+              <IonLabel>
+                <h2>faiyuching</h2>
+                <p>A new message in your network...</p>
+              </IonLabel>
+              <IonNote slot="end">
+                10:45 AM
+              </IonNote>
+            </IonItem>
+            <IonItemOptions side="end">
+              <IonItemOption color="medium">
                 归档
               </IonItemOption>
             </IonItemOptions>

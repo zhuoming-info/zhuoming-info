@@ -57,7 +57,7 @@ const App: React.FC = () => (
           </IonTabButton>
           <IonTabButton tab="library" href="/library">
             <IonIcon icon={folderOutline} size="small" />
-            <IonLabel>资料库</IonLabel>
+            <IonLabel>文档</IonLabel>
           </IonTabButton>
           <IonTabButton tab="notice" href="/notice">
             <IonIcon icon={notificationsOutline} size="small" />

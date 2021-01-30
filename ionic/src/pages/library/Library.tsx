@@ -11,12 +11,12 @@ import Template from '../../components/library/Template';
 
 const Library: React.FC = () => {
   const [popoverState, setShowPopover] = useState({ showPopover: false, event: undefined });
-  const [select, setSelect] = useState('all')
+  const [select, setSelect] = useState('response')
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>资料库</IonTitle>
+          <IonTitle>文档</IonTitle>
           <IonButtons slot="end">
             <IonPopover
               cssClass='my-custom-class'
@@ -26,6 +26,8 @@ const Library: React.FC = () => {
             >
               <IonItem button>文件夹</IonItem>
               <IonItem button>文件</IonItem>
+              <IonItem button>表格</IonItem>
+              <IonItem button>PPT</IonItem>
               <IonItem button>音频</IonItem>
               <IonItem button>视频</IonItem>
               <IonItem button detailIcon="" lines="none" onClick={() => setShowPopover({ showPopover: false, event: undefined })}>
@@ -38,9 +40,9 @@ const Library: React.FC = () => {
           </IonButtons>
         </IonToolbar>
         <IonSegment value={select} onIonChange={e => setSelect(e.detail.value!)}>
+          <IonSegmentButton value="response">正在响应</IonSegmentButton>
           <IonSegmentButton value="all">全部</IonSegmentButton>
           <IonSegmentButton value="learn">学习资料</IonSegmentButton>
-          <IonSegmentButton value="response">响应文档</IonSegmentButton>
           <IonSegmentButton value="template">模版</IonSegmentButton>
         </IonSegment>
       </IonHeader>
