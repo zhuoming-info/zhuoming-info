@@ -8,13 +8,13 @@ const Member: React.FC = () => {
   return (
     <IonList>
       <IonListHeader>组长</IonListHeader>
-      <IonItem button routerLink={'/user'}>
+      <IonItem button detailIcon="" routerLink={'/user'}>
         <IonAvatar slot="start">
           <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
         </IonAvatar>
         <IonLabel>faiyuching</IonLabel>
       </IonItem>
-      <IonItem button routerLink={'/user'}>
+      <IonItem button detailIcon="" routerLink={'/user'}>
         <IonAvatar slot="start">
           <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
         </IonAvatar>
@@ -25,19 +25,19 @@ const Member: React.FC = () => {
         <IonLabel>添加成员</IonLabel>
       </IonItem>
       <IonListHeader>组员</IonListHeader>
-      <IonItem button routerLink={'/user'}>
+      <IonItem button detailIcon="" routerLink={'/user'}>
         <IonAvatar slot="start">
           <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
         </IonAvatar>
         <IonLabel>faiyuching</IonLabel>
       </IonItem>
-      <IonItem button routerLink={'/user'}>
+      <IonItem button detailIcon="" routerLink={'/user'}>
         <IonAvatar slot="start">
           <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
         </IonAvatar>
         <IonLabel>faiyuching</IonLabel>
       </IonItem>
-      <IonItem button routerLink={'/user'}>
+      <IonItem button detailIcon="" routerLink={'/user'}>
         <IonAvatar slot="start">
           <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
         </IonAvatar>

@@ -28,6 +28,7 @@ const Library: React.FC = () => {
               <IonItem button>文件</IonItem>
               <IonItem button>表格</IonItem>
               <IonItem button>PPT</IonItem>
+              <IonItem button>PDF</IonItem>
               <IonItem button>音频</IonItem>
               <IonItem button>视频</IonItem>
               <IonItem button detailIcon="" lines="none" onClick={() => setShowPopover({ showPopover: false, event: undefined })}>
