@@ -32,7 +32,7 @@ const Notice: React.FC = () => {
                 <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
               </IonAvatar>
               <IonLabel>
-                <h2>系统通知</h2>
+                <h3>系统通知</h3>
                 <p>A new message in your network...</p>
               </IonLabel>
               <IonNote slot="end">
@@ -54,7 +54,7 @@ const Notice: React.FC = () => {
                 <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
               </IonAvatar>
               <IonLabel>
-                <h2>会议通知</h2>
+                <h3>会议通知</h3>
                 <p>A new message in your network...</p>
               </IonLabel>
               <IonNote slot="end">
@@ -76,7 +76,7 @@ const Notice: React.FC = () => {
                 <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
               </IonAvatar>
               <IonLabel>
-                <h2>任务通知</h2>
+                <h3>任务通知</h3>
                 <p>A new message in your network...</p>
               </IonLabel>
               <IonNote slot="end">
@@ -98,7 +98,7 @@ const Notice: React.FC = () => {
                 <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
               </IonAvatar>
               <IonLabel>
-                <h2>信息组</h2>
+                <h3>信息组</h3>
                 <p>A new message in your network...</p>
               </IonLabel>
               <IonNote slot="end">
@@ -120,7 +120,7 @@ const Notice: React.FC = () => {
                 <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
               </IonAvatar>
               <IonLabel>
-                <h2>产品组</h2>
+                <h3>产品组</h3>
                 <p>A new message in your network...</p>
               </IonLabel>
               <IonNote slot="end">
@@ -142,7 +142,7 @@ const Notice: React.FC = () => {
                 <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
               </IonAvatar>
               <IonLabel>
-                <h2>faiyuching</h2>
+                <h3>faiyuching</h3>
                 <p>A new message in your network...</p>
               </IonLabel>
               <IonNote slot="end">

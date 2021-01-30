@@ -36,7 +36,7 @@ const DocumentMenu: React.FC = () => {
               </IonItem>
               <IonItem button detailIcon="" lines="none">
                 <IonIcon /><IonIcon size="small" icon={addOutline} />
-                <IonLabel>Add a page</IonLabel>
+                <IonLabel>添加页面</IonLabel>
               </IonItem>
             </>
           }
@@ -66,7 +66,7 @@ const DocumentMenu: React.FC = () => {
               </IonItem>
               <IonItem button detailIcon="" lines="none">
                 <IonIcon /><IonIcon size="small" icon={addOutline} />
-                <IonLabel>Add a page</IonLabel>
+                <IonLabel>添加页面</IonLabel>
               </IonItem>
             </>
           }

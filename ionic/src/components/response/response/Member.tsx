@@ -25,8 +25,8 @@ const Member: React.FC = () => {
               <IonLabel>faiyuching</IonLabel>
             </IonItem>
             <IonItem button detailIcon="">
-              <IonIcon icon={add} />
-              <IonLabel>Add Member</IonLabel>
+              <IonIcon icon={add} size="small"/>
+              <IonLabel>添加成员</IonLabel>
             </IonItem>
             <IonListHeader>组员</IonListHeader>
             <IonItem button routerLink={'/user'}>
@@ -48,8 +48,8 @@ const Member: React.FC = () => {
               <IonLabel>faiyuching</IonLabel>
             </IonItem>
             <IonItem button detailIcon="">
-              <IonIcon icon={add} />
-              <IonLabel>Add Member</IonLabel>
+              <IonIcon icon={add} size="small"/>
+              <IonLabel>添加成员</IonLabel>
             </IonItem>
           </IonList>
         </IonCol>
