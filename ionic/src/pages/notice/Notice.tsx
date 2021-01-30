@@ -29,7 +29,7 @@ const Notice: React.FC = () => {
             </IonItemOptions>
             <IonItem>
               <IonAvatar slot="start">
-                <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
+                <IonImg src="/assets/notice/notice.png" />
               </IonAvatar>
               <IonLabel>
                 <h3>系统通知</h3>
@@ -73,7 +73,7 @@ const Notice: React.FC = () => {
             </IonItemOptions>
             <IonItem>
               <IonAvatar slot="start">
-                <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
+                <IonImg src="/assets/notice/task.png" />
               </IonAvatar>
               <IonLabel>
                 <h3>任务通知</h3>
@@ -95,7 +95,7 @@ const Notice: React.FC = () => {
             </IonItemOptions>
             <IonItem>
               <IonAvatar slot="start">
-                <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
+                <IonImg src="/assets/notice/group.png" />
               </IonAvatar>
               <IonLabel>
                 <h3>信息组</h3>
@@ -117,7 +117,7 @@ const Notice: React.FC = () => {
             </IonItemOptions>
             <IonItem>
               <IonAvatar slot="start">
-                <IonImg src="https://res.wx.qq.com/a/wx_fed/webwx/res/static/img/2KriyDK.png" />
+                <IonImg src="/assets/notice/group.png" />
               </IonAvatar>
               <IonLabel>
                 <h3>产品组</h3>
