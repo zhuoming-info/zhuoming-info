@@ -40,7 +40,7 @@ const Library: React.FC = () => {
             </IonButton>
           </IonButtons>
         </IonToolbar>
-        <IonSegment value={select} onIonChange={e => setSelect(e.detail.value!)}>
+        <IonSegment scrollable value={select} onIonChange={e => setSelect(e.detail.value!)}>
           <IonSegmentButton value="response">正在响应</IonSegmentButton>
           <IonSegmentButton value="all">全部</IonSegmentButton>
           <IonSegmentButton value="learn">学习资料</IonSegmentButton>
