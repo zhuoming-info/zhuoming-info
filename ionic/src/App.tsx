@@ -51,21 +51,13 @@ const App: React.FC = () => (
           <Route path="/" render={() => <Redirect to="/response" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="response" href="/response">
-            <IonIcon icon={volumeHighOutline} size="small" />
-            <IonLabel>响应</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="library" href="/library">
-            <IonIcon icon={folderOutline} size="small" />
-            <IonLabel>文档</IonLabel>
-          </IonTabButton>
           <IonTabButton tab="notice" href="/notice">
             <IonIcon icon={notificationsOutline} size="small" />
             <IonLabel>通知</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="forum" href="/forum">
-            <IonIcon icon={chatbubblesOutline} size="small" />
-            <IonLabel>论坛</IonLabel>
+          <IonTabButton tab="response" href="/response">
+            <IonIcon icon={volumeHighOutline} size="small" />
+            <IonLabel>响应</IonLabel>
           </IonTabButton>
           <IonTabButton tab="user" href="/user">
             <IonIcon icon={personOutline} size="small" />
