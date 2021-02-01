@@ -16,6 +16,10 @@ const Notice: React.FC = () => {
             <IonButton>发布</IonButton>
           </IonButtons>
         </IonToolbar>
+        <IonSegment value={select} onIonChange={e => setSelect(e.detail.value!)}>
+          <IonSegmentButton value="response">正在响应</IonSegmentButton>
+          <IonSegmentButton value="all">全部</IonSegmentButton>
+        </IonSegment>
       </IonHeader>
       <IonContent>
         <IonList>
